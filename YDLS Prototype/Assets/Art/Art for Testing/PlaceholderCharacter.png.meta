@@ -1,0 +1,1066 @@
+fileFormatVersion: 2
+guid: 2d35d59d1c384384296bec6b5bd1a1aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9189215194560492720
+    second: face-2
+  - first:
+      213: -3447604161102167502
+    second: ear-1-right
+  - first:
+      213: -8591885725494903098
+    second: ear-1-left
+  - first:
+      213: 5250566795894291339
+    second: glasses-1
+  - first:
+      213: 2795223260684260586
+    second: ear-2-right
+  - first:
+      213: -4617459164921933348
+    second: ear-2-left
+  - first:
+      213: -5888584558660088487
+    second: hair-2
+  - first:
+      213: 9027069789191905419
+    second: face-1
+  - first:
+      213: 2782824059716639558
+    second: hair-1
+  - first:
+      213: 6591383909546899710
+    second: hair-back-1-right
+  - first:
+      213: -8079436571449929653
+    second: hair-back-1-left
+  - first:
+      213: 1367356644778700540
+    second: beard-1
+  - first:
+      213: -3171345572874110816
+    second: glasses-2
+  - first:
+      213: 7089435346347565
+    second: eye-1-right
+  - first:
+      213: -1452956858508569434
+    second: eye-1-left
+  - first:
+      213: 152755044196324844
+    second: nose-1
+  - first:
+      213: -5923987942348978367
+    second: beard-2
+  - first:
+      213: 6997217261143109163
+    second: hair-back-2
+  - first:
+      213: -4344370829580610585
+    second: stache-2
+  - first:
+      213: 8166891940063630754
+    second: eye-2-right
+  - first:
+      213: 7029501883746035774
+    second: eye-2-left
+  - first:
+      213: -1562768863765248931
+    second: nose-2
+  - first:
+      213: -2502534945646954641
+    second: freckles-2
+  - first:
+      213: -4666230889831128744
+    second: PlaceholderCharacter_23
+  - first:
+      213: -8062862801011764227
+    second: PlaceholderCharacter_24
+  - first:
+      213: -9154648292344814023
+    second: PlaceholderCharacter_25
+  - first:
+      213: -5733703814219363789
+    second: mouth-2
+  - first:
+      213: -3417495943978522596
+    second: PlaceholderCharacter_27
+  - first:
+      213: -3176805200653642028
+    second: stache-1
+  - first:
+      213: 3224565498079911778
+    second: mouth-1
+  - first:
+      213: 2744106430205115448
+    second: PlaceholderCharacter_30
+  - first:
+      213: -8373336900248111333
+    second: PlaceholderCharacter_31
+  - first:
+      213: 8343799602778156992
+    second: PlaceholderCharacter_32
+  - first:
+      213: -5115256701704921240
+    second: freckles-1
+  - first:
+      213: 1265027588814775719
+    second: body-1
+  - first:
+      213: 3757404125079975158
+    second: body-1-clothing-1
+  - first:
+      213: -9132438635235705353
+    second: body-2-clothing-1
+  - first:
+      213: -8349009347368141186
+    second: PlaceholderCharacter_37
+  - first:
+      213: 8987494605678882197
+    second: PlaceholderCharacter_38
+  - first:
+      213: 8730290730131195026
+    second: body-1-clothing-2
+  - first:
+      213: 7226125529923652872
+    second: body-2-clothing-2
+  - first:
+      213: 1451613692139773020
+    second: body-2
+  - first:
+      213: -1645937788229733538
+    second: face-2
+  - first:
+      213: -5701696502505897947
+    second: ear-1-right
+  - first:
+      213: -8817128055526506652
+    second: ear-1-left
+  - first:
+      213: 3724478649022742322
+    second: glasses-1
+  - first:
+      213: 6642980894380777147
+    second: ear-2-right
+  - first:
+      213: -5484285719684151424
+    second: ear-2-left
+  - first:
+      213: -2547058168637718818
+    second: hair-2
+  - first:
+      213: -2465805201279417192
+    second: face-1
+  - first:
+      213: 6833923802475267980
+    second: hair-1
+  - first:
+      213: 4727085701440186668
+    second: hair-back-1-right
+  - first:
+      213: 638051004869688208
+    second: hair-back-1-left
+  - first:
+      213: -1232547311522776360
+    second: beard-1
+  - first:
+      213: -1962671449971529041
+    second: glasses-2
+  - first:
+      213: -7543208054307965695
+    second: eye-1-right
+  - first:
+      213: 3489292742379388779
+    second: eye-1-left
+  - first:
+      213: -6546882671930646871
+    second: nose-1
+  - first:
+      213: -7918991642140576581
+    second: beard-2
+  - first:
+      213: -7919221005528266545
+    second: hair-back-2
+  - first:
+      213: -3882593771858423978
+    second: stache-2
+  - first:
+      213: 1523469620039465202
+    second: eye-2-right
+  - first:
+      213: 4229823800018546941
+    second: eye-2-left
+  - first:
+      213: -1954512005549468675
+    second: nose-2
+  - first:
+      213: 8665615755990262679
+    second: freckles-2
+  - first:
+      213: -4480575137174758047
+    second: PlaceholderCharacter_23
+  - first:
+      213: 7907025941349105204
+    second: PlaceholderCharacter_27
+  - first:
+      213: -1871638472726771939
+    second: mouth-1
+  - first:
+      213: 8144821358751939495
+    second: PlaceholderCharacter_30
+  - first:
+      213: -6893887616315123435
+    second: body-1
+  - first:
+      213: 2493527282246487700
+    second: body-1-clothing-1
+  - first:
+      213: 160714341786507101
+    second: body-2-clothing-1
+  - first:
+      213: -3253876489538472888
+    second: PlaceholderCharacter_37
+  - first:
+      213: 8005169977339580880
+    second: PlaceholderCharacter_38
+  - first:
+      213: -2873141929107307762
+    second: body-1-clothing-2
+  - first:
+      213: -7113870336910020802
+    second: body-2-clothing-2
+  - first:
+      213: 5117071470877905567
+    second: body-2
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: face-2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3342
+        width: 585
+        height: 675
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e53bc2a5d447829e0800000000000000
+      internalID: -1645937788229733538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ear-1-right
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 3751
+        width: 131
+        height: 167
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5208c076d318fd0b0800000000000000
+      internalID: -5701696502505897947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ear-1-left
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3763
+        width: 156
+        height: 200
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46f3637afb443a580800000000000000
+      internalID: -8817128055526506652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glasses-1
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 3569
+        width: 908
+        height: 448
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ff680299100b330800000000000000
+      internalID: 3724478649022742322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ear-2-right
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 3494
+        width: 98
+        height: 151
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbed54b6deb903c50800000000000000
+      internalID: 6642980894380777147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ear-2-left
+      rect:
+        serializedVersion: 2
+        x: 1274
+        y: 3498
+        width: 115
+        height: 153
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0878a77e137e3e3b0800000000000000
+      internalID: -5484285719684151424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hair-2
+      rect:
+        serializedVersion: 2
+        x: 1654
+        y: 2998
+        width: 716
+        height: 508
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede771c271807acd0800000000000000
+      internalID: -2547058168637718818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face-1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 2604
+        width: 712
+        height: 668
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8940e6cdb33b7cdd0800000000000000
+      internalID: -2465805201279417192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hair-1
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 3005
+        width: 740
+        height: 447
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8700ac9d79f6de50800000000000000
+      internalID: 6833923802475267980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hair-back-1-right
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 2684
+        width: 255
+        height: 300
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c29ab29766bf99140800000000000000
+      internalID: 4727085701440186668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hair-back-1-left
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 2706
+        width: 207
+        height: 280
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09bb6d52200dad800800000000000000
+      internalID: 638051004869688208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beard-1
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 2694
+        width: 550
+        height: 298
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8da72df10cc15eee0800000000000000
+      internalID: -1232547311522776360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glasses-2
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 2794
+        width: 500
+        height: 121
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faa65a507b033c4e0800000000000000
+      internalID: -1962671449971529041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-1-right
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 2402
+        width: 45
+        height: 129
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105bb108d34215790800000000000000
+      internalID: -7543208054307965695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-1-left
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 2408
+        width: 48
+        height: 127
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6f3fda13457c6030800000000000000
+      internalID: 3489292742379388779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nose-1
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 2472
+        width: 75
+        height: 59
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aed96195ecc425a0800000000000000
+      internalID: -6546882671930646871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beard-2
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 2500
+        width: 221
+        height: 157
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb47ceede071a1290800000000000000
+      internalID: -7918991642140576581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hair-back-2
+      rect:
+        serializedVersion: 2
+        x: 1968
+        y: 2082
+        width: 781
+        height: 588
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc80dab0476491290800000000000000
+      internalID: -7919221005528266545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stache-2
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 2314
+        width: 719
+        height: 154
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f0c3d09814e1ac0800000000000000
+      internalID: -3882593771858423978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-2-right
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 2231
+        width: 176
+        height: 65
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f83d883c83742510800000000000000
+      internalID: 1523469620039465202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-2-left
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 2222
+        width: 173
+        height: 74
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df03996e55a53ba30800000000000000
+      internalID: 4229823800018546941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nose-2
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 2249
+        width: 75
+        height: 50
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df3dcf7bfad20e4e0800000000000000
+      internalID: -1954512005549468675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mouth-2
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 2078
+        width: 151
+        height: 59
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33a072a62cacd60b0800000000000000
+      internalID: -5733703814219363789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stache-1
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 2100
+        width: 149
+        height: 55
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d61d6e5088b9e3d0800000000000000
+      internalID: -3176805200653642028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mouth-1
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 2051
+        width: 100
+        height: 43
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d178a25b9ba9606e0800000000000000
+      internalID: -1871638472726771939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: freckles-1
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 1962
+        width: 33
+        height: 32
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86f11ffa125f209b0800000000000000
+      internalID: -5115256701704921240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: body-1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 997
+        width: 1150
+        height: 828
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51992140dbdf350a0800000000000000
+      internalID: -6893887616315123435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: body-1-clothing-1
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 942
+        width: 540
+        height: 879
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e0c081ad9ca9220800000000000000
+      internalID: 2493527282246487700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: body-2-clothing-1
+      rect:
+        serializedVersion: 2
+        x: 2349
+        y: 1039
+        width: 578
+        height: 878
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57de74a7d8fa3200800000000000000
+      internalID: 160714341786507101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: body-1-clothing-2
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 38
+        width: 541
+        height: 879
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e03474653ac8028d0800000000000000
+      internalID: -2873141929107307762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: body-2-clothing-2
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 49
+        width: 620
+        height: 870
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f2a469e94764d90800000000000000
+      internalID: -7113870336910020802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: body-2
+      rect:
+        serializedVersion: 2
+        x: 1758
+        y: 19
+        width: 1154
+        height: 851
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9296ff246d730740800000000000000
+      internalID: 5117071470877905567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: freckles-2
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 2058
+        width: 324
+        height: 161
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 793e3df1e93724870800000000000000
+      internalID: 8665615755990262679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

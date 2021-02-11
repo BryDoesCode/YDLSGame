@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12323, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: UI Colors v2
+  m_EditorClassIdentifier: 
+  m_Presets:
+  - m_Name: 
+    m_Color: {r: 0.17254902, g: 0.15294118, b: 0.13333334, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.14509805, g: 0.121568635, b: 0.10196079, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.08235294, g: 0.054901965, b: 0.039215688, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.08235294, g: 0.054901965, b: 0.039215688, a: 0.8666667}
+  - m_Name: 
+    m_Color: {r: 0.9803922, g: 0.95294124, b: 0.9333334, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.91372555, g: 0.8862746, b: 0.86666673, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.87843144, g: 0.85098046, b: 0.8313726, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.4784314, g: 0.56078434, b: 0.54509807, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.27058825, g: 0.43921572, b: 0.454902, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.2392157, g: 0.35686275, b: 0.35686275, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.5372549, g: 0.6313726, b: 0.36078432, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.46274513, g: 0.5294118, b: 0.2901961, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.3921569, g: 0.427451, b: 0.1764706, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.62352943, g: 0.3019608, b: 0.227451, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.41960788, g: 0.20784315, b: 0.15686275, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.31764707, g: 0.16862746, b: 0.14509805, a: 1}
+  - m_Name: 
+    m_Color: {r: 0, g: 0, b: 0, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.41509432, g: 0.22955878, b: 0.17034532, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.38823533, g: 0.20392159, b: 0.14509805, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.3490566, g: 0.1680751, b: 0.11031505, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.7454045, g: 0.7454045, b: 0.7454045, a: 1}

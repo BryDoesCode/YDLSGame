@@ -1,0 +1,563 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Ink.Runtime;
+using UnityEngine.UI;
+using TMPro;
+using System;
+using Febucci.UI;
+using UnityEngine.UI.ProceduralImage;
+
+public class GameController : MonoBehaviour
+{
+    // ------------------ Variables
+    // Ink Specific
+    [Header("Ink Specific")]
+    public TextAsset inkAsset;
+    public GameObject choiceButton;
+    public TextMeshProUGUI storyText;
+    public TextAnimatorPlayer storyTextAnimator;
+    public GameObject choiceButtonContainer;
+    public TextMeshProUGUI singleChoiceButtonText;
+    public GameObject singleChoiceButtonContainer;
+    public ProceduralImage singleChoiceButtonImage;
+    public GameObject mainTextContainer;
+
+    private Story story;
+
+
+    // Conversation
+    [Header("Conversation")]
+    private bool conversationActive = false;        
+
+
+    // Controllers
+    [Header("Controllers")]
+    public StatController StatController;
+    public SFXController SFXController;
+    public MusicController MusicController;
+    public LabelController LabelController;
+    public InventoryController InventoryController;
+    public StoreController StoreController;
+    public CharacterCreationController CharacterCreationController;
+    public ContactsController ContactsController;
+    public BankController BankController;
+    public BackgroundController BackgroundController;
+    public LoadingScreenController LoadingScreenController;
+    public UIUnlockController UIUnlockController;
+    public ConversationController ConversationController;
+
+    //Variables
+    List<string> ingredientsCostList;
+
+    void Start()
+    {
+        // Use to fully reset player prefs during testing. 
+        /*
+        #if UNITY_EDITOR
+        PlayerPrefs.DeleteAll();
+        Debug.Log("Prefs Deleted");
+        #endif
+          */    
+
+        story = new Story(inkAsset.text);
+
+        #region Observable Variables
+        // ------------------ Observeable Variables
+        // Stats
+        story.ObserveVariable("energy", (string varName, object newValue) => {
+            StatController.UpdateEnergyStat((int)newValue);
+        });
+        story.ObserveVariable("health", (string varName, object newValue) => {
+            StatController.UpdateHealthStat((int)newValue);
+        });
+        story.ObserveVariable("wellness", (string varName, object newValue) => {
+            StatController.UpdateWellnessStat((int)newValue);
+        });
+        story.ObserveVariable("needMax", (string varName, object newValue) => { 
+            StatController.UpdateNeedMax((int)newValue); 
+        });
+
+        // Date / UI Stuff
+        story.ObserveVariable("fullDate", (string varName, object newValue) => {
+            LabelController.UpdateDate((string)newValue);
+        });
+        story.ObserveVariable("today", (string varName, object newValue) => {
+            LabelController.UpdateWeekday(newValue);
+        });
+        story.ObserveVariable("time", (string varName, object newValue) => {
+            LabelController.UpdateTimeSlot(newValue, conversationActive);
+        });
+        story.ObserveVariable("location", (string varName, object newValue) => {
+            LabelController.UpdateLocation((string)newValue, conversationActive);
+        });
+        story.ObserveVariable("background", (string varName, object newValue) => {
+            LabelController.UpdateBackground((string)newValue);
+        });
+        story.ObserveVariable("locationColor", (string varName, object newValue) => {
+            LabelController.UpdateContainerColor((string)newValue);
+        });
+
+        // Audio
+        story.ObserveVariable("locationMusic", (string varName, object newValue) => {
+            MusicController.MusicPlayer((string)newValue);
+        });
+
+        // Inventory
+        
+        story.ObserveVariable("prepackagedMealCount", (string varName, object newValue) => {
+            InventoryController.UpdatePrepackagedFoodQuantity((int)newValue);
+        });
+        story.ObserveVariable("foodIngredientsCount", (string varName, object newValue) => {
+            InventoryController.UpdateIngredientsSet((int)newValue);
+        });
+        story.ObserveVariable("newspaperCount", (string varName, object newValue) => {
+            InventoryController.UpdateNewspaperQuantity((int)newValue);
+        });
+
+        // Banking
+        story.ObserveVariable("money", (string varName, object newValue) => {
+            BankController.UpdateBalance((float)newValue);
+        });
+        story.ObserveVariable("interestRate", (string varName, object newValue) => {
+            BankController.UpdateInterestRate((float)newValue);
+        });
+        story.ObserveVariable("earnedInterest", (string varName, object newValue) => {
+            BankController.UpdateEarnedInterest((float)newValue);
+        });
+
+        story.ObserveVariable("rentBill", (string varName, object newValue) => {
+            BankController.UpdateRentBill((float)newValue, story.variablesState["rentBillDueDate"].ToString());
+        });
+        story.ObserveVariable("electricBill", (string varName, object newValue) => {
+            BankController.UpdateElectricBill((float)newValue, story.variablesState["electricBillDueDate"].ToString());
+        });
+        story.ObserveVariable("phoneBill", (string varName, object newValue) => {
+            BankController.UpdatePhoneBill((float)newValue, story.variablesState["phoneBillDueDate"].ToString());
+        });
+
+        // Store
+        ingredientsCostList = new List<string> { "costPrepackagedMeal", "costFoodIngredients", "costNewspaper" };
+        story.ObserveVariable("storePrompt", (string varName, object newValue) => {
+            StoreController.StoreState((int)newValue);
+                });
+        story.ObserveVariable("purchaseResponse", (string varName, object newValue) => {
+            StoreController.UpdatePurchaseResponse((string)newValue);
+                });
+        story.ObserveVariables(ingredientsCostList, (string varName, object newValue) =>
+        {
+            StoreController.UpdatePrices(varName, float.Parse(newValue.ToString()));
+        });
+        
+        // Conversation
+             story.ObserveVariable("conversationActive", (string varName, object newValue) => {
+                 SetConversationActive((int)newValue);
+             });
+        story.ObserveVariable("conversationFocus", (string varName, object newValue) => {
+            ConversationController.ConversationFocusToggle(newValue.ToString());
+            });
+        story.ObserveVariable("activeNPCID", (string varName, object newValue) => {
+            ConversationController.ShowConversation(conversationActive, (int)newValue);
+        });
+
+        // Mother NPC
+        story.ObserveVariable("motherRelationshipWithPlayer", (string varName, object newValue) => {
+            ContactsController.UpdateRelationship((int)newValue, 0);
+        });
+        story.ObserveVariable("motherKnowsPlayer", (string varName, object newValue) => {
+            ContactsController.UpdateKnowingPlayer((int)newValue, 0);
+        });
+
+        // Father NPC
+        story.ObserveVariable("fatherRelationshipWithPlayer", (string varName, object newValue) => {
+            ContactsController.UpdateRelationship((int)newValue, 1);
+        });
+        story.ObserveVariable("fatherKnowsPlayer", (string varName, object newValue) => {
+            ContactsController.UpdateKnowingPlayer((int)newValue, 1);
+        });
+
+        // Coworker NPC
+        story.ObserveVariable("coworkerRelationshipWithPlayer", (string varName, object newValue) => {
+            ContactsController.UpdateRelationship((int)newValue, 2);
+        });
+        story.ObserveVariable("coworkerKnowsPlayer", (string varName, object newValue) => {
+            ContactsController.UpdateKnowingPlayer((int)newValue, 2);
+        });
+
+        // Loading Screen
+        story.ObserveVariable("loadingAnimation", (string varName, object newValue) => {
+            LoadingScreenController.ChangeLoadingImage(newValue.ToString());
+            });
+        story.ObserveVariable("startLoadingAnimation", (string varName, object newValue) => {
+            LoadingScreenController.PlayLoadingAnimation((int)newValue);
+        });
+
+        // UI Toggle
+        story.ObserveVariable("showInventoryButton", (string varName, object newValue) => {
+            UIUnlockController.ShowInventoryButton((int)newValue);
+        });
+        story.ObserveVariable("showContactsButton", (string varName, object newValue) => {
+            UIUnlockController.ShowContactsButton((int)newValue);
+        });
+        story.ObserveVariable("showNeedsButton", (string varName, object newValue) => {
+            UIUnlockController.ShowNeedsButton((int)newValue);
+        });
+        story.ObserveVariable("showBankingButton", (string varName, object newValue) => {
+            UIUnlockController.ShowBankingButton((int)newValue);
+        });
+        story.ObserveVariable("showCalendarButton", (string varName, object newValue) => {
+            UIUnlockController.ShowCalendarButton((int)newValue);
+        });
+        story.ObserveVariable("showSignNameContainer", (string varName, object newValue) => {
+            CharacterCreationController.ShowSignNameContainer((int)newValue);
+        });
+        story.ObserveVariable("showCharacterCreationContainer", (string varName, object newValue) => {
+            CharacterCreationController.ShowCharacterCreationContainer((int)newValue);
+        });
+        story.ObserveVariable("showRentBill", (string varName, object newValue) => {
+            BankController.ShowRentBill((int)newValue);
+        });
+        story.ObserveVariable("showElectricBill", (string varName, object newValue) => {
+            BankController.ShowElectricBill((int)newValue);
+        });
+        story.ObserveVariable("showPhoneBill", (string varName, object newValue) => {
+            BankController.ShowPhoneBill((int)newValue);
+        });
+        #endregion
+
+        //  ------------------ External Functions
+        story.BindExternalFunction("EndGame", () => EndGame());
+            story.BindExternalFunction("UpdateNPCs", () => UpdateNPCs());
+        story.BindExternalFunction("AddTransaction", (string date, string desc, float amount, float transactionBalance) => BankController.AddTransaction(date, desc, amount, transactionBalance));
+        
+        if (PlayerPrefs.HasKey("inkSaveState"))
+        {
+            string savedState = PlayerPrefs.GetString("inkSaveState");
+            story.state.LoadJson(savedState);
+
+            CharacterCreationController.LoadPlayerFromInk(story.variablesState["firstName"].ToString(), story.variablesState["lastName"].ToString(),
+            (int)story.variablesState["face"], (int)story.variablesState["ear"], (int)story.variablesState["body"], (int)story.variablesState["skinColor"],
+            (int)story.variablesState["hairFront"], (int)story.variablesState["hairBack"], (int)story.variablesState["hairColor"],
+            (int)story.variablesState["eyes"], (int)story.variablesState["rightEyeColor"], (int)story.variablesState["leftEyeColor"],
+            (int)story.variablesState["eyebrow"], (int)story.variablesState["eyebrowColor"], (int)story.variablesState["nose"], 
+            (int)story.variablesState["mouth"], (int)story.variablesState["mouthColor"], (int)story.variablesState["clothing"], (int)story.variablesState["clothingColor"]);
+            UpdateNPCs();
+        }
+        //else { StoryLoop(); }
+
+    }
+
+    public void StoryLoop()
+    {
+        ClearUI();
+
+        storyText.text = GetNextStoryBlock();
+        if (story.currentTags.Count > 0)
+        {
+            foreach (string tag in story.currentTags)
+            {
+                Debug.Log("Current Tags: " + tag);
+                EvaluateTag(tag);
+            }
+        }
+        //Debug.Log("Choices" + story.currentChoices.Count);
+
+        if (story.currentChoices.Count > 1)
+        {
+            foreach (Choice choice in story.currentChoices)
+            {
+                GameObject choiceSelectionButton;                           
+
+                choiceSelectionButton = Instantiate(choiceButton) as GameObject;
+
+                choiceSelectionButton.transform.SetParent(choiceButtonContainer.transform, false);
+                    
+
+                TextMeshProUGUI choiceText = choiceSelectionButton.GetComponentInChildren<TextMeshProUGUI>();
+                    
+
+                choiceText.text = choice.text.Replace("\\n", "\n"); // Allows for newlines during choices.
+                choiceText.gameObject.GetComponentInParent<ProceduralImage>(true).color = BackgroundController.CurrentColor;
+
+                choiceSelectionButton.GetComponentInChildren<Button>().onClick.AddListener(delegate { OnClickChoiceButton(choice); });
+                choiceButtonContainer.SetActive(true);
+                mainTextContainer.SetActive(false);
+
+            }
+
+        }
+        else
+        {
+            foreach (Choice choice in story.currentChoices)
+            {
+                //Debug.Log("Choice Name: " + choice.text);
+                singleChoiceButtonText.text = choice.text.Replace("\\n", "\n");
+                singleChoiceButtonImage.color = BackgroundController.CurrentColor;
+            }
+        }
+
+    }
+
+    void ClearUI()
+    {
+        int childCount = 0;
+        
+            childCount = choiceButtonContainer.transform.childCount;
+            for (int i = childCount - 1; i >= 0; --i)
+            {
+                GameObject.Destroy(choiceButtonContainer.transform.GetChild(i).gameObject);
+            }
+        
+        singleChoiceButtonContainer.SetActive(false);
+
+    }
+
+    string GetNextStoryBlock()
+    {
+        string text = "";
+        if (story.canContinue)
+        {
+            text = story.ContinueMaximally().Replace("\\n", "\n");
+        }
+
+        return text;
+    }
+
+    void EvaluateTag(string tag)
+    {
+        if (tag.Contains("SFX"))
+        {
+            SFXController.SFXPlayer(tag);
+        }
+    }
+
+    public void ShowContinueButton()
+    {
+        singleChoiceButtonContainer.SetActive(true);
+    }
+
+    void OnClickChoiceButton(Choice choice)
+    {
+        SFXController.PlayButtonClick();
+
+        story.ChooseChoiceIndex(choice.index);
+        choiceButtonContainer.SetActive(false);
+        mainTextContainer.SetActive(true);
+        SaveStoryState();
+        StoryLoop(); 
+    }
+
+    public void OnClickContinueButton()
+    {
+        SFXController.PlayButtonClick();
+
+        if (story.currentChoices.Count > 1)
+            {
+                choiceButtonContainer.SetActive(true);
+                mainTextContainer.SetActive(false);
+            }
+            else
+            {
+                story.ChooseChoiceIndex(0);
+                SaveStoryState();
+                StoryLoop();
+            }              
+    }
+
+    public void SaveStoryState()
+    {        
+        string savedState = story.state.ToJson();
+        PlayerPrefs.SetString("inkSaveState", savedState);
+        PlayerPrefs.Save();
+        //Debug.Log("Story Saved");
+        BankController.SaveTransactionList();
+        //Debug.Log("Transactions Saved");
+        BankController.SaveBills();
+        //Debug.Log("Bills Saved");
+        Debug.Log("Save Successful.");
+    }
+
+    public void ResetStoryState()
+    {
+
+        PlayerPrefs.DeleteKey("inkSaveState");
+        Debug.Log("Ink Save State Deleted");
+
+        for (int i = 0; PlayerPrefs.HasKey("transaction" + i); i++)
+        {
+            PlayerPrefs.DeleteKey("transaction" + i);
+            Debug.Log("Deleted Transaction Key: " + i);
+        }
+        BankController.ClearTransactions();
+        Debug.Log("Transactions List Cleared");
+
+        // Delete Bills
+        if (PlayerPrefs.HasKey("rentBill")) 
+        {
+            PlayerPrefs.DeleteKey("rentBill");
+        }
+        if (PlayerPrefs.HasKey("phoneBill"))
+        {
+            PlayerPrefs.DeleteKey("phoneBill");
+        }
+        if (PlayerPrefs.HasKey("electricBill"))
+        {
+            PlayerPrefs.DeleteKey("electricBill");
+        }
+        Debug.Log("Bill Prefs Deleted");
+
+        story.ResetState();
+        Debug.Log("Ink Story State Reset");        
+        //StoryLoop();
+    }
+
+    public void OnClickSkipTypewriter()
+    {
+        storyTextAnimator.SkipTypewriter();
+    }
+
+    void SetConversationActive(int value)
+    {
+        if (value == 1)
+        {
+            conversationActive = true;
+        }
+        else
+        {
+            conversationActive = false;
+        }
+    }
+
+    public void CallInkFunction(string functionName)
+    {
+        story.EvaluateFunction(functionName);
+    }
+
+    public bool CallInkPurchaseFunction(int prepackagedQuantity, int ingredientsQuantity, int newspaperQuantity)
+    {
+        if ((int)story.EvaluateFunction("PurchaseItems", prepackagedQuantity, ingredientsQuantity, newspaperQuantity) == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool CallInkPayBillFunction (string billName)
+    {
+        if ((int)story.EvaluateFunction("PayBill", billName) == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void UpdateNPCs()
+    {
+        // Mother
+        CharacterCreationController.CreatePerson(story.variablesState["motherFirstName"].ToString(), story.variablesState["motherLastName"].ToString(),
+            (int)story.variablesState["motherFace"], (int)story.variablesState["motherEar"], (int)story.variablesState["motherBody"], (int)story.variablesState["motherSkinColor"],
+            (int)story.variablesState["motherHairFront"], (int)story.variablesState["motherHairBack"], (int)story.variablesState["motherHairColor"],
+            (int)story.variablesState["motherEyes"], (int)story.variablesState["motherRightEyeColor"], (int)story.variablesState["motherLeftEyeColor"],
+            (int)story.variablesState["motherEyebrow"], (int)story.variablesState["motherEyebrowColor"], (int)story.variablesState["motherNose"],
+            (int)story.variablesState["motherMouth"], (int)story.variablesState["motherMouthColor"], (int)story.variablesState["motherClothing"], (int)story.variablesState["motherClothingColor"],
+            (int)story.variablesState["motherRelationshipWithPlayer"], (int)story.variablesState["motherKnowsPlayer"], (int)story.variablesState["motherIndexID"]);
+
+        // Father
+        CharacterCreationController.CreatePerson(story.variablesState["fatherFirstName"].ToString(), story.variablesState["fatherLastName"].ToString(),
+            (int)story.variablesState["fatherFace"], (int)story.variablesState["fatherEar"], (int)story.variablesState["fatherBody"], (int)story.variablesState["fatherSkinColor"],
+            (int)story.variablesState["fatherHairFront"], (int)story.variablesState["fatherHairBack"], (int)story.variablesState["fatherHairColor"],
+            (int)story.variablesState["fatherEyes"], (int)story.variablesState["fatherRightEyeColor"], (int)story.variablesState["fatherLeftEyeColor"],
+            (int)story.variablesState["fatherEyebrow"], (int)story.variablesState["fatherEyebrowColor"], (int)story.variablesState["fatherNose"],
+            (int)story.variablesState["fatherMouth"], (int)story.variablesState["fatherMouthColor"], (int)story.variablesState["fatherClothing"], (int)story.variablesState["fatherClothingColor"],
+            (int)story.variablesState["fatherRelationshipWithPlayer"], (int)story.variablesState["fatherKnowsPlayer"], (int)story.variablesState["fatherIndexID"]);
+
+        // Coworker
+        CharacterCreationController.CreatePerson(story.variablesState["coworkerFirstName"].ToString(), story.variablesState["coworkerLastName"].ToString(),
+            (int)story.variablesState["coworkerFace"], (int)story.variablesState["coworkerEar"], (int)story.variablesState["coworkerBody"], (int)story.variablesState["coworkerSkinColor"], 
+            (int)story.variablesState["coworkerHairFront"], (int)story.variablesState["coworkerHairBack"], (int)story.variablesState["coworkerHairColor"], 
+            (int)story.variablesState["coworkerEyes"], (int)story.variablesState["coworkerRightEyeColor"], (int)story.variablesState["coworkerLeftEyeColor"],
+            (int)story.variablesState["coworkerEyebrow"], (int)story.variablesState["coworkerEyebrowColor"], (int)story.variablesState["coworkerNose"],
+            (int)story.variablesState["coworkerMouth"], (int)story.variablesState["coworkerMouthColor"], (int)story.variablesState["coworkerClothing"], (int)story.variablesState["coworkerClothingColor"],
+            (int)story.variablesState["coworkerRelationshipWithPlayer"], (int)story.variablesState["coworkerKnowsPlayer"], (int)story.variablesState["coworkerIndexID"]);
+    }
+
+    public void UpdatePlayerInformation(string firstName, string lastName, int face, int ear, int body, int skinColor,
+        int hairFront, int hairBack, int hairColor, int eyes, int rightEyeColor, int leftEyeColor,
+        int eyebrow, int eyebrowColor, int nose, int mouth, int mouthColor, int clothing, int clothingColor)
+    {
+        story.EvaluateFunction("CreatePlayerCharacter", firstName, lastName, face, ear, body, skinColor, 
+            hairFront, hairBack, hairColor, eyes, rightEyeColor, leftEyeColor,
+            eyebrow, eyebrowColor, nose, mouth, mouthColor, clothing, clothingColor);        
+    }
+
+    public void UpdateLoadedVariables()
+    {
+        // Stats
+        StatController.UpdateNeedMax((int)story.variablesState["needMax"]);
+        StatController.UpdateEnergyStat((int)story.variablesState["energy"]);
+        StatController.UpdateHealthStat((int)story.variablesState["health"]);
+        StatController.UpdateWellnessStat((int)story.variablesState["wellness"]);
+
+        // Conversation
+        SetConversationActive((int)story.variablesState["conversationActive"]);
+        ConversationController.ConversationFocusToggle(story.variablesState["conversationFocus"].ToString());
+        ConversationController.ShowConversation(conversationActive, (int)story.variablesState["activeNPCID"]);
+
+        // Date/UI Stuff
+        LabelController.UpdateDate(story.variablesState["fullDate"].ToString());
+        LabelController.UpdateWeekday(story.variablesState["today"].ToString());
+        LabelController.UpdateTimeSlot(story.variablesState["time"].ToString(), conversationActive);
+        LabelController.UpdateLocation(story.variablesState["location"].ToString(), conversationActive);
+        LabelController.UpdateBackground(story.variablesState["background"].ToString());
+        LabelController.UpdateContainerColor(story.variablesState["locationColor"].ToString());
+
+        UIUnlockController.ShowInventoryButton((int)story.variablesState["showInventoryButton"]);
+        UIUnlockController.ShowContactsButton((int)story.variablesState["showContactsButton"]);
+        UIUnlockController.ShowNeedsButton((int)story.variablesState["showNeedsButton"]);
+        UIUnlockController.ShowBankingButton((int)story.variablesState["showBankingButton"]);
+        UIUnlockController.ShowCalendarButton((int)story.variablesState["showCalendarButton"]);
+        CharacterCreationController.ShowSignNameContainer((int)story.variablesState["showSignNameContainer"]);
+        CharacterCreationController.ShowCharacterCreationContainer((int)story.variablesState["showCharacterCreationContainer"]);
+
+
+        // Inventory
+        InventoryController.UpdatePrepackagedFoodQuantity((int)story.variablesState["prepackagedMealCount"]);
+        InventoryController.UpdateIngredientsSet((int)story.variablesState["foodIngredientsCount"]);
+
+        // Store
+        StoreController.StoreState((int)story.variablesState["storePrompt"]);
+        foreach (string cost in ingredientsCostList)
+        {
+            StoreController.UpdatePrices(cost, Convert.ToInt32(story.variablesState[cost]));
+        }
+
+        // Music
+        MusicController.MusicPlayer(story.variablesState["locationMusic"].ToString());
+
+        // Banking
+        BankController.UpdateBalance((float)story.variablesState["money"]);
+        BankController.UpdateEarnedInterest((float)story.variablesState["earnedInterest"]);
+
+        BankController.ShowElectricBill((int)story.variablesState["showRentBill"]);
+        BankController.ShowElectricBill((int)story.variablesState["showElectricBill"]);
+        BankController.ShowPhoneBill((int)story.variablesState["showPhoneBill"]);
+
+        BankController.UpdateElectricBill((float)story.variablesState["electricBill"], story.variablesState["electricBillDueDate"].ToString());
+        BankController.UpdateRentBill((float)story.variablesState["rentBill"], story.variablesState["rentBillDueDate"].ToString());
+        BankController.UpdatePhoneBill((float)story.variablesState["phoneBill"], story.variablesState["phoneBillDueDate"].ToString());
+        BankController.LoadTransactions();
+        BankController.LoadBills();
+    }
+
+    void EndGame()
+    {
+        Debug.Log("QUIT");
+        Application.Quit();
+    }
+}
