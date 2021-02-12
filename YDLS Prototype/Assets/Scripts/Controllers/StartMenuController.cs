@@ -34,6 +34,7 @@ public class StartMenuController : MonoBehaviour
         else
         {
             startMenuContainer.SetActive(false);
+            characterCreationContainer.SetActive(false);
             GameController.StoryLoop();
 
             // Allow controllers to play SFX again

@@ -29,13 +29,15 @@ public class TabGroup : MonoBehaviour
 
     public void Start()
     {
+        scrollUpPressed = false;
+        scrollDownPressed = false;
         selectedTab.background.color = tabActive;
+        swappableObjectScrolls = new List<ScrollRectEx>();
         for (int i = 0; i < objectsToSwap.NumberOfPanels; i++)
         {
             swappableObjectScrolls.Add(objectsToSwap.Content.GetChild(i).GetComponent<ScrollRectEx>());
         }
-        scrollUpPressed = false;
-        scrollDownPressed = false;
+        
     }
 
     public void Subscribe(TabButton button)
