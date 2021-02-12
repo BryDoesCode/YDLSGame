@@ -4,31 +4,31 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 677443028105279213
-    second: HairTest1_0
+    second: Bangs_0
   - first:
       213: -2467282777484846477
-    second: HairTest1_1
+    second: Bangs_1
   - first:
       213: 8100549944489812508
-    second: HairTest1_2
+    second: Bangs_2
   - first:
       213: -8913738001124702452
-    second: HairTest1_3
+    second: Bangs_3
   - first:
       213: -5809532694288290619
-    second: HairTest1_4
+    second: Side_0
   - first:
       213: 6777657832490472074
-    second: HairTest1_5
+    second: Side_1
   - first:
       213: 4069102369072732099
-    second: HairTest1_6
+    second: Side_2
   - first:
       213: 6384248111511519033
-    second: HairTest1_7
+    second: Side_3
   - first:
       213: -976303465155756133
-    second: HairTest1_8
+    second: Side_6
   - first:
       213: -6204454627285421957
     second: HairTest1_9
@@ -37,10 +37,10 @@ TextureImporter:
     second: HairTest1_10
   - first:
       213: -5052077916181633729
-    second: HairTest1_11
+    second: Side_4
   - first:
       213: 5286888395277260148
-    second: HairTest1_12
+    second: Side_5
   - first:
       213: -641276477054572907
     second: HairTest1_13
@@ -52,28 +52,28 @@ TextureImporter:
     second: HairTest1_15
   - first:
       213: -1700557007002440450
-    second: HairTest1_16
+    second: Back_0
   - first:
       213: -3975624424633054299
-    second: HairTest1_17
+    second: Back_1
   - first:
       213: -7237360423780489110
-    second: HairTest1_18
+    second: Back_2
   - first:
       213: 8662056465516263961
-    second: HairTest1_19
+    second: Back_3
   - first:
       213: -8923874838157319986
-    second: HairTest1_20
+    second: Base_0
   - first:
       213: 2269015512190385760
-    second: HairTest1_21
+    second: Base_1
   - first:
       213: -9213854863661678050
-    second: HairTest1_22
+    second: Base_2
   - first:
       213: -4876505163378746301
-    second: HairTest1_23
+    second: Base_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -197,7 +197,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HairTest1_0
+      name: Bangs_0
       rect:
         serializedVersion: 2
         x: 394
@@ -218,7 +218,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_1
+      name: Bangs_1
       rect:
         serializedVersion: 2
         x: 1120
@@ -239,7 +239,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_2
+      name: Bangs_2
       rect:
         serializedVersion: 2
         x: 1955
@@ -260,7 +260,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_3
+      name: Bangs_3
       rect:
         serializedVersion: 2
         x: 2866
@@ -281,7 +281,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_4
+      name: Side_0
       rect:
         serializedVersion: 2
         x: 362
@@ -302,7 +302,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_5
+      name: Side_1
       rect:
         serializedVersion: 2
         x: 802
@@ -323,7 +323,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_6
+      name: Side_2
       rect:
         serializedVersion: 2
         x: 1268
@@ -344,7 +344,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_7
+      name: Side_3
       rect:
         serializedVersion: 2
         x: 1768
@@ -365,7 +365,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_8
+      name: Side_6
       rect:
         serializedVersion: 2
         x: 2106
@@ -386,7 +386,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_11
+      name: Side_4
       rect:
         serializedVersion: 2
         x: 2827
@@ -407,7 +407,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_12
+      name: Side_5
       rect:
         serializedVersion: 2
         x: 3411
@@ -428,7 +428,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_16
+      name: Back_0
       rect:
         serializedVersion: 2
         x: 163
@@ -449,7 +449,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_17
+      name: Back_1
       rect:
         serializedVersion: 2
         x: 1017
@@ -470,7 +470,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_18
+      name: Back_2
       rect:
         serializedVersion: 2
         x: 1729
@@ -491,7 +491,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_19
+      name: Back_3
       rect:
         serializedVersion: 2
         x: 2953
@@ -512,7 +512,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_20
+      name: Base_0
       rect:
         serializedVersion: 2
         x: 353
@@ -533,7 +533,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_21
+      name: Base_1
       rect:
         serializedVersion: 2
         x: 1190
@@ -554,7 +554,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_22
+      name: Base_2
       rect:
         serializedVersion: 2
         x: 1998
@@ -575,7 +575,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HairTest1_23
+      name: Base_3
       rect:
         serializedVersion: 2
         x: 2779

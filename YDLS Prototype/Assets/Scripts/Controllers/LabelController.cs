@@ -31,7 +31,7 @@ public class LabelController : MonoBehaviour
     public void UpdateWeekday(object day)
     {
         //dayLabel.text = "<b>" + day + "</b>";
-        //Debug.Log("Day: " + day);
+        Debug.Log("Day: " + day);
         this.day = day.ToString();
         UpdateTopText();
     }

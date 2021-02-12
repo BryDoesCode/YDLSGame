@@ -17,6 +17,9 @@ VAR motherSkinColor = 1
 
 VAR motherHairFront = 1
 VAR motherHairBack = 1
+VAR motherHairBase = 1
+VAR motherHairSideLeft = 1
+VAR motherHairSideRight = 1
 VAR motherHairColor = 1
 
 
@@ -100,8 +103,11 @@ VAR motherKnowsPlayer = true
 
 //  Hair
 
-~ motherHairFront = RANDOM(0, 1)
-~ motherHairBack = RANDOM(0, 2)
+~ motherHairFront = RANDOM(0, 4)
+~ motherHairBack = RANDOM(0, 4)
+~ motherHairBase = RANDOM(0, 4)
+~ motherHairSideLeft = RANDOM(0, 3)
+~ motherHairSideRight = RANDOM(0, 4)
 ~ motherHairColor = hairColor
 
 
@@ -160,6 +166,9 @@ VAR fatherSkinColor = 1
 
 VAR fatherHairFront = 1
 VAR fatherHairBack = 1
+VAR fatherHairBase = 1
+VAR fatherHairSideLeft = 1
+VAR fatherHairSideRight = 1
 VAR fatherHairColor = 1
 
 
@@ -243,8 +252,11 @@ VAR fatherKnowsPlayer = true
 
 //  Hair
 
-~ fatherHairFront = RANDOM(0, 1)
-~ fatherHairBack = RANDOM(0, 2)
+~ fatherHairFront = RANDOM(0, 4)
+~ fatherHairBack = RANDOM(0, 4)
+~ fatherHairBase = RANDOM(0, 4)
+~ fatherHairSideLeft = RANDOM(0, 3)
+~ fatherHairSideRight = RANDOM(0, 4)
 ~ fatherHairColor = hairColor
 
 

@@ -8,6 +8,7 @@ public class SettingsController : MonoBehaviour
 {
     [Header("Game Controllers")]
     public SFXController SFXController;
+    public GameController GameController;
 
     [Header("Containers")]
     public GameObject settingsContainer;
@@ -22,6 +23,7 @@ public class SettingsController : MonoBehaviour
     [Header("Game Objects")]
     public Slider fontSizeSlider;
     public Slider volumeSlider;
+    public Toggle statToggle;
 
     public TextMeshProUGUI fontSizeLabel;
     public TextMeshProUGUI volumeLabel;
@@ -35,6 +37,7 @@ public class SettingsController : MonoBehaviour
 
         fontSizeSlider.onValueChanged.AddListener(delegate { OnFontSliderValueChange(); });
         volumeSlider.onValueChanged.AddListener(delegate { OnVolumeSliderValueChange(); });
+        statToggle.onValueChanged.AddListener(delegate { OnStatToggleValueChange(); });
 
         inGameMenu = false;        
 
@@ -55,6 +58,21 @@ public class SettingsController : MonoBehaviour
         else
         {
             fontSizeSlider.value = narrativeText.fontSize;
+        }
+        if (PlayerPrefs.HasKey("StatToggle"))
+        {
+            if (PlayerPrefs.GetInt("StatToggle") == 1)
+            {
+                statToggle.isOn = true;
+            }
+            else
+            {
+                statToggle.isOn = false;
+            }
+        }
+        else
+        {
+            statToggle.isOn = true;
         }
     }
 
@@ -113,6 +131,33 @@ public class SettingsController : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void OnStatToggleValueChange()
+    {
+        bool state = statToggle.isOn;
+        if (state)
+        {
+            GameController.CallInkStatHintFunction(1);
+            PlayerPrefs.SetInt("StatToggle", 1);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            GameController.CallInkStatHintFunction(0);
+            PlayerPrefs.SetInt("StatToggle", 0);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public void UpdateStatToggle(int state)
+    {
+        if (state == 1) {
+            statToggle.isOn = true;
+        }
+        else
+        {
+            statToggle.isOn = false;
+        }
+    }
     public void MuteSFX(bool condition)
     {
         muteSFX = condition;

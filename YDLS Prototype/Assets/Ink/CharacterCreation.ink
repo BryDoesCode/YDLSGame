@@ -17,6 +17,9 @@ VAR skinColor = 1
 
 VAR hairFront = 1
 VAR hairBack = 1
+VAR hairBase = 1
+VAR hairSideLeft = 1
+VAR hairSideRight = 1
 VAR hairColor = 1
 
 
@@ -77,7 +80,7 @@ VAR objectPronoun = them
 VAR posessivePronoun = theirs
 
 
-=== function CreatePlayerCharacter(firstString, lastString, faceInt, earInt, bodyInt, skinColorInt, hairFrontInt, hairBackInt, hairColorInt, eyesInt, rightEyeColorInt, leftEyeColorInt, eyebrowInt, eyebrowColorInt, noseInt, mouthInt, mouthColorInt, clothingInt, clothingColorInt)
+=== function CreatePlayerCharacter(firstString, lastString, faceInt, earInt, bodyInt, skinColorInt, hairFrontInt, hairBackInt, hairBaseInt, hairSideLeftInt, hairSideRightInt, hairColorInt, eyesInt, rightEyeColorInt, leftEyeColorInt, eyebrowInt, eyebrowColorInt, noseInt, mouthInt, mouthColorInt, clothingInt, clothingColorInt)
 
 ~ firstName = firstString
 ~ lastName = lastString
@@ -88,6 +91,9 @@ VAR posessivePronoun = theirs
 
 ~ hairFront = hairFrontInt
 ~ hairBack = hairBackInt
+~ hairBase = hairBaseInt
+~ hairSideLeft = hairSideLeftInt
+~ hairSideRight = hairSideRightInt
 ~ hairColor = hairColorInt
 
 ~ eyes = eyesInt

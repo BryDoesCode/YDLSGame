@@ -17,7 +17,11 @@ VAR coworkerSkinColor = 1
 
 VAR coworkerHairFront = 1
 VAR coworkerHairBack = 1
+VAR coworkerHairBase = 1
+VAR coworkerHairSideLeft = 1
+VAR coworkerHairSideRight = 1
 VAR coworkerHairColor = 1
+
 
 
 // Eyes
@@ -107,8 +111,11 @@ VAR coworkerKnowsPlayer = false
 
 //  Hair
 
-~ coworkerHairFront = RANDOM(0, 1)
-~ coworkerHairBack = RANDOM(0, 2)
+~ coworkerHairFront = RANDOM(0, 4)
+~ coworkerHairBack = RANDOM(0, 4)
+~ coworkerHairBase = RANDOM(0, 4)
+~ coworkerHairSideLeft = RANDOM(0, 3)
+~ coworkerHairSideRight = RANDOM(0, 4)
 ~ coworkerHairColor = RANDOM(0, 5)
 
 

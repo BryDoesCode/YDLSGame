@@ -13,7 +13,8 @@ public class ContactsController : MonoBehaviour
     public bool hasContacts;
     public void UpdateRelationship (int score, int indexID)
     {
-        if (CharacterCreationController.Characters[indexID] != null)
+        Debug.Log("WHY? Index: " + indexID);
+        if (indexID < CharacterCreationController.Characters.Count)
         {
             CharacterCreationController.Characters[indexID].RelationshipScore = score;
             NPCContactContainers[indexID].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = score.ToString();
@@ -27,7 +28,7 @@ public class ContactsController : MonoBehaviour
     public void UpdateKnowingPlayer (int knows, int indexID)
     {
         Debug.Log("Knowing Player: " + knows);
-        if (knows == 1 && CharacterCreationController.Characters[indexID] != null)
+        if (knows == 1 && indexID < CharacterCreationController.Characters.Count)
         {
             CharacterCreationController.Characters[indexID].KnowsPlayerCharacter = true;
             ShowContact(indexID);
@@ -36,7 +37,7 @@ public class ContactsController : MonoBehaviour
 
     public void UpdateNameLabel (string firstName, string lastName, int indexID)
     {
-        if (NPCContactContainers[indexID] != null)
+        if (indexID < NPCContactContainers.Count)
         {
             NPCContactContainers[indexID].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = firstName + " " + lastName;
         }
@@ -44,7 +45,7 @@ public class ContactsController : MonoBehaviour
 
     public void UpdatePortrait (GameObject portrait, int indexID)
     {
-        if (NPCContactContainers[indexID] != null)
+        if (indexID < NPCContactContainers.Count)
         {
             portrait.transform.SetParent(NPCContactContainers[indexID].transform.GetChild(0).GetChild(0).transform, false);
             portrait.transform.localScale = new Vector3(.2f, .2f, 1f);
@@ -54,7 +55,7 @@ public class ContactsController : MonoBehaviour
 
     public void ShowContact (int indexID)
     {
-        if (NPCContactContainers[indexID] != null)
+        if (indexID < NPCContactContainers.Count)
         {
             NPCContactContainers[indexID].SetActive(true);
             if (!hasContacts)

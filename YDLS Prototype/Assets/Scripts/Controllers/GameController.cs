@@ -46,6 +46,7 @@ public class GameController : MonoBehaviour
     public LoadingScreenController LoadingScreenController;
     public UIUnlockController UIUnlockController;
     public ConversationController ConversationController;
+    public SettingsController SettingsController;
 
     //Variables
     List<string> ingredientsCostList;
@@ -227,21 +228,23 @@ public class GameController : MonoBehaviour
 
         //  ------------------ External Functions
         story.BindExternalFunction("EndGame", () => EndGame());
-            story.BindExternalFunction("UpdateNPCs", () => UpdateNPCs());
+        story.BindExternalFunction("UpdateNPCs", () => UpdateNPCs());
         story.BindExternalFunction("AddTransaction", (string date, string desc, float amount, float transactionBalance) => BankController.AddTransaction(date, desc, amount, transactionBalance));
         
         if (PlayerPrefs.HasKey("inkSaveState"))
         {
             string savedState = PlayerPrefs.GetString("inkSaveState");
             story.state.LoadJson(savedState);
-
-            CharacterCreationController.LoadPlayerFromInk(story.variablesState["firstName"].ToString(), story.variablesState["lastName"].ToString(),
-            (int)story.variablesState["face"], (int)story.variablesState["ear"], (int)story.variablesState["body"], (int)story.variablesState["skinColor"],
-            (int)story.variablesState["hairFront"], (int)story.variablesState["hairBack"], (int)story.variablesState["hairColor"],
-            (int)story.variablesState["eyes"], (int)story.variablesState["rightEyeColor"], (int)story.variablesState["leftEyeColor"],
-            (int)story.variablesState["eyebrow"], (int)story.variablesState["eyebrowColor"], (int)story.variablesState["nose"], 
-            (int)story.variablesState["mouth"], (int)story.variablesState["mouthColor"], (int)story.variablesState["clothing"], (int)story.variablesState["clothingColor"]);
-            UpdateNPCs();
+            if ((int)story.variablesState["characterCreationCompleted"] == 1)
+            {                
+                CharacterCreationController.LoadPlayerFromInk(story.variablesState["firstName"].ToString(), story.variablesState["lastName"].ToString(),
+                (int)story.variablesState["face"], (int)story.variablesState["ear"], (int)story.variablesState["body"], (int)story.variablesState["skinColor"],
+                (int)story.variablesState["hairFront"], (int)story.variablesState["hairBack"], (int)story.variablesState["hairBase"], (int)story.variablesState["hairSideLeft"], (int)story.variablesState["hairSideRight"], (int)story.variablesState["hairColor"],
+                (int)story.variablesState["eyes"], (int)story.variablesState["rightEyeColor"], (int)story.variablesState["leftEyeColor"],
+                (int)story.variablesState["eyebrow"], (int)story.variablesState["eyebrowColor"], (int)story.variablesState["nose"],
+                (int)story.variablesState["mouth"], (int)story.variablesState["mouthColor"], (int)story.variablesState["clothing"], (int)story.variablesState["clothingColor"]);
+                UpdateNPCs();
+            }
         }
         //else { StoryLoop(); }
 
@@ -282,7 +285,6 @@ public class GameController : MonoBehaviour
                 choiceSelectionButton.GetComponentInChildren<Button>().onClick.AddListener(delegate { OnClickChoiceButton(choice); });
                 choiceButtonContainer.SetActive(true);
                 mainTextContainer.SetActive(false);
-
             }
 
         }
@@ -309,7 +311,6 @@ public class GameController : MonoBehaviour
             }
         
         singleChoiceButtonContainer.SetActive(false);
-
     }
 
     string GetNextStoryBlock()
@@ -407,7 +408,12 @@ public class GameController : MonoBehaviour
         Debug.Log("Bill Prefs Deleted");
 
         story.ResetState();
-        Debug.Log("Ink Story State Reset");        
+        Debug.Log("Ink Story State Reset");
+        if (PlayerPrefs.HasKey("StatToggle")) 
+        {
+            CallInkStatHintFunction(PlayerPrefs.GetInt("StatToggle"));
+            Debug.Log("Stat Toggle Updated");
+        }
         //StoryLoop();
     }
 
@@ -457,12 +463,18 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void CallInkStatHintFunction (int state)
+    {
+        story.EvaluateFunction("StatHintToggle", state);
+    }
+
     public void UpdateNPCs()
     {
         // Mother
         CharacterCreationController.CreatePerson(story.variablesState["motherFirstName"].ToString(), story.variablesState["motherLastName"].ToString(),
             (int)story.variablesState["motherFace"], (int)story.variablesState["motherEar"], (int)story.variablesState["motherBody"], (int)story.variablesState["motherSkinColor"],
-            (int)story.variablesState["motherHairFront"], (int)story.variablesState["motherHairBack"], (int)story.variablesState["motherHairColor"],
+            (int)story.variablesState["motherHairFront"], (int)story.variablesState["motherHairBack"], (int)story.variablesState["motherHairBase"], 
+            (int)story.variablesState["motherHairSideLeft"], (int)story.variablesState["motherHairSideRight"], (int)story.variablesState["motherHairColor"], 
             (int)story.variablesState["motherEyes"], (int)story.variablesState["motherRightEyeColor"], (int)story.variablesState["motherLeftEyeColor"],
             (int)story.variablesState["motherEyebrow"], (int)story.variablesState["motherEyebrowColor"], (int)story.variablesState["motherNose"],
             (int)story.variablesState["motherMouth"], (int)story.variablesState["motherMouthColor"], (int)story.variablesState["motherClothing"], (int)story.variablesState["motherClothingColor"],
@@ -471,7 +483,8 @@ public class GameController : MonoBehaviour
         // Father
         CharacterCreationController.CreatePerson(story.variablesState["fatherFirstName"].ToString(), story.variablesState["fatherLastName"].ToString(),
             (int)story.variablesState["fatherFace"], (int)story.variablesState["fatherEar"], (int)story.variablesState["fatherBody"], (int)story.variablesState["fatherSkinColor"],
-            (int)story.variablesState["fatherHairFront"], (int)story.variablesState["fatherHairBack"], (int)story.variablesState["fatherHairColor"],
+            (int)story.variablesState["fatherHairFront"], (int)story.variablesState["fatherHairBack"], (int)story.variablesState["fatherHairBase"], 
+            (int)story.variablesState["fatherHairSideLeft"], (int)story.variablesState["fatherHairSideRight"], (int)story.variablesState["fatherHairColor"],
             (int)story.variablesState["fatherEyes"], (int)story.variablesState["fatherRightEyeColor"], (int)story.variablesState["fatherLeftEyeColor"],
             (int)story.variablesState["fatherEyebrow"], (int)story.variablesState["fatherEyebrowColor"], (int)story.variablesState["fatherNose"],
             (int)story.variablesState["fatherMouth"], (int)story.variablesState["fatherMouthColor"], (int)story.variablesState["fatherClothing"], (int)story.variablesState["fatherClothingColor"],
@@ -480,7 +493,8 @@ public class GameController : MonoBehaviour
         // Coworker
         CharacterCreationController.CreatePerson(story.variablesState["coworkerFirstName"].ToString(), story.variablesState["coworkerLastName"].ToString(),
             (int)story.variablesState["coworkerFace"], (int)story.variablesState["coworkerEar"], (int)story.variablesState["coworkerBody"], (int)story.variablesState["coworkerSkinColor"], 
-            (int)story.variablesState["coworkerHairFront"], (int)story.variablesState["coworkerHairBack"], (int)story.variablesState["coworkerHairColor"], 
+            (int)story.variablesState["coworkerHairFront"], (int)story.variablesState["coworkerHairBack"], (int)story.variablesState["coworkerHairBase"], 
+            (int)story.variablesState["coworkerHairSideLeft"], (int)story.variablesState["coworkerHairSideRight"], (int)story.variablesState["coworkerHairColor"], 
             (int)story.variablesState["coworkerEyes"], (int)story.variablesState["coworkerRightEyeColor"], (int)story.variablesState["coworkerLeftEyeColor"],
             (int)story.variablesState["coworkerEyebrow"], (int)story.variablesState["coworkerEyebrowColor"], (int)story.variablesState["coworkerNose"],
             (int)story.variablesState["coworkerMouth"], (int)story.variablesState["coworkerMouthColor"], (int)story.variablesState["coworkerClothing"], (int)story.variablesState["coworkerClothingColor"],
@@ -488,11 +502,11 @@ public class GameController : MonoBehaviour
     }
 
     public void UpdatePlayerInformation(string firstName, string lastName, int face, int ear, int body, int skinColor,
-        int hairFront, int hairBack, int hairColor, int eyes, int rightEyeColor, int leftEyeColor,
+        int hairFront, int hairBack, int hairBase, int hairSideLeft, int hairSideRight, int hairColor, int eyes, int rightEyeColor, int leftEyeColor,
         int eyebrow, int eyebrowColor, int nose, int mouth, int mouthColor, int clothing, int clothingColor)
     {
         story.EvaluateFunction("CreatePlayerCharacter", firstName, lastName, face, ear, body, skinColor, 
-            hairFront, hairBack, hairColor, eyes, rightEyeColor, leftEyeColor,
+            hairFront, hairBack, hairBase, hairSideLeft, hairSideRight, hairColor, eyes, rightEyeColor, leftEyeColor,
             eyebrow, eyebrowColor, nose, mouth, mouthColor, clothing, clothingColor);        
     }
 
@@ -529,12 +543,13 @@ public class GameController : MonoBehaviour
         // Inventory
         InventoryController.UpdatePrepackagedFoodQuantity((int)story.variablesState["prepackagedMealCount"]);
         InventoryController.UpdateIngredientsSet((int)story.variablesState["foodIngredientsCount"]);
+        InventoryController.UpdateNewspaperQuantity((int)story.variablesState["newspaperCount"]);
 
         // Store
         StoreController.StoreState((int)story.variablesState["storePrompt"]);
         foreach (string cost in ingredientsCostList)
         {
-            StoreController.UpdatePrices(cost, Convert.ToInt32(story.variablesState[cost]));
+            StoreController.UpdatePrices(cost, (float)(story.variablesState[cost]));
         }
 
         // Music
@@ -544,7 +559,7 @@ public class GameController : MonoBehaviour
         BankController.UpdateBalance((float)story.variablesState["money"]);
         BankController.UpdateEarnedInterest((float)story.variablesState["earnedInterest"]);
 
-        BankController.ShowElectricBill((int)story.variablesState["showRentBill"]);
+        BankController.ShowRentBill((int)story.variablesState["showRentBill"]);
         BankController.ShowElectricBill((int)story.variablesState["showElectricBill"]);
         BankController.ShowPhoneBill((int)story.variablesState["showPhoneBill"]);
 
@@ -553,6 +568,9 @@ public class GameController : MonoBehaviour
         BankController.UpdatePhoneBill((float)story.variablesState["phoneBill"], story.variablesState["phoneBillDueDate"].ToString());
         BankController.LoadTransactions();
         BankController.LoadBills();
+
+        // Settings
+        SettingsController.UpdateStatToggle((int)story.variablesState["statHints"]);
     }
 
     void EndGame()

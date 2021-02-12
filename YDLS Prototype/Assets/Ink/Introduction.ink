@@ -1,5 +1,6 @@
 === introduction ===
 ~ time = Midday
+~ today = Tuesday
 ~ fullDate = month + " " + date
 ~ fullDateNumbers = monthNumber + "/" + date
 ~ energy = 5
@@ -42,6 +43,7 @@ With no time to waste, you head to your room to grab a coat. Before rushing out 
 + [▼]
 -
 ~ showCharacterCreationContainer = false
+~ characterCreationCompleted = true
 That's better. You feel ready to head out into the world. Or, at least, to go to the local convenience store to grab a newspaper. 
 {GenerateMother()}
 {GenerateFather()}
@@ -55,12 +57,16 @@ It's a bit old fashion, but you heard the best place to find apartments and jobs
 Just as you're about to leave, you pause for a second to check-in with yourself. When you're excited, it's easy to lose track of how you're actually feeling. 
 + [▼]
 -
-~ showNeedsButton = true
-Your current Energy is {energy}. 
-Your current Health is {health}.
-Your current Wellness is {wellness}.
+Your current Energy is {energy}. It reprents the general energy you have to accomplish tasks and exist in the world. If you run out of energy you can push yourself further, for a price. It is shown using a green color.
 + [▼]
 -
+Your current Health is {health}. It represents your physical health. The lower your health the sicker you feel. If you run out of Health you pass out. It is shown using a red color. 
++ [▼]
+-
+Your current Wellness is {wellness}. It represents your mental wellness. The lower your wellness the worse you feel emotionally. If you run out of Wellness you pass out. It is shown using a blue color. 
++ [▼]
+-
+~ showNeedsButton = true
 You can check-in with yourself at any time by viewing the Needs app in the menu. Or looking at the numbers in the top-right corner of the screen. 
 + [▼]
 -
@@ -282,7 +288,7 @@ Your mother sighs, then turns her attention to the newspaper.
 ~showContactsButton = true
 You can view your relationships with people and other information about them in your Contacts app.
 ~ conversationActive = false
-~ activeNPCID = -1
+~ activeNPCID = 99
 ~ location = "Kitchen"
 + [▼]
 - 
@@ -401,7 +407,7 @@ Instead of waiting for a reply, he continues talking. "Like your mother said, we
 + [▼]
 - 
 ~ conversationActive = false
-~ activeNPCID = -1
+~ activeNPCID = 99
 ~ location = "Kitchen"
 You dig into the pancakes, excited for your new future. 
 + [▼]
@@ -423,11 +429,14 @@ By the time it hits the afternoon, you're exhausted and ready for the day to be 
 Your parents look concerned but understanding when you say you're going to head to bed early. After all, you have the apartment showing tomorrow and the job interview the day after. Better rest up. 
 + [Sleep]
 - 
-(Continuing beyond this point brings you to our previous prototype cycle and breaks story continuity. You have been warned, but are also highly encouraged to explore the story.)
 ~ showCalendarButton = true
 ~ showRentBill = true
 ~ showElectricBill = true
 ~ showPhoneBill = true
-+ [▼]
--
+~ month = "August"
+~ monthNumber = 8
+~ date = 9
+~ today = Sunday
+~ yesterday = Saturday
+~ tomorrow = Monday
 -> morning

@@ -30,6 +30,9 @@ It's morning! Today is {today}, {fullDate}.
 You've started with {energy} Energy today.{borrowedEnergy > 0: You borrowed {borrowedEnergy} yesterday, so you only have {energy - borrowedEnergy} to work with.} Make it count!
 ~ energy -= borrowedEnergy
 ~ borrowedEnergy = 0
+* [Reminisce]
+It's been over a week since you fully moved into your apartment. Time sure flies. Speaking of which, you should probably check your Calendar to see when your Bills are due. 
+-
 + [Wake Up]
 -
 -> MorningWakeUp ->
@@ -159,7 +162,7 @@ Looks like you made it home for the day.
 }
 + [▼]
 -
-(This game is currently endless, you may sleep and play another day or end. Warning: if you play more than a few days it will get very repetitive and you'll have a 7 day work-week. Also, there is no month roll-over, you'll just continue forever in {month}.)
+(This game is still a prototype and is currently endless beyond this point. You may sleep and play another day or end (quit) the game. Warning: if you play more than a few days it will get very repetitive and you'll have a 7 day work-week. Also, there is no month roll-over, you'll just continue forever in {month}.)
 + [▼]
 -
 + [Sleep]

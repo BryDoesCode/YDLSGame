@@ -37,9 +37,9 @@ VAR borrowedEnergy = 0
 
 // Date Variables 
 
-VAR month = "June"
-VAR monthNumber = 6
-VAR date = 22
+VAR month = "July"
+VAR monthNumber = 7
+VAR date = 7
 VAR fullDate = ""
 VAR fullDateNumbers = ""
 
@@ -47,9 +47,9 @@ VAR fullDateNumbers = ""
 // Day Variables
 
 LIST day = Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-VAR yesterday = Tuesday
-VAR today = Wednesday
-VAR tomorrow = Thursday
+VAR yesterday = Wednesday
+VAR today = Thursday
+VAR tomorrow = Friday
 
 
 // Time Variables
@@ -85,6 +85,7 @@ VAR showBankingButton = false
 VAR showCalendarButton = false
 VAR showSignNameContainer = false
 VAR showCharacterCreationContainer = false
+VAR characterCreationCompleted = false
 
 VAR showRentBill = false
 VAR showElectricBill = false
@@ -109,7 +110,7 @@ VAR paycheck = 300.31
 
 // Conversation Variables
 VAR conversationActive = false
-VAR activeNPCID = 0
+VAR activeNPCID = 99
 LIST conversationParticipants = Player, NPC
 VAR conversationFocus = Player 
 
@@ -131,7 +132,9 @@ VAR randomNumber = 0
 
 ~ fullDate = month + " " + date
 ~ fullDateNumbers = monthNumber + "/" + date
-~ today = Sunday
+~ yesterday = Monday
+~ today = Tuesday
+~ tomorrow = Wednesday
 ~ time = Evening
 ~ location = "New Life"
 ~ background = "black"
@@ -157,8 +160,8 @@ VAR randomNumber = 0
 ~ phoneBillDueDate = "5/25"
 ~ paycheck = 300.31
 
-~ foodIngredientsCount = 2
-~ prepackagedMealCount = 1
+~ foodIngredientsCount = 0
+~ prepackagedMealCount = 0
 
 ~ costPrepackagedMeal = 5.00
 ~ costFoodIngredients = 3.00
@@ -221,6 +224,9 @@ Are you ready to begin?
 
 --------------------------------------------------------------------------------*/
 
+=== function StatHintToggle(state) 
+~ statHints = state
+
 
 === function ResetStats
 ~ energy = 8
@@ -233,7 +239,7 @@ Are you ready to begin?
 ~ date = 11
 ~ fullDate = month + " " + date
 ~ fullDateNumbers = monthNumber + "/" + date
-~ today = Wednesday
+~ today = Tuesday
 ~ time = Evening
 ~ location = "Apartment"
 ~ background = "apartmentMorning"
