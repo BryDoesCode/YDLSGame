@@ -13,7 +13,6 @@ public class ContactsController : MonoBehaviour
     public bool hasContacts;
     public void UpdateRelationship (int score, int indexID)
     {
-        Debug.Log("WHY? Index: " + indexID);
         if (indexID < CharacterCreationController.Characters.Count)
         {
             CharacterCreationController.Characters[indexID].RelationshipScore = score;
@@ -27,7 +26,6 @@ public class ContactsController : MonoBehaviour
 
     public void UpdateKnowingPlayer (int knows, int indexID)
     {
-        Debug.Log("Knowing Player: " + knows);
         if (knows == 1 && indexID < CharacterCreationController.Characters.Count)
         {
             CharacterCreationController.Characters[indexID].KnowsPlayerCharacter = true;

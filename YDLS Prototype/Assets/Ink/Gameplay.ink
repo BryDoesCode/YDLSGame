@@ -144,20 +144,20 @@ VAR randomNumber = 0
 ~ conversationActive = false
 
 ~ money += 10
-{AddTransaction("6/14", "Allowance", 10, money)}
+{AddTransaction("7/3", "Allowance", 10, money)}
 ~ money -= 2.99
-{AddTransaction("6/17", "Store", -2.99, money)}
+{AddTransaction("7/4", "Store", -2.99, money)}
 ~ money -= 4.89
-{AddTransaction("6/19", "Store", -4.89, money)}
+{AddTransaction("7/5", "Store", -4.89, money)}
 ~ earnedInterest = 0.0
 ~ interestRate = 0.01
 
 ~ rentBill = 600.00
-~ rentBillDueDate = "5/31"
+~ rentBillDueDate = "8/31"
 ~ electricBill = 54.23
-~ electricBillDueDate = "5/20"
+~ electricBillDueDate = "8/18"
 ~ phoneBill = 78.25
-~ phoneBillDueDate = "5/25"
+~ phoneBillDueDate = "8/23"
 ~ paycheck = 300.31
 
 ~ foodIngredientsCount = 0

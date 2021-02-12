@@ -250,6 +250,10 @@ Your mother lightly taps the diploma you left on the table yesterday to get your
 -
 + [▼]
 - 
+~showContactsButton = true
+You can view your relationships with people and other information about them in your Contacts app.
++ [▼]
+- 
 Your mother sighs, then turns her attention to the newspaper. 
 + [▼]
 - 
@@ -284,14 +288,9 @@ Your mother sighs, then turns her attention to the newspaper.
 "We can't forget to deposit the graduation money you got from your grandparents. That should be enough to get you started." 
 + [▼]
 - 
-
-~showContactsButton = true
-You can view your relationships with people and other information about them in your Contacts app.
 ~ conversationActive = false
 ~ activeNPCID = 99
 ~ location = "Kitchen"
-+ [▼]
-- 
 You and your mother open the newspaper to the classifieds section while your father continues to quietly flip pancakes. He seems to have a subtle smile on his face. 
 + [▼]
 - 
@@ -439,4 +438,6 @@ Your parents look concerned but understanding when you say you're going to head 
 ~ today = Sunday
 ~ yesterday = Saturday
 ~ tomorrow = Monday
+~ prepackagedMealCount = 1
+~ foodIngredientsCount = 2
 -> morning

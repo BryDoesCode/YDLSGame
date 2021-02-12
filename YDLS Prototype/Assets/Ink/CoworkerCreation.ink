@@ -168,39 +168,35 @@ VAR coworkerKnowsPlayer = false
 
 === coworkerConversation
 ~ conversationActive = true
+~ activeNPCID = 2
 {ChangeConversationFocus(NPC, "{coworkerFirstName}")}
 "Hey {firstName}! It's almost the end of your shift, right?"
 
 + [Respond]
 {ChangeConversationFocus(Player, "{coworkerFirstName}")}
 -
-
 + ["Not soon enough." {statHints: \\n<size={statSize}>(+1 Relationship)</size>}]
-    {ChangeConversationFocus(NPC, "{coworkerFirstName}")}"Yeah, I feel you."
-    \\n{coworkerFirstName} has been added to your contacts.
+    {ChangeConversationFocus(NPC, "{coworkerFirstName}")}<>"Yeah, I feel you."
+    ++ [▼]
+    {coworkerFirstName} has been added to your contacts.
     \\nYour relationship with {coworkerFirstName} increased by 1. 
     ~ coworkerRelationshipWithPlayer += 1
     ~ coworkerKnowsPlayer = true
-
-
 + ["Yeah and yours is just starting. Ha." {statHints: \\n<size={statSize}>(-1 Relationship)</size>}]
-    {ChangeConversationFocus(NPC, "{coworkerFirstName}")}"No need to rub it in."
-    \\n{coworkerFirstName} has been added to your contacts. 
+    {ChangeConversationFocus(NPC, "{coworkerFirstName}")}<>"No need to rub it in."
+    ++ [▼]
+    {coworkerFirstName} has been added to your contacts. 
     \\nYour relationship with {coworkerFirstName} decreased by 1.
     ~ coworkerRelationshipWithPlayer -= 1
     ~ coworkerKnowsPlayer = true
-
-
 + ["Your point?" {statHints: \\n<size={statSize}>(-2 Relationship)</size>}]    
-    {ChangeConversationFocus(NPC, "{coworkerFirstName}")}"Nothing, really. Just making conversation. Jeez."
-    \\n{coworkerFirstName} has been added to your contacts.
+    {ChangeConversationFocus(NPC, "{coworkerFirstName}")}<>"Nothing, really. Just making conversation. Jeez."
+    ++ [▼]
+    {coworkerFirstName} has been added to your contacts.
     \\nYour relationship with {coworkerFirstName} decreased by 2. 
     ~ coworkerRelationshipWithPlayer -= 2
     ~ coworkerKnowsPlayer = true
-
-
 -
-
 + [Respond]
 {ChangeConversationFocus(Player, "{coworkerFirstName}")}
 -
@@ -208,24 +204,26 @@ VAR coworkerKnowsPlayer = false
 + ["I have to get back to work." {statHints: \\n<size={statSize}>(+1 Relationship)</size>}]
     {ChangeConversationFocus(NPC, "{coworkerFirstName}")}
     "Have a good one."
-    \\nYour relationship with {coworkerFirstName} increased by 1. 
+    ++ [▼]
+    Your relationship with {coworkerFirstName} increased by 1. 
     ~ coworkerRelationshipWithPlayer += 1
-
 + ["My break is over. Nice talking to you. {statHints: \\n<size={statSize}>(+2 Relationship)</size>}]
     {ChangeConversationFocus(NPC, "{coworkerFirstName}")}
     "You too! Hang in there."
-    \\nYour relationship with {coworkerFirstName} increased by 2. 
+    ++ [▼]
+    Your relationship with {coworkerFirstName} increased by 2. 
     ~ coworkerRelationshipWithPlayer += 2
     
 + [Just Leave. {statHints: \\n<size={statSize}>(-2 Relationship)</size>}]
     {ChangeConversationFocus(NPC, "{coworkerFirstName}")}
     "Wow. Nice talking to you too, jerk."
-    \\nYour relationship with {coworkerFirstName} decreased by 2. 
+    ++ [▼]
+    Your relationship with {coworkerFirstName} decreased by 2. 
     ~ coworkerRelationshipWithPlayer -= 2
 -
 + [▼]
 - You give {coworkerFirstName} a final glance before leaving the break room.
 ~ conversationActive = false
-
+~ activeNPCID = 99
 
 ->->

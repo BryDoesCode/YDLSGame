@@ -30,9 +30,11 @@ It's morning! Today is {today}, {fullDate}.
 You've started with {energy} Energy today.{borrowedEnergy > 0: You borrowed {borrowedEnergy} yesterday, so you only have {energy - borrowedEnergy} to work with.} Make it count!
 ~ energy -= borrowedEnergy
 ~ borrowedEnergy = 0
-* [Reminisce]
+* (reminisce)[Reminisce]
 It's been over a week since you fully moved into your apartment. Time sure flies. Speaking of which, you should probably check your Calendar to see when your Bills are due. 
++ {reminisce}[▼]
 -
+Guess it's time to get up. 
 + [Wake Up]
 -
 -> MorningWakeUp ->
@@ -53,6 +55,7 @@ What would you like to eat for breakfast?
 \\nYou have {prepackagedMealCount} Prepackaged Meal{prepackagedMealCount!=1:s} and {foodIngredientsCount} Set{foodIngredientsCount!=1:s} of Ingredients.
 + [Choose]
 -
+{prepackagedMealCount == 0 and foodIngredientsCount == 0: Looks like you don't have any food.}
 + {prepackagedMealCount > 0}[Prepacked Meal{statHints: \\n<size={statSize}>(+1 Health)\\n(-1 Prepackaged Meal)</size>}]
 	{~You settled on cereal this morning. It’s quick and it’s easy. | It's a toast kind of morning. {~This time with butter.| A quick swipe of peanut butter makes all the difference. | Some jelly on top adds just enough sweetness.} | Just a container of yogurt should be fine.} 
 	#eatingSFX

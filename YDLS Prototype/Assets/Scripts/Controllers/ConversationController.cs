@@ -23,7 +23,7 @@ public class ConversationController : MonoBehaviour
         if (conversationActive)
         {
             conversationContainer.SetActive(true);
-            if (NPCConversationContainers[indexID] != null)
+            if (indexID < NPCConversationContainers.Count)
             {
                 NPCConversationContainers[indexID].SetActive(true);
             }

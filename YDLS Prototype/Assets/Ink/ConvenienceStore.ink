@@ -53,8 +53,11 @@ You see rows and rows of items and a bored cashier at the register.
     - ingredientsCount < 0:
         ~ purchaseResponse = "You can't buy negative of an item. Try again."
         ~ return false
-    - newspaperCount < 0:
+    - newspaperpurchaseCount < 0:
         ~ purchaseResponse = "You can't buy negative of an item. Try again."
+        ~ return false
+    - newspaperpurchaseCount == 0 and prepackagedCount == 0 and ingredientsCount == 0:
+        ~ purchaseResponse = "You didn't select anything to purchase. Try again."
         ~ return false
 }
 
