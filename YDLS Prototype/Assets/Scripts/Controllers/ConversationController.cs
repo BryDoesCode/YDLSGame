@@ -62,6 +62,6 @@ public class ConversationController : MonoBehaviour
         }
         container.SetActive(false);
         NPCConversationContainers.Add(container);
-        Debug.Log(container.name + " added to NPCConversationContainers List");
+        //Debug.Log(container.name + " added to NPCConversationContainers List");
     }
 }

@@ -18,6 +18,8 @@ public class BackgroundController : MonoBehaviour
     public Color apartmentEveningColor;
     public Sprite apartmentKitchenEvening;
     public Color apartmentKitchenEveningColor;
+    public Sprite apartmentBathroom;
+    public Color apartmentBathroomColor;
 
 
     [Header("Work")]
@@ -77,6 +79,9 @@ public class BackgroundController : MonoBehaviour
             case "apartmentKitchenEvening":
                 backgroundImage.sprite = apartmentKitchenEvening;
                 break;
+            case "apartmentBathroom":
+                backgroundImage.sprite = apartmentBathroom;
+                break;
             case "convenienceStoreEveningExterior":
                 backgroundImage.sprite = convenienceStoreEveningExterior;
                 break;
@@ -132,6 +137,20 @@ public class BackgroundController : MonoBehaviour
                 bankingButton.color = apartmentKitchenMorningColor;
                 calendarButton.color = apartmentKitchenMorningColor;
                 settingsButton.color = apartmentKitchenMorningColor;
+
+                break;
+            case "apartmentBathroom":
+                CurrentColor = apartmentBathroomColor;
+                labelContainerImage.color = apartmentBathroomColor;
+                topBarAccentImage.color = apartmentBathroomColor;
+                mainScrollbarImage.color = apartmentBathroomColor;
+
+                inventoryButton.color = apartmentBathroomColor;
+                contactsButton.color = apartmentBathroomColor;
+                needsButton.color = apartmentBathroomColor;
+                bankingButton.color = apartmentBathroomColor;
+                calendarButton.color = apartmentBathroomColor;
+                settingsButton.color = apartmentBathroomColor;
 
                 break;
             case "retailWorkFront":

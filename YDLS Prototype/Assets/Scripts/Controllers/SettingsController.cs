@@ -44,7 +44,7 @@ public class SettingsController : MonoBehaviour
         if (PlayerPrefs.HasKey("Volume"))
         {
             volumeSlider.value = PlayerPrefs.GetFloat("Volume");
-            volumeLabel.text = volumeSlider.value.ToString();
+            OnVolumeSliderValueChange();
         }
         else
         {
@@ -128,6 +128,7 @@ public class SettingsController : MonoBehaviour
         MusicAudioSource.volume = value / 100f;
 
         PlayerPrefs.SetFloat("Volume", value);
+        Debug.Log("Set Value: " + PlayerPrefs.GetFloat("Volume"));
         PlayerPrefs.Save();
     }
 

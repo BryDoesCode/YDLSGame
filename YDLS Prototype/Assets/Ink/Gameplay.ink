@@ -286,7 +286,7 @@ Are you ready to begin?
     ~ interestCalculation = FLOOR(interestCalculation)
     ~ interestCalculation = interestCalculation / 100
     ~ earnedInterest = interestCalculation
-    {date == 13: {PayInterest()}}
+    {date == 11: {PayInterest()}}
 
 === function PayInterest
     ~ money += earnedInterest
@@ -318,7 +318,7 @@ Are you ready to begin?
     
 
 === function EarnPaycheck
-    {date == 13: 
+    {date == 10: 
             ~ money += paycheck
         {AddTransaction(fullDateNumbers, "Paycheck", paycheck, money)}
 

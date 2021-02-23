@@ -88,9 +88,27 @@ public class CharacterCreationController : MonoBehaviour
 
     public void ContinueToGame()
     {
-        
+        string savedFirstName = "";
+        string savedLastName = "";
+            
+        if(PlayerPrefs.HasKey("firstName"))
+        {
+            savedFirstName = PlayerPrefs.GetString("firstName");
+        }
+        else
+        {
+            savedFirstName = firstName.text;
+        }
+        if (PlayerPrefs.HasKey("lastName"))
+        {
+            savedLastName = PlayerPrefs.GetString("lastName");
+        }
+        else
+        {
+            savedLastName = lastName.text;
+        }
         // Update info in Ink
-        GameController.UpdatePlayerInformation(firstName.text, lastName.text, 
+        GameController.UpdatePlayerInformation(savedFirstName, savedLastName, 
             FaceController.selectedButtonIndex, EarController.selectedButtonIndex, BodyController.selectedButtonIndex, SkinColorController.selectedButtonIndex,
             HairFrontController.selectedButtonIndex, HairBackController.selectedButtonIndex, HairBaseController.selectedButtonIndex, 
             HairSideLeftController.selectedButtonIndex, HairSideRightController.selectedButtonIndex, HairColorController.selectedButtonIndex, 
@@ -98,7 +116,7 @@ public class CharacterCreationController : MonoBehaviour
             EyebrowController.selectedButtonIndex, EyebrowColorController.selectedButtonIndex, NoseController.selectedButtonIndex,
             MouthController.selectedButtonIndex, MouthColorController.selectedButtonIndex, ClothingController.selectedButtonIndex, ClothingColorController.selectedButtonIndex);
 
-        CreatePlayer(firstName.text, lastName.text);
+        CreatePlayer(savedFirstName, savedLastName);
 
         characterCreationContainer.SetActive(false);
         GameController.OnClickContinueButton();
@@ -136,6 +154,8 @@ public class CharacterCreationController : MonoBehaviour
         {
             ShowSignNameContainer(0);
             GameController.OnClickContinueButton();
+            PlayerPrefs.SetString("firstName", firstName.text);
+            PlayerPrefs.SetString("lastName", lastName.text);
         }
 
         if (firstName.text.Length <= 0)

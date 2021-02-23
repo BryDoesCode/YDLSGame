@@ -39,9 +39,13 @@ Guess it's time to get up.
 -
 -> MorningWakeUp ->
 You push yourself up out of bed. -> MorningCondition -> 
+~ background = "apartmentBathroom"
+~ locationColor = "apartmentBathroom"
 You brush your teeth and take your medicine like normal, then turn your attention to food.
 - 
 + [▼]
+~ background = "apartmentMorning"
+~ locationColor = "apartmentMorning"
 You lost 1 Energy from getting ready.
 ~ energy -= 1
 -
@@ -102,9 +106,13 @@ Would you like to take a shower?
 + [▼]
 -
 + [Yes{statHints: \\n<size={statSize}>(-3 Energy / +1 Health / +1 Wellness)</size>}]
+    ~ background = "apartmentBathroom"
+    ~ locationColor = "apartmentBathroom"
     Ah, that was a wonderful shower. You feel a bit more tired, but you’re clean and ready to face the day. It felt great. Now it’s time to get dressed and head out.
     #showerSFX
     ++ [▼]
+    ~ background = "apartmentMorning"
+    ~ locationColor = "apartmentMorning"
     You lost 2 Energy from taking a shower.
     You lost 1 Energy from getting dressed. 
     ~ energy -= 3

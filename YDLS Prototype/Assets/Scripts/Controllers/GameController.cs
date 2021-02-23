@@ -407,6 +407,16 @@ public class GameController : MonoBehaviour
         }
         Debug.Log("Bill Prefs Deleted");
 
+        // Delete Saved Names
+        if (PlayerPrefs.HasKey("firstName"))
+        {
+            PlayerPrefs.DeleteKey("firstName");
+        }
+        if (PlayerPrefs.HasKey("lastName"))
+        {
+            PlayerPrefs.DeleteKey("lastName");
+        }
+
         story.ResetState();
         Debug.Log("Ink Story State Reset");
         if (PlayerPrefs.HasKey("StatToggle")) 
