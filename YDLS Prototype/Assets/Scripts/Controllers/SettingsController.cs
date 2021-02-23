@@ -15,6 +15,7 @@ public class SettingsController : MonoBehaviour
     public GameObject menuContainer;
     public GameObject homeScreenContainer;
     public TextMeshProUGUI narrativeText;
+    public GameObject resolutionContainer;
 
     [Header("Audio Sources")]
     public AudioSource SFXAudioSource;
@@ -24,6 +25,7 @@ public class SettingsController : MonoBehaviour
     public Slider fontSizeSlider;
     public Slider volumeSlider;
     public Toggle statToggle;
+    public TMP_Dropdown resolutionDropdown;
 
     public TextMeshProUGUI fontSizeLabel;
     public TextMeshProUGUI volumeLabel;
@@ -38,6 +40,37 @@ public class SettingsController : MonoBehaviour
         fontSizeSlider.onValueChanged.AddListener(delegate { OnFontSliderValueChange(); });
         volumeSlider.onValueChanged.AddListener(delegate { OnVolumeSliderValueChange(); });
         statToggle.onValueChanged.AddListener(delegate { OnStatToggleValueChange(); });
+
+        resolutionContainer.SetActive(false);
+
+        // Checking for Windows/OSX Builds
+        #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
+        resolutionContainer.SetActive(true);
+        resolutionDropdown.onValueChanged.AddListener(delegate { OnResolutionDropdownValueChange(); });
+
+        int displayHeight = Display.main.systemHeight;
+
+        if (displayHeight < 1920)
+        {
+            resolutionDropdown.options.RemoveAt(3);
+            if(displayHeight < 1280)
+            {
+                resolutionDropdown.options.RemoveAt(2);
+                if(displayHeight < 960)
+                {
+                    resolutionDropdown.options.RemoveAt(1);
+                    resolutionDropdown.value = 0;
+                    OnResolutionDropdownValueChange();
+                }
+            }
+        }
+
+        if (PlayerPrefs.HasKey("Resolution"))
+        {
+            resolutionDropdown.value = PlayerPrefs.GetInt("Resolution");
+            OnResolutionDropdownValueChange();
+        }
+        #endif
 
         inGameMenu = false;        
 
@@ -128,7 +161,7 @@ public class SettingsController : MonoBehaviour
         MusicAudioSource.volume = value / 100f;
 
         PlayerPrefs.SetFloat("Volume", value);
-        Debug.Log("Set Value: " + PlayerPrefs.GetFloat("Volume"));
+        //Debug.Log("Set Value: " + PlayerPrefs.GetFloat("Volume"));
         PlayerPrefs.Save();
     }
 
@@ -162,5 +195,36 @@ public class SettingsController : MonoBehaviour
     public void MuteSFX(bool condition)
     {
         muteSFX = condition;
+    }
+
+    public void OnResolutionDropdownValueChange()
+    {
+        int width = 540;
+        int height = 960;
+        int value = resolutionDropdown.value;
+        switch (value)
+        {
+            case 3:
+                width = 1080;
+                height = 1920;
+                break;
+            case 2:
+                width = 720;
+                height = 1280;
+                break;
+            case 1:
+                break;
+            case 0:
+                width = 432;
+                height = 768;
+                break;
+            default:
+                Debug.Log("Unknown Resolution");
+                break;
+        }
+        Screen.SetResolution(width, height, false);
+        Canvas.ForceUpdateCanvases();
+        PlayerPrefs.SetInt("Resolution", value);
+        PlayerPrefs.Save();
     }
 }
