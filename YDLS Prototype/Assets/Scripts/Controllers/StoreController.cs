@@ -16,13 +16,16 @@ public class StoreController : MonoBehaviour
 
     [Header("Item Info")]
     public TextMeshProUGUI prepackagedPriceLabel;
-    public TMP_InputField prepackagedQuantity;
+    //public TMP_InputField prepackagedQuantity;
+    public TextMeshProUGUI prepackagedQuantity;  
 
     public TextMeshProUGUI ingredientsPriceLabel;
-    public TMP_InputField ingredientsQuantity;
+    //public TMP_InputField ingredientsQuantity;
+    public TextMeshProUGUI ingredientsQuantity;
 
     public TextMeshProUGUI newspaperPriceLabel;
-    public TMP_InputField newspaperQuantity;
+    //public TMP_InputField newspaperQuantity;
+    public TextMeshProUGUI newspaperQuantity;
 
     public TextMeshProUGUI calculatedCosts;
     public TextMeshProUGUI purchaseResponseText;
@@ -31,30 +34,100 @@ public class StoreController : MonoBehaviour
     private float prepackedPrice = 5;
     private float newspaperPrice = 1.79f;
 
+    private int ingredientsQuantityInt;
+    private int prepackagedQuantityInt;
+    private int newspaperQuantityInt;
+
     private bool muteSFX;
 
     void Start()
     {
-        calculatedCosts.text = "Total Cost: $0";
+        calculatedCosts.text = "Total: $0";
         muteSFX = true;
+    }
+
+    public void OnClickIncreaseQuantity(int index)
+    {
+        SFXController.PlayButtonClick();
+        switch (index)
+        {
+            case 0:
+                if ((prepackagedQuantityInt + 1) < 100)
+                {
+                    prepackagedQuantityInt += 1;
+                    prepackagedQuantity.text = prepackagedQuantityInt.ToString();
+                }
+                break;
+            case 1:
+                if ((ingredientsQuantityInt + 1) < 100)
+                {
+                    ingredientsQuantityInt += 1;
+                    ingredientsQuantity.text = ingredientsQuantityInt.ToString();
+                }
+                break;
+            case 2:
+                if ((newspaperQuantityInt + 1) < 100)
+                {
+                    newspaperQuantityInt += 1;
+                    newspaperQuantity.text = newspaperQuantityInt.ToString();
+                }
+                break;
+            default:
+                Debug.Log("Unknown Increase Quantity Index: " + index);
+                break;
+        }
+        CalculateCost();
+    }
+    public void OnClickDecreaseQuantity(int index)
+    {
+        SFXController.PlayButtonClick();
+        switch (index)
+        {
+            case 0:
+                if ((prepackagedQuantityInt - 1) > -1)
+                {
+                    prepackagedQuantityInt -= 1;
+                    prepackagedQuantity.text = prepackagedQuantityInt.ToString();
+                }
+                break;
+            case 1:
+                if ((ingredientsQuantityInt - 1) > -1)
+                {
+                    ingredientsQuantityInt -= 1;
+                    ingredientsQuantity.text = ingredientsQuantityInt.ToString();
+                }
+                break;
+            case 2:
+                if ((newspaperQuantityInt - 1) > -1)
+                {
+                    newspaperQuantityInt -= 1;
+                    newspaperQuantity.text = newspaperQuantityInt.ToString();
+                }
+                break;
+            default:
+                Debug.Log("Unknown Decrease Quantity Index: " + index);
+                break;
+        }
+
+        CalculateCost();
     }
 
     public void PurchaseItems()
     {
-
+        /*
         int ingredientsQuantityInt = Int32.Parse(ingredientsQuantity.text);
 
         int prepackagedQuantityInt = Int32.Parse(prepackagedQuantity.text);
 
         int newspaperQuantityInt = Int32.Parse(newspaperQuantity.text);
-
+        */
 
         if (GameController.CallInkPurchaseFunction(prepackagedQuantityInt, ingredientsQuantityInt, newspaperQuantityInt))
         {
             ingredientsQuantity.text = "0";
             prepackagedQuantity.text = "0";
             newspaperQuantity.text = "0";
-            calculatedCosts.text = "Total Cost: $0";
+            calculatedCosts.text = "Total: $0";
             SFXController.PlayRegisterDing();
         }
 
@@ -62,13 +135,14 @@ public class StoreController : MonoBehaviour
 
     public void CalculateCost()
     {
+        /*
         int ingredientsQuantityInt = Int32.Parse(ingredientsQuantity.text);
         int prepackagedQuantityInt = Int32.Parse(prepackagedQuantity.text);
         int newspaperQuantityInt = Int32.Parse(newspaperQuantity.text);
+        */
 
-        SFXController.PlayButtonClick();
-
-        calculatedCosts.text = "Total Cost: $" + ((ingredientsQuantityInt * ingredientsPrice) + (prepackagedQuantityInt * prepackedPrice) + 
+        //SFXController.PlayButtonClick();
+        calculatedCosts.text = "Total: $" + ((ingredientsQuantityInt * ingredientsPrice) + (prepackagedQuantityInt * prepackedPrice) + 
             (newspaperQuantityInt * newspaperPrice));
     }
 
