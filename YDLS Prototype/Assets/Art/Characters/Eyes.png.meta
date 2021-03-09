@@ -32,6 +32,12 @@ TextureImporter:
   - first:
       213: 5708961479443090928
     second: RightSingleEye
+  - first:
+      213: 4729202038203089788
+    second: Eyes_5
+  - first:
+      213: 8815583357750259187
+    second: Eyes_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -159,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 94
-        y: 163
+        y: 311
         width: 345
         height: 67
       alignment: 0
@@ -180,7 +186,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 564
-        y: 162
+        y: 309
         width: 342
         height: 72
       alignment: 0
@@ -200,8 +206,8 @@ TextureImporter:
       name: Eyes_2
       rect:
         serializedVersion: 2
-        x: 99
-        y: 16
+        x: 100
+        y: 165
         width: 336
         height: 62
       alignment: 0
@@ -222,7 +228,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 575
-        y: 21
+        y: 170
         width: 328
         height: 58
       alignment: 0
@@ -243,7 +249,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 781
-        y: 21
+        y: 170
         width: 122
         height: 58
       alignment: 0
@@ -264,11 +270,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 575
-        y: 21
+        y: 170
         width: 137
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -276,6 +282,48 @@ TextureImporter:
       bones: []
       spriteID: 0fd089ad73e4a3f40800000000000000
       internalID: 5708961479443090928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eyes_5
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 12
+        width: 328
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c730626823081a140800000000000000
+      internalID: 4729202038203089788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eyes_4
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 12
+        width: 310
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fdac8e5b5e375a70800000000000000
+      internalID: 8815583357750259187
       vertices: []
       indices: 
       edges: []

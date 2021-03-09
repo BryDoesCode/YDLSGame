@@ -26,6 +26,12 @@ TextureImporter:
   - first:
       213: -4049710003899747040
     second: Base Bodies_7
+  - first:
+      213: 549934481970669537
+    second: Base Bodies_8
+  - first:
+      213: -6183104740497701049
+    second: Base Bodies_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -312,6 +318,48 @@ TextureImporter:
       bones: []
       spriteID: 025b53e253a8cc7c0800000000000000
       internalID: -4049710003899747040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base Bodies_8
+      rect:
+        serializedVersion: 2
+        x: 4241
+        y: 5329
+        width: 1471
+        height: 1535
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e7a9976f72c1a700800000000000000
+      internalID: 549934481970669537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base Bodies_9
+      rect:
+        serializedVersion: 2
+        x: 6141
+        y: 5326
+        width: 1474
+        height: 1538
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 747c99d7ff2313aa0800000000000000
+      internalID: -6183104740497701049
       vertices: []
       indices: 
       edges: []

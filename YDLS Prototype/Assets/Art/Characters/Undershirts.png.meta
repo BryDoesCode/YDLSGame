@@ -26,6 +26,12 @@ TextureImporter:
   - first:
       213: -601772582519425276
     second: Undershirts_7
+  - first:
+      213: -115926418106907531
+    second: Undershirts_8
+  - first:
+      213: 7247278148098579135
+    second: Undershirts_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -312,6 +318,48 @@ TextureImporter:
       bones: []
       spriteID: 4073c57460316a7f0800000000000000
       internalID: -601772582519425276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Undershirts_8
+      rect:
+        serializedVersion: 2
+        x: 2860
+        y: 3990
+        width: 887
+        height: 1217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57487a47985246ef0800000000000000
+      internalID: -115926418106907531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Undershirts_9
+      rect:
+        serializedVersion: 2
+        x: 4001
+        y: 3998
+        width: 918
+        height: 1217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbaddd5f311839460800000000000000
+      internalID: 7247278148098579135
       vertices: []
       indices: 
       edges: []

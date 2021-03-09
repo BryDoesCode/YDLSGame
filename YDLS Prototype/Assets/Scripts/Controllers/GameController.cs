@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour
 
     //Variables
     List<string> ingredientsCostList;
+    private string narrativeLog = "";
 
     void Start()
     {
@@ -253,8 +254,10 @@ public class GameController : MonoBehaviour
     public void StoryLoop()
     {
         ClearUI();
-
         storyText.text = GetNextStoryBlock();
+        
+        Debug.Log(narrativeLog);
+
         if (story.currentTags.Count > 0)
         {
             foreach (string tag in story.currentTags)
@@ -319,6 +322,8 @@ public class GameController : MonoBehaviour
         if (story.canContinue)
         {
             text = story.ContinueMaximally().Replace("\\n", "\n");
+            narrativeLog += (text + "\n");
+            
         }
 
         return text;
@@ -342,6 +347,7 @@ public class GameController : MonoBehaviour
         SFXController.PlayButtonClick();
 
         story.ChooseChoiceIndex(choice.index);
+        narrativeLog += ("[" + choice.text + "\n" + "]");
         choiceButtonContainer.SetActive(false);
         mainTextContainer.SetActive(true);
         SaveStoryState();

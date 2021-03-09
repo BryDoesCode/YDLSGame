@@ -14,6 +14,12 @@ TextureImporter:
   - first:
       213: 6236675656088661469
     second: Faces_3
+  - first:
+      213: 3010951858511213517
+    second: Faces_4
+  - first:
+      213: -8891590945244770283
+    second: Faces_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -140,10 +146,10 @@ TextureImporter:
       name: Faces_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 861
-        width: 597
-        height: 800
+        x: 36
+        y: 1807
+        width: 610
+        height: 805
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,10 +167,10 @@ TextureImporter:
       name: Faces_1
       rect:
         serializedVersion: 2
-        x: 658
-        y: 852
-        width: 614
-        height: 805
+        x: 701
+        y: 1812
+        width: 595
+        height: 802
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,9 +189,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 26
-        y: 52
-        width: 602
-        height: 780
+        y: 987
+        width: 606
+        height: 796
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +209,10 @@ TextureImporter:
       name: Faces_3
       rect:
         serializedVersion: 2
-        x: 662
-        y: 27
+        x: 699
+        y: 963
         width: 601
-        height: 805
+        height: 820
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,6 +222,48 @@ TextureImporter:
       bones: []
       spriteID: dddad74477f1d8650800000000000000
       internalID: 6236675656088661469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Faces_4
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 173
+        width: 602
+        height: 775
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc3fc5a33cc09c920800000000000000
+      internalID: 3010951858511213517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Faces_5
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 151
+        width: 599
+        height: 796
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5101b9c1529ba9480800000000000000
+      internalID: -8891590945244770283
       vertices: []
       indices: 
       edges: []

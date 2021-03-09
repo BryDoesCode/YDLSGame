@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: 3735192355704160683
     second: Ears_4
+  - first:
+      213: 7876259535697754113
+    second: Ears_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -144,7 +147,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 263
+        y: 453
         width: 124
         height: 227
       alignment: 5
@@ -164,8 +167,8 @@ TextureImporter:
       name: Ears_1
       rect:
         serializedVersion: 2
-        x: 243
-        y: 279
+        x: 234
+        y: 469
         width: 137
         height: 175
       alignment: 5
@@ -186,7 +189,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 20
-        y: 33
+        y: 224
         width: 136
         height: 185
       alignment: 5
@@ -206,8 +209,8 @@ TextureImporter:
       name: Ears_3
       rect:
         serializedVersion: 2
-        x: 239
-        y: 16
+        x: 238
+        y: 210
         width: 124
         height: 202
       alignment: 5
@@ -219,6 +222,48 @@ TextureImporter:
       bones: []
       spriteID: 74bc836356ef66650800000000000000
       internalID: 6225943245541133127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ears_4
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 13
+        width: 132
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1408958a116d330800000000000000
+      internalID: 3735192355704160683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ears_5
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 14
+        width: 131
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1083c0841581e4d60800000000000000
+      internalID: 7876259535697754113
       vertices: []
       indices: 
       edges: []
