@@ -95,9 +95,9 @@ VAR motherKnowsPlayer = true
 
 // Face
 
-~ motherFace = RANDOM(0, 3)
-~ motherEar = RANDOM(0, 3)
-~ motherBody = RANDOM(0, 7) 
+~ motherFace = RANDOM(0, 5)
+~ motherEar = RANDOM(0, 5)
+~ motherBody = RANDOM(0, 9) 
 ~ motherSkinColor = skinColor
 
 
@@ -113,7 +113,7 @@ VAR motherKnowsPlayer = true
 
 // Eyes
 
-~ motherEyes = RANDOM(0, 3)
+~ motherEyes = RANDOM(0, 5)
 ~ motherRightEyeColor = rightEyeColor 
 ~ motherLeftEyeColor = leftEyeColor
 
@@ -124,7 +124,7 @@ VAR motherKnowsPlayer = true
 ~ motherEyebrowColor = motherHairColor
 ~ motherNose = RANDOM(0, 6)
 ~ motherMouth = RANDOM(0, 5)
-~ motherMouthColor = RANDOM(0, 8)
+~ motherMouthColor = RANDOM(0, 41)
 
 
 // Details
@@ -137,7 +137,7 @@ VAR motherKnowsPlayer = true
 // Clothing
 
 ~ motherClothing = 0
-~ motherClothingColor = RANDOM(0, 11)
+~ motherClothingColor = RANDOM(0, 20)
 
 
 // Basic Info
@@ -244,9 +244,9 @@ VAR fatherKnowsPlayer = true
 
 // Face
 
-~ fatherFace = RANDOM(0, 3)
-~ fatherEar = RANDOM(0, 3)
-~ fatherBody = RANDOM(0, 7) 
+~ fatherFace = RANDOM(0, 5)
+~ fatherEar = RANDOM(0, 5)
+~ fatherBody = RANDOM(0, 9) 
 ~ fatherSkinColor = skinColor
 
 
@@ -262,7 +262,7 @@ VAR fatherKnowsPlayer = true
 
 // Eyes
 
-~ fatherEyes = RANDOM(0, 3)
+~ fatherEyes = RANDOM(0, 5)
 ~ fatherRightEyeColor = rightEyeColor 
 ~ fatherLeftEyeColor = leftEyeColor
 
@@ -286,7 +286,7 @@ VAR fatherKnowsPlayer = true
 // Clothing
 
 ~ fatherClothing = 0
-~ fatherClothingColor = RANDOM(0, 11)
+~ fatherClothingColor = RANDOM(0, 20)
 
 
 // Basic Info

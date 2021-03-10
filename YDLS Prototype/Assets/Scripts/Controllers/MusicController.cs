@@ -79,4 +79,9 @@ public class MusicController : MonoBehaviour
             StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "FadeParameter", 6f, 4f));
         }
     }
+
+    public void UpdateVolume(float value)
+    {
+        audioMixer.SetFloat("MusicVolumeParameter", Mathf.Log10(value) * 20);
+    }
 }

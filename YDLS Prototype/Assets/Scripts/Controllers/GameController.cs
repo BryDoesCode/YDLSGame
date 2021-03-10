@@ -515,6 +515,15 @@ public class GameController : MonoBehaviour
             (int)story.variablesState["coworkerEyebrow"], (int)story.variablesState["coworkerEyebrowColor"], (int)story.variablesState["coworkerNose"],
             (int)story.variablesState["coworkerMouth"], (int)story.variablesState["coworkerMouthColor"], (int)story.variablesState["coworkerClothing"], (int)story.variablesState["coworkerClothingColor"],
             (int)story.variablesState["coworkerRelationshipWithPlayer"], (int)story.variablesState["coworkerKnowsPlayer"], (int)story.variablesState["coworkerIndexID"]);
+
+        CharacterCreationController.CreatePerson(story.variablesState["managerFirstName"].ToString(), story.variablesState["managerLastName"].ToString(),
+            (int)story.variablesState["managerFace"], (int)story.variablesState["managerEar"], (int)story.variablesState["managerBody"], (int)story.variablesState["managerSkinColor"],
+            (int)story.variablesState["managerHairFront"], (int)story.variablesState["managerHairBack"], (int)story.variablesState["managerHairBase"],
+            (int)story.variablesState["managerHairSideLeft"], (int)story.variablesState["managerHairSideRight"], (int)story.variablesState["managerHairColor"],
+            (int)story.variablesState["managerEyes"], (int)story.variablesState["managerRightEyeColor"], (int)story.variablesState["managerLeftEyeColor"],
+            (int)story.variablesState["managerEyebrow"], (int)story.variablesState["managerEyebrowColor"], (int)story.variablesState["managerNose"],
+            (int)story.variablesState["managerMouth"], (int)story.variablesState["managerMouthColor"], (int)story.variablesState["managerClothing"], (int)story.variablesState["managerClothingColor"],
+            (int)story.variablesState["managerRelationshipWithPlayer"], (int)story.variablesState["managerKnowsPlayer"], (int)story.variablesState["managerIndexID"]);
     }
 
     public void UpdatePlayerInformation(string firstName, string lastName, int face, int ear, int body, int skinColor,

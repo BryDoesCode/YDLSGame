@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class SettingsController : MonoBehaviour
 {
     [Header("Game Controllers")]
     public SFXController SFXController;
     public GameController GameController;
+    public MusicController MusicController;
 
     [Header("Containers")]
     public GameObject settingsContainer;
@@ -23,12 +25,14 @@ public class SettingsController : MonoBehaviour
     
     [Header("Game Objects")]
     public Slider fontSizeSlider;
-    public Slider volumeSlider;
+    public Slider musicVolumeSlider;
+    public Slider SFXVolumeSlider;
     public Toggle statToggle;
     public TMP_Dropdown resolutionDropdown;
 
     public TextMeshProUGUI fontSizeLabel;
-    public TextMeshProUGUI volumeLabel;
+    public TextMeshProUGUI musicVolumeLabel;
+    public TextMeshProUGUI SFXVolumeLabel;
 
     public bool inGameMenu;
     public bool muteSFX;
@@ -38,7 +42,8 @@ public class SettingsController : MonoBehaviour
         muteSFX = true;
 
         fontSizeSlider.onValueChanged.AddListener(delegate { OnFontSliderValueChange(); });
-        volumeSlider.onValueChanged.AddListener(delegate { OnVolumeSliderValueChange(); });
+        musicVolumeSlider.onValueChanged.AddListener(delegate { OnMusicVolumeSliderValueChange(); });
+        SFXVolumeSlider.onValueChanged.AddListener(delegate { OnSFXVolumeSliderValueChange(); });
         statToggle.onValueChanged.AddListener(delegate { OnStatToggleValueChange(); });
 
         resolutionContainer.SetActive(false);
@@ -74,15 +79,26 @@ public class SettingsController : MonoBehaviour
 
         inGameMenu = false;        
 
-        if (PlayerPrefs.HasKey("Volume"))
+        if (PlayerPrefs.HasKey("MusicVolume"))
         {
-            volumeSlider.value = PlayerPrefs.GetFloat("Volume");
-            OnVolumeSliderValueChange();
+            musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+            OnMusicVolumeSliderValueChange();
         }
         else
         {
-            volumeSlider.value = 50;
+            musicVolumeSlider.value = .5f;
         }
+
+        if(PlayerPrefs.HasKey("SFXVolume"))
+        {
+            SFXVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+            OnSFXVolumeSliderValueChange();
+        }
+        else
+        {
+            SFXVolumeSlider.value = .5f;
+        }
+
         if (PlayerPrefs.HasKey("FontSize"))
         {
             fontSizeSlider.value = PlayerPrefs.GetFloat("FontSize");
@@ -148,20 +164,32 @@ public class SettingsController : MonoBehaviour
 
     }
 
-    private void OnVolumeSliderValueChange()
+    private void OnMusicVolumeSliderValueChange()
     {
         if (!muteSFX)
         {
             SFXController.PlayButtonClick();
         }
 
-        float value = volumeSlider.value;
-        volumeLabel.text = value.ToString();
-        SFXAudioSource.volume = value / 100f;
-        MusicAudioSource.volume = value / 100f;
+        float value = musicVolumeSlider.value;
+        musicVolumeLabel.text = (Math.Round(value, 2) * 100).ToString();
+        MusicController.UpdateVolume(value);
 
-        PlayerPrefs.SetFloat("Volume", value);
-        //Debug.Log("Set Value: " + PlayerPrefs.GetFloat("Volume"));
+        PlayerPrefs.SetFloat("MusicVolume", value);
+        PlayerPrefs.Save();
+    }
+    private void OnSFXVolumeSliderValueChange()
+    {
+        if (!muteSFX)
+        {
+            SFXController.PlayButtonClick();
+        }
+
+        float value = SFXVolumeSlider.value;
+        SFXVolumeLabel.text = (Math.Round(value, 2) * 100).ToString();
+        SFXController.UpdateVolume(value);
+
+        PlayerPrefs.SetFloat("SFXVolume", value);
         PlayerPrefs.Save();
     }
 
@@ -179,6 +207,10 @@ public class SettingsController : MonoBehaviour
             GameController.CallInkStatHintFunction(0);
             PlayerPrefs.SetInt("StatToggle", 0);
             PlayerPrefs.Save();
+        }
+        if (!muteSFX)
+        {
+            SFXController.PlayButtonClick();
         }
     }
 

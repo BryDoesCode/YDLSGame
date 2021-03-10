@@ -48,6 +48,7 @@ That's better. You feel ready to head out into the world. Or, at least, to go to
 {GenerateMother()}
 {GenerateFather()}
 {GenerateCoworker()}
+{GenerateManager()}
 {UpdateNPCs()}
 + [▼]
 -

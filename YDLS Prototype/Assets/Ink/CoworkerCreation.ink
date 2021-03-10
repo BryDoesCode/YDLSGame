@@ -68,11 +68,13 @@ VAR coworkerIndexID = 2
 
 // Name Lists
 
-LIST masculineFirstNames = (John), (Brian), (Josh)
-LIST feminineFirstNames = (Jane), (Karen), (Mary), (Jessica), (Pamela)
-LIST neutralFirstNames = (Cassidy), (Lee), (Riley)
+LIST masculineFirstNames = (John), (Brian), (Josh), (Kayden), (Lucas), (Liam), (Atlas), (Asher), (Ezra), (Noah), (Levi), (Leo), (Xavier), (Nathaniel), (Michael), (George), (Landon), (Ethan), (Zane), (Patrick), (Carl), (Shia)
 
-LIST lastNames = (Smith), (Johnson), (McClellan)
+LIST feminineFirstNames = (Jane), (Karen), (Mary), (Jessica), (Pamela), (Mila), (Aaliyah), (Nova), (Aria), (Amelia), (Eliana), (Mia), (Ivy), (Molly), (Alyssa), (Olivia), (Luna), (Amara), (Sarah), (Hope), (Haylee), (Heidi), (Hannah), (Hera)
+
+LIST neutralFirstNames = (Cassidy), (Lee), (Riley), (Hunter), (Kai), (Logan), (Avery), (Elliot), (Quinn), (Skylar), (Luca), (River), (Remi), (Rowan), (Ava), (Hayden), (Evan), (Reese), (Harper), (Wyatt), (Izzie), (Indigo), (Dana)
+
+LIST lastNames = (Smith), (Johnson), (McClellan), (Maynard), (Williams), (Brown), (Jones), (Miller), (Davis), (Wilson), (Anderson), (Taylor), (Jackson), (Thompson), (Harris), (Clark), (Robinson), (Lewis), (Ramirez), (Wright), (Nguyen), (Green), (Adams), (Baker), (Hall), (Martin), (Perez), (Turner), (Edwards), (Gomez), (Carter), (Mitchell), (Diaz), (Parker), (Evans), (Ortiz), (Morales), (Morris), (Howard), (Kim), (Ward), (Watson), (Brooks), (Gray), (Price), (Myers), (Foster), (Patel), (Sanders), (Castillo), (Long)
 
 // Basic Info
 
@@ -103,10 +105,10 @@ VAR coworkerKnowsPlayer = false
 
 // Face
 
-~ coworkerFace = RANDOM(0, 3)
-~ coworkerEar = RANDOM(0, 3)
-~ coworkerBody = RANDOM(0, 7) 
-~ coworkerSkinColor = RANDOM(0, 3)
+~ coworkerFace = RANDOM(0, 5)
+~ coworkerEar = RANDOM(0, 5)
+~ coworkerBody = RANDOM(0, 9) 
+~ coworkerSkinColor = RANDOM(0, 20)
 
 
 //  Hair
@@ -116,14 +118,14 @@ VAR coworkerKnowsPlayer = false
 ~ coworkerHairBase = RANDOM(0, 4)
 ~ coworkerHairSideLeft = RANDOM(0, 3)
 ~ coworkerHairSideRight = RANDOM(0, 4)
-~ coworkerHairColor = RANDOM(0, 5)
+~ coworkerHairColor = RANDOM(0, 23)
 
 
 // Eyes
 
-~ coworkerEyes = RANDOM(0, 3)
-~ coworkerRightEyeColor = RANDOM(0, 11) 
-~ coworkerLeftEyeColor = RANDOM(0, 11)
+~ coworkerEyes = RANDOM(0, 5)
+~ coworkerRightEyeColor = RANDOM(0, 20) 
+~ coworkerLeftEyeColor = RANDOM(0, 20)
 
 
 // Facial Features
@@ -132,7 +134,7 @@ VAR coworkerKnowsPlayer = false
 ~ coworkerEyebrowColor = coworkerHairColor
 ~ coworkerNose = RANDOM(0, 6)
 ~ coworkerMouth = RANDOM(0, 5)
-~ coworkerMouthColor = RANDOM(0, 8)
+~ coworkerMouthColor = RANDOM(0, 41)
 
 // Facial Hair
 
@@ -150,7 +152,7 @@ VAR coworkerKnowsPlayer = false
 // Clothing
 
 ~ coworkerClothing = 0
-~ coworkerClothingColor = RANDOM(0, 11)
+~ coworkerClothingColor = RANDOM(0, 20)
 
 
 // Basic Info

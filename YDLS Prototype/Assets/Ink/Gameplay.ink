@@ -9,6 +9,8 @@ INCLUDE RetailWork.ink
 INCLUDE ConvenienceStore.ink
 INCLUDE NeedsCheck.ink
 INCLUDE Introduction.ink
+INCLUDE ManagerCreation.ink
+
 
 
 

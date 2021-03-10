@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SFXController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class SFXController : MonoBehaviour
     public AudioClip registerDing;
 
     private AudioSource audioSource;
+    public AudioMixer audioMixer;
 
     void Awake()
     {
@@ -68,8 +70,8 @@ public class SFXController : MonoBehaviour
         audioSource.PlayOneShot(registerDing);
     }
 
-    public void ChangeSFXVolume(int volume)
+    public void UpdateVolume(float value)
     {
-        audioSource.volume = volume;
+        audioMixer.SetFloat("SFXVolumeParameter", Mathf.Log10(value) * 20);
     }
 }
