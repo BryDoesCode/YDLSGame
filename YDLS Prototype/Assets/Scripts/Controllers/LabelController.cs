@@ -7,6 +7,7 @@ using System;
 public class LabelController : MonoBehaviour
 {
     public BackgroundController BackgroundController;
+    public GameController GameController;
 
     //public TextMeshProUGUI timeLabel;
     //public TextMeshProUGUI locationLabel;
@@ -31,7 +32,7 @@ public class LabelController : MonoBehaviour
     public void UpdateWeekday(object day)
     {
         //dayLabel.text = "<b>" + day + "</b>";
-        Debug.Log("Day: " + day);
+        //Debug.Log("Day: " + day);
         this.day = day.ToString();
         UpdateTopText();
     }
@@ -40,7 +41,7 @@ public class LabelController : MonoBehaviour
     {
         //timeLabel.text = "<b>" + time + "</b>";
         this.time = time.ToString();
-        UpdateLabelText(conversationActive);
+        //UpdateLabelText(conversationActive);
     }
 
     public void UpdateLocation(string location, bool conversationActive)
@@ -54,6 +55,8 @@ public class LabelController : MonoBehaviour
     {
         //topText.text = date + " - " + day + " - " + time + " - " + location;
         topText.text = date + " - " + day;
+        GameController.NarrativeLogNewDay();
+        GameController.AddNarrativeLogLabel(date + " - " + day);
     }
 
     private void UpdateLabelText(bool conversationActive)
@@ -63,10 +66,12 @@ public class LabelController : MonoBehaviour
         if (!conversationActive)
         {
             labelText.text = location + " - " + time;
+            GameController.AddNarrativeLogLabel(location + " - " + time);
         }
         else
         {
             labelText.text = location;
+            GameController.AddNarrativeLogLabel(location);
         }
     }
 

@@ -13,6 +13,7 @@ public class MenuController : MonoBehaviour
     public GameObject bankScreen;
     public GameObject calendarScreen;
     public GameObject settingsContainer;
+    public GameObject narrativeLogContainer;
 
     [Header("Game Controllers")]
     public SettingsController SettingsController;
@@ -27,6 +28,8 @@ public class MenuController : MonoBehaviour
         homeScreen.SetActive(true);
         calendarScreen.SetActive(false);
         bankScreen.SetActive(false);
+        narrativeLogContainer.SetActive(false);
+
 
         menuContainer.SetActive(!menuContainer.activeSelf);
 
@@ -122,4 +125,17 @@ public class MenuController : MonoBehaviour
 
         SFXController.PlayButtonClick();
     }
+
+    public void NarrativeLogOnClick()
+    {
+        narrativeLogContainer.SetActive(true);
+        SFXController.PlayButtonClick();
+    }
+
+    public void NarrativeLogExitOnClick()
+    {
+        narrativeLogContainer.SetActive(false);
+        SFXController.PlayButtonClick();
+    }
+
 }

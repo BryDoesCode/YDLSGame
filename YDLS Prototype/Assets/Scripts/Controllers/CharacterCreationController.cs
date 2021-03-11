@@ -10,7 +10,7 @@ public class CharacterCreationController : MonoBehaviour
 
     public TabGroup characterCreationTabGroup;
 
-    public List<Person> Characters;
+    public List<Person> Characters = new List<Person>();
 
     [Header("Selection Boxes")]
     public TMP_Dropdown pronounSelected;
@@ -62,14 +62,11 @@ public class CharacterCreationController : MonoBehaviour
     public CharacterCreationGroup ClothingController;
     public CharacterCreationGroup ClothingColorController;
 
+    public List<CharacterCreationGroup> CharacterCreationGroups;
 
     private void Start()
-    {
-        if (Characters == null)
-        {
-            Characters = new List<Person>();
-        }
-
+    {        
+        Characters = new List<Person>();     
     }
 
 
@@ -203,7 +200,10 @@ public class CharacterCreationController : MonoBehaviour
     }
     public void CreatePlayer(string firstName, string lastName)
     {
-        
+        foreach (CharacterCreationGroup group in CharacterCreationGroups)
+        {
+            group.MuteSFX(true);
+        }
         // Instantiate needed copies. 
         GameObject playerCharacterConversationPortrait = Instantiate(characterAvatar);
         GameObject playerCharacterNeedsPortrait = Instantiate(characterAvatar);
@@ -230,11 +230,18 @@ public class CharacterCreationController : MonoBehaviour
         int eyebrow, int eyebrowColor, int nose, int mouth, int mouthColor, int clothing, int clothingColor, 
         int relationshipScore, int knowsPlayer, int indexID)
     {
-        if (Characters == null)
+        if (Characters.Count < 1)
         {
             Characters = new List<Person>();
         }
-        
+        /* // Debuging out of range errors with character creation. 
+         * Debug.Log("Create Person: " + firstName + " " + lastName + " - " + face + " - " + ear + " - " + body + " - " + skinColor + " - \nHAIR: " + 
+            hairFront + " - " + hairBack + " - " + hairBase + " - " + hairSideLeft + " - " + hairSideRight + " - " + hairColor + " - \nEYES: " + 
+            eyes + " - " + rightEyeColor + " - " + leftEyeColor + " - " + eyebrow + " - " + eyebrowColor + " - \nFEATURES: " + 
+            nose + " - " + mouth + " - " + mouthColor + " - \nCLOTHING:" + clothing + " - " + clothingColor
+              + " - \nOTHER:" + relationshipScore + " - " + knowsPlayer + " - " + indexID);
+        */
+
         // Create Avatar
         FaceController.OnButtonSelected(FaceController.characterCreationButtons[face]);
         EarController.OnButtonSelected(EarController.characterCreationButtons[ear]);
@@ -278,6 +285,5 @@ public class CharacterCreationController : MonoBehaviour
         ContactsController.UpdateNameLabel(firstName, lastName, indexID);
         ContactsController.UpdateRelationship(relationshipScore, indexID);
         ContactsController.UpdatePortrait(characterAdditionalPortrait, indexID);
-
     }
 }

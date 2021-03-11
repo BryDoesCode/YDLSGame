@@ -71,7 +71,7 @@ VAR locationMusic = "startMenu"
 // Difficulty Variable
 
 VAR statHints = true
-
+VAR coloredText = true
 
 // Apartment / Job Choices
 VAR apartmentChoosen = false

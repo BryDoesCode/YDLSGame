@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     public GameObject singleChoiceButtonContainer;
     public ProceduralImage singleChoiceButtonImage;
     public GameObject mainTextContainer;
+    public TextMeshProUGUI narrativeLogText;
 
     private Story story;
 
@@ -236,6 +237,7 @@ public class GameController : MonoBehaviour
         {
             string savedState = PlayerPrefs.GetString("inkSaveState");
             story.state.LoadJson(savedState);
+            
             if ((int)story.variablesState["characterCreationCompleted"] == 1)
             {                
                 CharacterCreationController.LoadPlayerFromInk(story.variablesState["firstName"].ToString(), story.variablesState["lastName"].ToString(),
@@ -318,12 +320,17 @@ public class GameController : MonoBehaviour
 
     string GetNextStoryBlock()
     {
+        PlayerPrefs.SetString("NarrativeLog", narrativeLog);
+        narrativeLogText.text = narrativeLog;
+
         string text = "";
         if (story.canContinue)
         {
             text = story.ContinueMaximally().Replace("\\n", "\n");
-            narrativeLog += (text + "\n");
-            
+            if (text.Length > 0)
+            {
+                narrativeLog += (text + "\n");
+            }
         }
 
         return text;
@@ -347,7 +354,7 @@ public class GameController : MonoBehaviour
         SFXController.PlayButtonClick();
 
         story.ChooseChoiceIndex(choice.index);
-        narrativeLog += ("[" + choice.text + "\n" + "]");
+        narrativeLog += (choice.text.Replace("\\n", "\n") + "\n\n");
         choiceButtonContainer.SetActive(false);
         mainTextContainer.SetActive(true);
         SaveStoryState();
@@ -388,15 +395,21 @@ public class GameController : MonoBehaviour
     {
 
         PlayerPrefs.DeleteKey("inkSaveState");
-        Debug.Log("Ink Save State Deleted");
+        //Debug.Log("Ink Save State Deleted");
+
+        if (PlayerPrefs.HasKey("NarrativeLog"))
+        {
+            PlayerPrefs.DeleteKey("NarrativeLog");            
+        }
+        narrativeLog = "";
 
         for (int i = 0; PlayerPrefs.HasKey("transaction" + i); i++)
         {
             PlayerPrefs.DeleteKey("transaction" + i);
-            Debug.Log("Deleted Transaction Key: " + i);
+            //Debug.Log("Deleted Transaction Key: " + i);
         }
         BankController.ClearTransactions();
-        Debug.Log("Transactions List Cleared");
+        //Debug.Log("Transactions List Cleared");
 
         // Delete Bills
         if (PlayerPrefs.HasKey("rentBill")) 
@@ -516,6 +529,7 @@ public class GameController : MonoBehaviour
             (int)story.variablesState["coworkerMouth"], (int)story.variablesState["coworkerMouthColor"], (int)story.variablesState["coworkerClothing"], (int)story.variablesState["coworkerClothingColor"],
             (int)story.variablesState["coworkerRelationshipWithPlayer"], (int)story.variablesState["coworkerKnowsPlayer"], (int)story.variablesState["coworkerIndexID"]);
 
+        // Manager
         CharacterCreationController.CreatePerson(story.variablesState["managerFirstName"].ToString(), story.variablesState["managerLastName"].ToString(),
             (int)story.variablesState["managerFace"], (int)story.variablesState["managerEar"], (int)story.variablesState["managerBody"], (int)story.variablesState["managerSkinColor"],
             (int)story.variablesState["managerHairFront"], (int)story.variablesState["managerHairBack"], (int)story.variablesState["managerHairBase"],
@@ -596,6 +610,22 @@ public class GameController : MonoBehaviour
 
         // Settings
         SettingsController.UpdateStatToggle((int)story.variablesState["statHints"]);
+
+        if (PlayerPrefs.HasKey("NarrativeLog"))
+        {
+            narrativeLog = PlayerPrefs.GetString("NarrativeLog");
+            narrativeLogText.text = narrativeLog;
+        }
+    }
+
+    public void AddNarrativeLogLabel(string label)
+    {
+        narrativeLog += "<b>" + label + "</b> \n\n";
+    }
+
+    public void NarrativeLogNewDay()
+    {
+        narrativeLog = "";
     }
 
     void EndGame()

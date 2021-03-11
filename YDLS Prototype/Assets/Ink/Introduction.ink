@@ -44,7 +44,7 @@ With no time to waste, you head to your room to grab a coat. Before rushing out 
 -
 ~ showCharacterCreationContainer = false
 ~ characterCreationCompleted = true
-That's better. You feel ready to head out into the world. Or, at least, to go to the local convenience store to grab a newspaper. 
+<>That's better. You feel ready to head out into the world. Or, at least, to go to the local convenience store to grab a newspaper. 
 {GenerateMother()}
 {GenerateFather()}
 {GenerateCoworker()}
@@ -58,20 +58,20 @@ It's a bit old fashion, but you heard the best place to find apartments and jobs
 Just as you're about to leave, you pause for a second to check-in with yourself. When you're excited, it's easy to lose track of how you're actually feeling. 
 + [▼]
 -
-Your current Energy is {energy}. It reprents the general energy you have to accomplish tasks and exist in the world. If you run out of energy you can push yourself further, for a price. It is shown using a green color.
+Your current {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} is {energy}. It reprents the general {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} you have to accomplish tasks and exist in the world. If you run out of {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} you can push yourself further, for a price. It is shown using a {coloredText:<color=\#89a15c>}green color{coloredText:</color>}.
 + [▼]
 -
-Your current Health is {health}. It represents your physical health. The lower your health the sicker you feel. If you run out of Health you pass out. It is shown using a red color. 
+Your current {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} is {health}. It represents your physical {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>}. The lower your {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} the sicker you feel. If you run out of {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} you pass out. It is shown using a {coloredText:<color=\#9f4d3a>}red color{coloredText:</color>}. 
 + [▼]
 -
-Your current Wellness is {wellness}. It represents your mental wellness. The lower your wellness the worse you feel emotionally. If you run out of Wellness you pass out. It is shown using a blue color. 
+Your current {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} is {wellness}. It represents your mental {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>}. The lower your {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} the worse you feel emotionally. If you run out of {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} you pass out. It is shown using a {coloredText:<color=\#7a8f8b>}blue color{coloredText:</color>}. 
 + [▼]
 -
 ~ showNeedsButton = true
 You can check-in with yourself at any time by viewing the Needs app in the menu. Or looking at the numbers in the top-right corner of the screen. 
 + [▼]
 -
-You're not feeling the best, but you should have enough energy to make it to the store and back. 
+You're not feeling the best, but you should have enough {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} to make it to the store and back. 
 + [▼]
 -
 You lock the door behind you and make your way to the local bus stop. 
@@ -101,7 +101,7 @@ You traveled by bus.
 You've arrived at the convenience store.
 + [▼]
 -
-You lost 1 Energy from riding the bus. 
+You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from riding the bus. 
 ~ energy -= 1
 + [Go Inside]
 -
@@ -160,9 +160,9 @@ You traveled by bus.
 By the time you make it home, you're exhausted. The bus was late, and it started to rain while you waited. Because of course it started to rain.
 + [▼]
 -
-You lost 1 Energy from standing while waiting.
-You lost 1 Energy from riding the bus. 
-You lost 1 Health from getting soaked. 
+You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from standing while waiting.
+You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from riding the bus. 
+You lost 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from getting soaked. 
 ~ energy -= 2
 ~ health -= 1
 + [▼]
@@ -170,10 +170,10 @@ You lost 1 Health from getting soaked.
 You managed to protect the newspaper from getting soaked, somehow. You set it down on the kitchen table, next to your diploma. 
 + [▼]
 -
-You only have {energy} Energy left. Looking for your first apartment and first job will have to wait until tomorrow. 
+You only have {energy} {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} left. Looking for your first apartment and first job will have to wait until tomorrow. 
 + [▼]
 -
-You use your remaining Energy to get out of the wet clothes and get ready for bed. 
+You use your remaining {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} to get out of the wet clothes and get ready for bed. 
 + [Sleep]
 -
 -> introductionDayTwo
@@ -181,9 +181,6 @@ You use your remaining Energy to get out of the wet clothes and get ready for be
 === introductionDayTwo ===
 ~ loadingAnimation = "sleep"
 ~ startLoadingAnimation = true
-You slept.
-+ [▼]
--
 {AdvanceWeekday()}
 ~ date ++
 ~ time = Morning
@@ -194,21 +191,24 @@ You slept.
 ~ background = "black"
 ~ locationColor = "black"
 ~ locationMusic = "parentKitchen"
+You slept.
++ [▼]
+-
 ~ startLoadingAnimation = false
 You wake up feeling a little sore, but it could be worse.
 + [▼]
 -
 The light from your window is too strong at the moment, so you keep your eyes squeezed shut.
-You seem to have {energy} Energy today, better make it count. 
+You seem to have {energy} {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} today, better make it count. 
 + [▼]
 -
-Speaking of your energy level, the events of yesterday flood back into your mind just as the smell of pancakes floods into your nose.
+Speaking of your {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} level, the events of yesterday flood back into your mind just as the smell of pancakes floods into your nose.
 + [▼]
 -
 After grabbing your medication, you take an extra minute to brush your teeth before letting your sense of smell guide you to the kitchen.
 + [▼]
 -
-You lose 1 Energy from brushing your teeth. 
+You lose 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from brushing your teeth. 
 ~energy -= 1
 + [▼]
 -
@@ -365,8 +365,8 @@ What would you like to look at first?
 After a bit of reading and some phone calls, you have both an apartment showing, and a job interview scheduled. 
 + [▼]
 -
-You lost 2 Energy from making phone calls.
-You gained 1 Wellness from feeling accomplished. 
+You lost 2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from making phone calls.
+You gained 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from feeling accomplished. 
 ~energy -= 2
 ~wellness += 1
 + [▼]
@@ -415,7 +415,7 @@ You dig into the pancakes, excited for your new future.
 You spend the rest of the morning discussing what your new job might be like, what stuff you'll want to bring with you, and overall, how happy you to be hitting this milestone in your life. 
 + [▼]
 - 
-You lost 1 Energy from having a long conversation.
+You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from having a long conversation.
 ~energy -= 1
 + [▼]
 - 
