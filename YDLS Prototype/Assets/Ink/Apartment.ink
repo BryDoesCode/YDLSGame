@@ -31,7 +31,7 @@ You've started with {energy} {coloredText:<color=\#89a15c>}Energy{coloredText:</
 ~ energy -= borrowedEnergy
 ~ borrowedEnergy = 0
 * (reminisce)[Reminisce]
-It's been over a week since you fully moved into your apartment. Time sure flies. Speaking of which, you should probably check your Calendar to see when your Bills are due. 
+It's been over a week since you fully moved into your apartment. Time sure flies.
 + {reminisce}[▼]
 -
 Guess it's time to get up. 

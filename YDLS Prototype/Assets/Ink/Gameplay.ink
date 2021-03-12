@@ -3,13 +3,16 @@
 INCLUDE CharacterCreation.ink
 INCLUDE CoworkerCreation.ink
 INCLUDE ParentCreation.ink
+INCLUDE ManagerCreation.ink
 INCLUDE Inventory.ink
 INCLUDE Apartment.ink
 INCLUDE RetailWork.ink
 INCLUDE ConvenienceStore.ink
 INCLUDE NeedsCheck.ink
 INCLUDE Introduction.ink
-INCLUDE ManagerCreation.ink
+INCLUDE FirstRetailWorkDay.ink
+
+
 
 
 
@@ -56,7 +59,7 @@ VAR tomorrow = Friday
 
 // Time Variables
 
-LIST timeSlots = Morning, Midday, Evening
+LIST timeSlots = Morning, Midday, Evening, Night
 VAR time = Morning
 
 

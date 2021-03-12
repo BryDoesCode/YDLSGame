@@ -4,9 +4,9 @@
 You traveled by bus.
 + [▼]
 -
-~ location = "Store"
 ~ background = "convenienceStoreEveningExterior"
 ~ time = Evening
+~ location = "Store"
 ~ locationColor = "convenienceStoreEveningExterior"
 ~ locationMusic = "exteriorCity"
 ~ startLoadingAnimation = false

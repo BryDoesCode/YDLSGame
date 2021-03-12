@@ -29313,11 +29313,11 @@ RectTransform:
   - {fileID: 321114757}
   - {fileID: 1734828039}
   m_Father: {fileID: 1903236670}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 290, y: -150}
+  m_AnchoredPosition: {x: 790, y: -150}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &456047429
@@ -45264,13 +45264,17 @@ MonoBehaviour:
   parentKitchen: {fileID: 21300000, guid: eca967cf63e70ac4584e0929cf604990, type: 3}
   parentKitchenColor: {r: 0.1786668, g: 0.3922957, b: 0.6886792, a: 1}
   apartmentMorning: {fileID: 21300000, guid: 055e191037d936c47806581d00b1431d, type: 3}
-  apartmentMorningColor: {r: 0.6745098, g: 0.48627454, b: 0.29411766, a: 1}
+  apartmentMorningColor: {r: 0.6226415, g: 0.432252, b: 0.23789605, a: 1}
   apartmentKitchenMorning: {fileID: 21300000, guid: 99a8f7070278a934c9e22ccb84013e98, type: 3}
   apartmentKitchenMorningColor: {r: 0.57254905, g: 0.41960788, b: 0.2901961, a: 1}
+  apartmentMidday: {fileID: 21300000, guid: 3761fc46006f5d74d8a9ad0431878aa1, type: 3}
+  apartmentMiddayColor: {r: 0.5754717, g: 0.39047924, b: 0.18187076, a: 1}
   apartmentEvening: {fileID: 21300000, guid: 0a2ea1bdda71e24448de855c7d76e25b, type: 3}
   apartmentEveningColor: {r: 0.60784316, g: 0.36078432, b: 0.19607845, a: 1}
   apartmentKitchenEvening: {fileID: 21300000, guid: 99a8f7070278a934c9e22ccb84013e98, type: 3}
-  apartmentKitchenEveningColor: {r: 0.57254905, g: 0.41960788, b: 0.2901961, a: 1}
+  apartmentKitchenEveningColor: {r: 0.5283019, g: 0.3757713, b: 0.246707, a: 1}
+  apartmentNight: {fileID: 21300000, guid: bef60355f3002864caf161e9877ad9ca, type: 3}
+  apartmentNightColor: {r: 0.09411766, g: 0.16078432, b: 0.3254902, a: 1}
   apartmentBathroom: {fileID: 21300000, guid: f7092bb570c29d948aff9b853c3ff1bd, type: 3}
   apartmentBathroomColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
   retailWorkFront: {fileID: 21300000, guid: 17b6fc3bc5a408041a29e34e35918474, type: 3}
@@ -91032,11 +91036,11 @@ RectTransform:
   - {fileID: 431544410}
   - {fileID: 1636439645}
   m_Father: {fileID: 1903236670}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 790, y: -150}
+  m_AnchoredPosition: {x: 290, y: -650}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1487329670
@@ -119360,9 +119364,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2124027515}
   - {fileID: 455729806}
   - {fileID: 1482262979}
-  - {fileID: 2124027515}
   - {fileID: 2083181120}
   - {fileID: 102039783}
   - {fileID: 509747263}
@@ -133451,11 +133455,11 @@ RectTransform:
   - {fileID: 1487460977}
   - {fileID: 669042669}
   m_Father: {fileID: 1903236670}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 290, y: -650}
+  m_AnchoredPosition: {x: 290, y: -150}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &2126202832
