@@ -7,37 +7,37 @@ TextureImporter:
     second: Bangs_4
   - first:
       213: 733898733915345359
-    second: Bangs_5
+    second: Back_4
   - first:
       213: -2168703868030503317
-    second: Bangs_6
+    second: Bangs_8
   - first:
       213: 6005859635856014634
-    second: Bangs_7
+    second: Bangs_8
   - first:
       213: 7347267056966288796
     second: Bangs_8
   - first:
       213: 9024035570521283677
-    second: Bangs_9
+    second: Back_4
   - first:
       213: 8174311974913811209
-    second: Bangs_10
+    second: Back_5
   - first:
       213: -1707382036217202999
-    second: Bangs_11
+    second: Back_6
   - first:
       213: -6677709221490040362
     second: Back_4
   - first:
       213: 8205187247027893896
-    second: Back_5
+    second: Back_8
   - first:
       213: -4957173021654784757
-    second: Back_6
+    second: Back_9
   - first:
       213: 6565980231087231730
-    second: Back_7
+    second: Back_11
   - first:
       213: -1437051318387578177
     second: Back_8
@@ -46,28 +46,67 @@ TextureImporter:
     second: Back_9
   - first:
       213: -8149874679846192740
-    second: Back_10
+    second: Back_13
   - first:
       213: -1195159246291566932
     second: Back_11
   - first:
       213: -8556209692070235293
-    second: Back_12
+    second: Back_14
   - first:
       213: -4588396903950665863
     second: Back_13
   - first:
       213: -4133680671506882176
-    second: Hijab_Front
+    second: Back_13
   - first:
       213: -4003172193012990373
-    second: Back_14
+    second: Side_7
   - first:
       213: -3720093856775779536
-    second: Back_15
+    second: Base_4
   - first:
       213: -6476791920858998414
+    second: Side_7
+  - first:
+      213: -8898632850949262679
+    second: Bangs_4
+  - first:
+      213: 6364091678093918348
+    second: Bangs_5
+  - first:
+      213: 2518750151150175289
+    second: Bangs_6
+  - first:
+      213: -655803583836313030
+    second: Bangs_10
+  - first:
+      213: 5359104321364487471
+    second: Bangs_11
+  - first:
+      213: -8775031421079913160
+    second: Bangs_12
+  - first:
+      213: 5503607536564407985
+    second: Back_7
+  - first:
+      213: -1403159912929024515
+    second: Back_10
+  - first:
+      213: 4828799608185243211
+    second: Back_12
+  - first:
+      213: -539051010307212120
+    second: Back_15
+  - first:
+      213: -4272490834007854907
+    second: Base_5
+  - first:
+      213: 5949098229862657033
     second: Hijab_Back
+  - first:
+      213: 95614669660928295
+    second: Back_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -191,34 +230,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bangs_4
+      name: Bangs_9
       rect:
         serializedVersion: 2
-        x: 375
-        y: 5984
-        width: 632
-        height: 694
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55fd16c8d777d92f0800000000000000
-      internalID: -964483364077576363
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bangs_5
-      rect:
-        serializedVersion: 2
-        x: 1265
-        y: 6228
-        width: 567
-        height: 393
+        x: 1103
+        y: 6195
+        width: 592
+        height: 385
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,13 +251,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bangs_6
+      name: Bangs_7
       rect:
         serializedVersion: 2
-        x: 2057
-        y: 5936
-        width: 826
-        height: 757
+        x: 2861
+        y: 6954
+        width: 820
+        height: 756
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,13 +272,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bangs_7
+      name: Bangs_8
       rect:
         serializedVersion: 2
-        x: 2931
-        y: 6045
-        width: 614
-        height: 602
+        x: 3735
+        y: 7063
+        width: 608
+        height: 601
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,34 +293,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bangs_8
+      name: Back_4
       rect:
         serializedVersion: 2
-        x: 299
-        y: 5177
-        width: 597
-        height: 387
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c95c768f57cb6f560800000000000000
-      internalID: 7347267056966288796
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bangs_9
-      rect:
-        serializedVersion: 2
-        x: 946
-        y: 5185
-        width: 868
-        height: 444
+        x: 704
+        y: 4803
+        width: 1020
+        height: 738
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,13 +314,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bangs_10
+      name: Back_5
       rect:
         serializedVersion: 2
-        x: 1979
-        y: 5211
-        width: 617
-        height: 414
+        x: 1938
+        y: 4746
+        width: 664
+        height: 877
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,13 +335,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bangs_11
+      name: Back_6
       rect:
         serializedVersion: 2
-        x: 2850
-        y: 4782
-        width: 775
-        height: 937
+        x: 2825
+        y: 4736
+        width: 700
+        height: 866
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,34 +356,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Back_4
+      name: Back_8
       rect:
         serializedVersion: 2
-        x: 80
-        y: 3784
-        width: 1026
-        height: 739
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d16cb3d7d20453a0800000000000000
-      internalID: -6677709221490040362
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Back_5
-      rect:
-        serializedVersion: 2
-        x: 1314
-        y: 3727
-        width: 669
-        height: 879
+        x: 832
+        y: 3892
+        width: 860
+        height: 701
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -401,13 +377,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Back_6
+      name: Back_9
       rect:
         serializedVersion: 2
-        x: 2201
-        y: 3717
-        width: 705
-        height: 867
+        x: 2043
+        y: 4154
+        width: 258
+        height: 303
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -422,13 +398,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Back_7
+      name: Back_11
       rect:
         serializedVersion: 2
-        x: 3173
-        y: 3610
-        width: 646
-        height: 979
+        x: 3135
+        y: 3953
+        width: 451
+        height: 423
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -443,55 +419,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Back_8
+      name: Hijab_Front
       rect:
         serializedVersion: 2
-        x: 208
-        y: 2873
-        width: 865
-        height: 703
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fba608390719e0ce0800000000000000
-      internalID: -1437051318387578177
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Back_9
-      rect:
-        serializedVersion: 2
-        x: 1419
-        y: 3135
-        width: 263
-        height: 305
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 59baf4c27d8e16fb0800000000000000
-      internalID: -4656184528865350763
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Back_10
-      rect:
-        serializedVersion: 2
-        x: 2001
-        y: 2882
-        width: 435
-        height: 462
+        x: 1880
+        y: 2567
+        width: 824
+        height: 1168
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -506,34 +440,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Back_11
+      name: Back_14
       rect:
         serializedVersion: 2
-        x: 2511
-        y: 2934
-        width: 457
-        height: 425
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cae74ca6ff0f96fe0800000000000000
-      internalID: -1195159246291566932
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Back_12
-      rect:
-        serializedVersion: 2
-        x: 3206
-        y: 2908
-        width: 542
-        height: 498
+        x: 2960
+        y: 3022
+        width: 453
+        height: 563
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -551,31 +464,10 @@ TextureImporter:
       name: Back_13
       rect:
         serializedVersion: 2
-        x: 213
-        y: 1225
-        width: 902
-        height: 1403
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 977b483835db250c0800000000000000
-      internalID: -4588396903950665863
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hijab_Front
-      rect:
-        serializedVersion: 2
-        x: 1256
-        y: 1548
-        width: 826
-        height: 1169
+        x: 839
+        y: 2246
+        width: 892
+        height: 1397
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -590,13 +482,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Back_14
+      name: Back_16
       rect:
         serializedVersion: 2
-        x: 2335
-        y: 2003
-        width: 460
-        height: 565
+        x: 1964
+        y: 878
+        width: 409
+        height: 1242
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -611,13 +503,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Back_15
+      name: Base_4
       rect:
         serializedVersion: 2
-        x: 3082
-        y: 2094
-        width: 533
-        height: 490
+        x: 2934
+        y: 2375
+        width: 575
+        height: 500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -632,13 +524,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hijab_Back
+      name: Side_7
       rect:
         serializedVersion: 2
-        x: 1270
-        y: 250
-        width: 826
-        height: 1169
+        x: 1285
+        y: 999
+        width: 117
+        height: 953
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -648,6 +540,279 @@ TextureImporter:
       bones: []
       spriteID: 27954114010dd16a0800000000000000
       internalID: -6476791920858998414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bangs_4
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 7168
+        width: 752
+        height: 462
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a23c8ca194b18480800000000000000
+      internalID: -8898632850949262679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bangs_5
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 7003
+        width: 626
+        height: 692
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c80cecea9abc15850800000000000000
+      internalID: 6364091678093918348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bangs_6
+      rect:
+        serializedVersion: 2
+        x: 2069
+        y: 7246
+        width: 561
+        height: 392
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9348445eae564f220800000000000000
+      internalID: 2518750151150175289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bangs_10
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 6203
+        width: 862
+        height: 443
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a22077d1e16e6f0800000000000000
+      internalID: -655803583836313030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bangs_11
+      rect:
+        serializedVersion: 2
+        x: 2783
+        y: 6229
+        width: 611
+        height: 413
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2de03d8cfc5f5a40800000000000000
+      internalID: 5359104321364487471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bangs_12
+      rect:
+        serializedVersion: 2
+        x: 3654
+        y: 5800
+        width: 770
+        height: 935
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83df3a52a63d83680800000000000000
+      internalID: -8775031421079913160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back_7
+      rect:
+        serializedVersion: 2
+        x: 3797
+        y: 4629
+        width: 641
+        height: 978
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1be851825edb06c40800000000000000
+      internalID: 5503607536564407985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back_10
+      rect:
+        serializedVersion: 2
+        x: 2625
+        y: 3901
+        width: 430
+        height: 461
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df52cc25e79f68ce0800000000000000
+      internalID: -1403159912929024515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back_12
+      rect:
+        serializedVersion: 2
+        x: 3830
+        y: 3927
+        width: 536
+        height: 497
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b464d69d8a7530340800000000000000
+      internalID: 4828799608185243211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back_15
+      rect:
+        serializedVersion: 2
+        x: 3706
+        y: 3113
+        width: 527
+        height: 488
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8acb2de46f7e488f0800000000000000
+      internalID: -539051010307212120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base_5
+      rect:
+        serializedVersion: 2
+        x: 3700
+        y: 2417
+        width: 576
+        height: 481
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c079dc193015b4c0800000000000000
+      internalID: -4272490834007854907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hijab_Back
+      rect:
+        serializedVersion: 2
+        x: 2507
+        y: 946
+        width: 824
+        height: 1167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90c6ed402517f8250800000000000000
+      internalID: 5949098229862657033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back_17
+      rect:
+        serializedVersion: 2
+        x: 3426
+        y: 828
+        width: 1041
+        height: 1303
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 729b4741901b35100800000000000000
+      internalID: 95614669660928295
       vertices: []
       indices: 
       edges: []

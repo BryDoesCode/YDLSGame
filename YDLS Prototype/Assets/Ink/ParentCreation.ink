@@ -103,11 +103,11 @@ VAR motherKnowsPlayer = true
 
 //  Hair
 
-~ motherHairFront = RANDOM(0, 12)
-~ motherHairBack = RANDOM(0, 17)
-~ motherHairBase = RANDOM(0, 4)
-~ motherHairSideLeft = RANDOM(0, 3)
-~ motherHairSideRight = RANDOM(0, 4)
+~ motherHairFront = RANDOM(0, 13)
+~ motherHairBack = RANDOM(0, 20)
+~ motherHairBase = RANDOM(0, 6)
+~ motherHairSideLeft = RANDOM(0, 4)
+~ motherHairSideRight = RANDOM(0, 5)
 ~ motherHairColor = hairColor
 
 
@@ -252,11 +252,11 @@ VAR fatherKnowsPlayer = true
 
 //  Hair
 
-~ fatherHairFront = RANDOM(0, 12)
-~ fatherHairBack = RANDOM(0, 17)
-~ fatherHairBase = RANDOM(0, 4)
-~ fatherHairSideLeft = RANDOM(0, 3)
-~ fatherHairSideRight = RANDOM(0, 4)
+~ fatherHairFront = RANDOM(0, 13)
+~ fatherHairBack = RANDOM(0, 20)
+~ fatherHairBase = RANDOM(0, 6)
+~ fatherHairSideLeft = RANDOM(0, 4)
+~ fatherHairSideRight = RANDOM(0, 5)
 ~ fatherHairColor = hairColor
 
 

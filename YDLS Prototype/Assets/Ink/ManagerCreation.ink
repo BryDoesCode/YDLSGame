@@ -104,11 +104,11 @@ VAR managerKnowsPlayer = false
 
 //  Hair
 
-~ managerHairFront = RANDOM(0, 12)
-~ managerHairBack = RANDOM(0, 17)
-~ managerHairBase = RANDOM(0, 4)
-~ managerHairSideLeft = RANDOM(0, 3)
-~ managerHairSideRight = RANDOM(0, 4)
+~ managerHairFront = RANDOM(0, 13)
+~ managerHairBack = RANDOM(0, 20)
+~ managerHairBase = RANDOM(0, 6)
+~ managerHairSideLeft = RANDOM(0, 4)
+~ managerHairSideRight = RANDOM(0, 5)
 ~ managerHairColor = RANDOM(0, 23)
 
 
