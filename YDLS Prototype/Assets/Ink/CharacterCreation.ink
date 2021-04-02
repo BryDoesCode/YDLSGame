@@ -22,6 +22,8 @@ VAR hairSideLeft = 1
 VAR hairSideRight = 1
 VAR hairColor = 1
 
+VAR hijab = 1
+VAR hijabColor = 1
 
 // Eyes 
 
@@ -42,14 +44,18 @@ VAR mouthColor = 1
 // Facial Hair
 
 VAR mustache = 1
+VAR mustacheColor = 1
 VAR beard = 1
+VAR beardColor = 1
 
 
 // Details
 
 VAR piercings = 1
 VAR freckles = 1
+VAR frecklesColor = 1
 VAR moles = 1
+VAR molesColor = 1
 
 
 // Clothing
@@ -80,7 +86,7 @@ VAR objectPronoun = them
 VAR posessivePronoun = theirs
 
 
-=== function CreatePlayerCharacter(firstString, lastString, faceInt, earInt, bodyInt, skinColorInt, hairFrontInt, hairBackInt, hairBaseInt, hairSideLeftInt, hairSideRightInt, hairColorInt, eyesInt, rightEyeColorInt, leftEyeColorInt, eyebrowInt, eyebrowColorInt, noseInt, mouthInt, mouthColorInt, clothingInt, clothingColorInt)
+=== function CreatePlayerCharacter(firstString, lastString, faceInt, earInt, bodyInt, skinColorInt, hairFrontInt, hairBackInt, hairBaseInt, hairSideLeftInt, hairSideRightInt, hairColorInt, hijabInt, hijabColorInt, eyesInt, rightEyeColorInt, leftEyeColorInt, eyebrowInt, eyebrowColorInt, noseInt, mouthInt, mouthColorInt, mustacheInt, mustacheColorInt, beardInt, beardColorInt, piercingsInt, frecklesInt, frecklesColorInt, molesInt, molesColorInt, clothingInt, clothingColorInt)
 
 ~ firstName = firstString
 ~ lastName = lastString
@@ -96,6 +102,9 @@ VAR posessivePronoun = theirs
 ~ hairSideRight = hairSideRightInt
 ~ hairColor = hairColorInt
 
+~ hijab = hijabInt
+~ hijabColor = hijabColorInt
+
 ~ eyes = eyesInt
 ~ rightEyeColor = rightEyeColorInt
 ~ leftEyeColor = leftEyeColorInt
@@ -105,6 +114,17 @@ VAR posessivePronoun = theirs
 ~ nose = noseInt
 ~ mouth = mouthInt
 ~ mouthColor = mouthColorInt
+
+~ mustache = mustacheInt
+~ mustacheColor = mustacheColorInt
+~ beard = beardInt
+~ beardColor = beardColor
+
+~ piercings = piercingsInt
+~ freckles = frecklesInt
+~ frecklesColor = frecklesColorInt
+~ moles = molesInt
+~ molesColor = molesInt
 
 ~ clothing = clothingInt
 ~ clothingColor = clothingColorInt

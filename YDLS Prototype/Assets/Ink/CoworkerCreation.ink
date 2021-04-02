@@ -113,8 +113,8 @@ VAR coworkerKnowsPlayer = false
 
 //  Hair
 
-~ coworkerHairFront = RANDOM(0, 4)
-~ coworkerHairBack = RANDOM(0, 4)
+~ coworkerHairFront = RANDOM(0, 12)
+~ coworkerHairBack = RANDOM(0, 17)
 ~ coworkerHairBase = RANDOM(0, 4)
 ~ coworkerHairSideLeft = RANDOM(0, 3)
 ~ coworkerHairSideRight = RANDOM(0, 4)

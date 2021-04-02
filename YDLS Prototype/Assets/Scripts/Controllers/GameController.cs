@@ -243,9 +243,13 @@ public class GameController : MonoBehaviour
                 CharacterCreationController.LoadPlayerFromInk(story.variablesState["firstName"].ToString(), story.variablesState["lastName"].ToString(),
                 (int)story.variablesState["face"], (int)story.variablesState["ear"], (int)story.variablesState["body"], (int)story.variablesState["skinColor"],
                 (int)story.variablesState["hairFront"], (int)story.variablesState["hairBack"], (int)story.variablesState["hairBase"], (int)story.variablesState["hairSideLeft"], (int)story.variablesState["hairSideRight"], (int)story.variablesState["hairColor"],
+                (int)story.variablesState["hijab"], (int)story.variablesState["hijabColor"],
                 (int)story.variablesState["eyes"], (int)story.variablesState["rightEyeColor"], (int)story.variablesState["leftEyeColor"],
                 (int)story.variablesState["eyebrow"], (int)story.variablesState["eyebrowColor"], (int)story.variablesState["nose"],
-                (int)story.variablesState["mouth"], (int)story.variablesState["mouthColor"], (int)story.variablesState["clothing"], (int)story.variablesState["clothingColor"]);
+                (int)story.variablesState["mouth"], (int)story.variablesState["mouthColor"], 
+                (int)story.variablesState["mustache"], (int)story.variablesState["mustacheColor"], (int)story.variablesState["beard"], (int)story.variablesState["beardColor"],
+                (int)story.variablesState["piercings"], (int)story.variablesState["freckles"], (int)story.variablesState["frecklesColor"], (int)story.variablesState["moles"], (int)story.variablesState["molesColor"],
+                (int)story.variablesState["clothing"], (int)story.variablesState["clothingColor"]);
                 UpdateNPCs();
             }
         }
@@ -542,11 +546,14 @@ public class GameController : MonoBehaviour
 
     public void UpdatePlayerInformation(string firstName, string lastName, int face, int ear, int body, int skinColor,
         int hairFront, int hairBack, int hairBase, int hairSideLeft, int hairSideRight, int hairColor, int eyes, int rightEyeColor, int leftEyeColor,
-        int eyebrow, int eyebrowColor, int nose, int mouth, int mouthColor, int clothing, int clothingColor)
+        int eyebrow, int eyebrowColor, int hijab, int hijabColor, int nose, int mouth, int mouthColor, int mustache, int mustacheColor, 
+        int beard, int beardColor, int piercings, int freckles, int frecklesColor, int moles, int molesColor,
+        int clothing, int clothingColor)
     {
         story.EvaluateFunction("CreatePlayerCharacter", firstName, lastName, face, ear, body, skinColor, 
             hairFront, hairBack, hairBase, hairSideLeft, hairSideRight, hairColor, eyes, rightEyeColor, leftEyeColor,
-            eyebrow, eyebrowColor, nose, mouth, mouthColor, clothing, clothingColor);        
+            eyebrow, eyebrowColor, hijab, hijabColor, nose, mouth, mouthColor, mustache, mustacheColor, beard, beardColor,
+            piercings, freckles, frecklesColor, moles, molesColor, clothing, clothingColor);        
     }
 
     public void UpdateLoadedVariables()

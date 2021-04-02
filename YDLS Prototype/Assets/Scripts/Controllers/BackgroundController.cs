@@ -7,30 +7,47 @@ using UnityEngine.UI.ProceduralImage;
 
 public class BackgroundController : MonoBehaviour
 {
-    [Header("Apartment")]
+    [Header("Parents")]
     public Sprite parentKitchen;
     public Color parentKitchenColor;
+
+    [Header("Apartment Bedroom")]
     public Sprite apartmentMorning;
-    public Color apartmentMorningColor;
-    public Sprite apartmentKitchenMorning;
-    public Color apartmentKitchenMorningColor;
+    public Color apartmentMorningColor;    
     public Sprite apartmentMidday;
     public Color apartmentMiddayColor;
     public Sprite apartmentEvening;
-    public Color apartmentEveningColor;
-    public Sprite apartmentKitchenEvening;
-    public Color apartmentKitchenEveningColor;
+    public Color apartmentEveningColor;    
     public Sprite apartmentNight;
     public Color apartmentNightColor;
+    
+
+    [Header("Apartment Kitchen")]
+    public Sprite apartmentKitchenMorning;
+    public Color apartmentKitchenMorningColor;
+    public Sprite apartmentKitchenMidday;
+    public Color apartmentKitchenMiddayColor;
+    public Sprite apartmentKitchenEvening;
+    public Color apartmentKitchenEveningColor;
+    public Sprite apartmentKitchenNight;
+    public Color apartmentKitchenNightColor;
+
+    [Header("Apartment Bathroom")]
     public Sprite apartmentBathroom;
     public Color apartmentBathroomColor;
-
 
     [Header("Work")]
     public Sprite retailWorkFront;
     public Color retailWorkFrontColor;
     public Sprite retailWorkRegister;
     public Color retailWorkRegisterColor;
+
+    public Sprite officeWorkRoom;
+    public Color officeWorkRoomColor;
+    public Sprite officeWorkComputer;
+    public Color officeWorkComputerColor;
+    public Sprite officeWorkBreakroom;
+    public Color officeWorkBreakroomColor;
 
     [Header("Store")]
     public Sprite convenienceStoreEvening;
@@ -77,11 +94,17 @@ public class BackgroundController : MonoBehaviour
             case "retailWorkRegister":
                 backgroundImage.sprite = retailWorkRegister;
                 break;
+            case "apartmentKitchenMidday":
+                backgroundImage.sprite = apartmentKitchenMidday;
+                break;
             case "apartmentEvening":
                 backgroundImage.sprite = apartmentEvening;
                 break;
             case "apartmentKitchenEvening":
                 backgroundImage.sprite = apartmentKitchenEvening;
+                break;
+            case "apartmentKitchenNight":
+                backgroundImage.sprite = apartmentKitchenNight;
                 break;
             case "apartmentMidday":
                 backgroundImage.sprite = apartmentMidday;
@@ -219,6 +242,20 @@ public class BackgroundController : MonoBehaviour
                 settingsButton.color = apartmentEveningColor;
 
                 break;
+            case "apartmentKitchenMidday":
+                CurrentColor = apartmentKitchenMiddayColor;
+                labelContainerImage.color = apartmentKitchenMiddayColor;
+                topBarAccentImage.color = apartmentKitchenMiddayColor;
+                mainScrollbarImage.color = apartmentKitchenMiddayColor;
+
+                inventoryButton.color = apartmentKitchenMiddayColor;
+                contactsButton.color = apartmentKitchenMiddayColor;
+                needsButton.color = apartmentKitchenMiddayColor;
+                bankingButton.color = apartmentKitchenMiddayColor;
+                calendarButton.color = apartmentKitchenMiddayColor;
+                settingsButton.color = apartmentKitchenMiddayColor;
+
+                break;
             case "apartmentKitchenEvening":
                 CurrentColor = apartmentKitchenEveningColor;
                 labelContainerImage.color = apartmentKitchenEveningColor;
@@ -231,6 +268,20 @@ public class BackgroundController : MonoBehaviour
                 bankingButton.color = apartmentKitchenEveningColor;
                 calendarButton.color = apartmentKitchenEveningColor;
                 settingsButton.color = apartmentKitchenEveningColor;
+
+                break;
+            case "apartmentKitchenNight":
+                CurrentColor = apartmentKitchenNightColor;
+                labelContainerImage.color = apartmentKitchenNightColor;
+                topBarAccentImage.color = apartmentKitchenNightColor;
+                mainScrollbarImage.color = apartmentKitchenNightColor;
+
+                inventoryButton.color = apartmentKitchenNightColor;
+                contactsButton.color = apartmentKitchenNightColor;
+                needsButton.color = apartmentKitchenNightColor;
+                bankingButton.color = apartmentKitchenNightColor;
+                calendarButton.color = apartmentKitchenNightColor;
+                settingsButton.color = apartmentKitchenNightColor;
 
                 break;
             case "apartmentNight":

@@ -47,6 +47,9 @@ public class CharacterCreationController : MonoBehaviour
     public CharacterCreationGroup HairSideRightController;
     public CharacterCreationGroup HairColorController;
 
+    public CharacterCreationArrayGroup HijabController;
+    public CharacterCreationGroup HijabColorController;
+
     public CharacterCreationGroup EyesController;
     public CharacterCreationGroup RightEyeColorController;
     public CharacterCreationGroup LeftEyeColorController;
@@ -108,10 +111,12 @@ public class CharacterCreationController : MonoBehaviour
         GameController.UpdatePlayerInformation(savedFirstName, savedLastName, 
             FaceController.selectedButtonIndex, EarController.selectedButtonIndex, BodyController.selectedButtonIndex, SkinColorController.selectedButtonIndex,
             HairFrontController.selectedButtonIndex, HairBackController.selectedButtonIndex, HairBaseController.selectedButtonIndex, 
-            HairSideLeftController.selectedButtonIndex, HairSideRightController.selectedButtonIndex, HairColorController.selectedButtonIndex, 
+            HairSideLeftController.selectedButtonIndex, HairSideRightController.selectedButtonIndex, HairColorController.selectedButtonIndex,
+            HijabController.selectedButtonIndex, HijabColorController.selectedButtonIndex,
             EyesController.selectedButtonIndex, RightEyeColorController.selectedButtonIndex, LeftEyeColorController.selectedButtonIndex,
             EyebrowController.selectedButtonIndex, EyebrowColorController.selectedButtonIndex, NoseController.selectedButtonIndex,
-            MouthController.selectedButtonIndex, MouthColorController.selectedButtonIndex, ClothingController.selectedButtonIndex, ClothingColorController.selectedButtonIndex);
+            MouthController.selectedButtonIndex, MouthColorController.selectedButtonIndex, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            ClothingController.selectedButtonIndex, ClothingColorController.selectedButtonIndex);
 
         CreatePlayer(savedFirstName, savedLastName);
 
@@ -167,8 +172,10 @@ public class CharacterCreationController : MonoBehaviour
     }
 
     public void LoadPlayerFromInk(string firstName, string lastName, int face, int ear, int body, int skinColor,
-        int hairFront, int hairBack, int hairBase, int hairSideLeft, int hairSideRight, int hairColor, int eyes, int rightEyeColor, int leftEyeColor,
-        int eyebrow, int eyebrowColor, int nose, int mouth, int mouthColor, int clothing, int clothingColor)
+        int hairFront, int hairBack, int hairBase, int hairSideLeft, int hairSideRight, int hairColor, int hijab, int hijabColor, 
+        int eyes, int rightEyeColor, int leftEyeColor, int eyebrow, int eyebrowColor, int nose, int mouth, int mouthColor, 
+        int mustache, int mustacheColor, int beard, int beardColor, int piercings, int freckles, int frecklesColor, int moles, int molesColor,
+        int clothing, int clothingColor)
     {
         // Create Avatar
         FaceController.OnButtonSelected(FaceController.characterCreationButtons[face]);
@@ -182,6 +189,9 @@ public class CharacterCreationController : MonoBehaviour
         HairSideLeftController.OnButtonSelected(HairBackController.characterCreationButtons[hairSideLeft]);
         HairSideRightController.OnButtonSelected(HairBackController.characterCreationButtons[hairSideRight]);
         HairColorController.OnButtonSelected(HairColorController.characterCreationButtons[hairColor]);
+
+        HijabController.OnButtonSelected(HijabController.characterCreationButtons[hijab]);
+        HijabColorController.OnButtonSelected(HijabColorController.characterCreationButtons[hijabColor]);
 
         EyesController.OnButtonSelected(EyesController.characterCreationButtons[eyes]);
         RightEyeColorController.OnButtonSelected(RightEyeColorController.characterCreationButtons[rightEyeColor]);
