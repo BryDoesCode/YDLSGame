@@ -107,6 +107,24 @@ TextureImporter:
   - first:
       213: 95614669660928295
     second: Back_17
+  - first:
+      213: -8849960895937007895
+    second: Bangs_13
+  - first:
+      213: 5619476960325365717
+    second: Side_8
+  - first:
+      213: 7684815840335941304
+    second: Base_6
+  - first:
+      213: 1718126698083564911
+    second: Bangs_14
+  - first:
+      213: -5650831924519456648
+    second: Base_8
+  - first:
+      213: 8029415610035120708
+    second: Back_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -813,6 +831,132 @@ TextureImporter:
       bones: []
       spriteID: 729b4741901b35100800000000000000
       internalID: 95614669660928295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bangs_13
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 6224
+        width: 878
+        height: 622
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eea399447f9e2580800000000000000
+      internalID: -8849960895937007895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side_8
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 5083
+        width: 165
+        height: 534
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5df6faba5846cfd40800000000000000
+      internalID: 5619476960325365717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base_6
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 3906
+        width: 690
+        height: 565
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bec4877a43f5aa60800000000000000
+      internalID: 7684815840335941304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bangs_14
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 1786
+        width: 732
+        height: 585
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6db26ef02308d710800000000000000
+      internalID: 1718126698083564911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Base_8
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 3036
+        width: 578
+        height: 390
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 870b495dd463491b0800000000000000
+      internalID: -5650831924519456648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back_18
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 665
+        width: 652
+        height: 1038
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44aae16a4f63e6f60800000000000000
+      internalID: 8029415610035120708
       vertices: []
       indices: 
       edges: []

@@ -1,0 +1,970 @@
+fileFormatVersion: 2
+guid: a54329ad6bfe34144812dfd2177628bd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5722729366463500746
+    second: glasses_0
+  - first:
+      213: -6746012211549189989
+    second: glasses_1
+  - first:
+      213: 1845647260354490014
+    second: glasses_2
+  - first:
+      213: 8568708290056610311
+    second: glasses_3
+  - first:
+      213: -3192650328594005023
+    second: earring_4
+  - first:
+      213: -3809821907272173864
+    second: glasses_4
+  - first:
+      213: 4631109774911978079
+    second: earring_5
+  - first:
+      213: -4306621611002360904
+    second: earring_3
+  - first:
+      213: 8787858213691795276
+    second: accessories_8
+  - first:
+      213: 8374634645813218413
+    second: earring_0
+  - first:
+      213: 6453671345644522064
+    second: earring_1
+  - first:
+      213: -7846903824779842807
+    second: earring_2
+  - first:
+      213: 9217919592090218922
+    second: accessories_12
+  - first:
+      213: 1667144339711825526
+    second: accessories_13
+  - first:
+      213: -1888823706730873656
+    second: accessories_14
+  - first:
+      213: -5427326770172221800
+    second: accessories_15
+  - first:
+      213: -2980300083451276925
+    second: accessories_16
+  - first:
+      213: 428228433195815462
+    second: accessories_17
+  - first:
+      213: -8259690935027806706
+    second: eyebrow-piercing_0
+  - first:
+      213: -744471428437351786
+    second: accessories_19
+  - first:
+      213: 4682261189476231201
+    second: accessories_20
+  - first:
+      213: -4943817113704077713
+    second: accessories_21
+  - first:
+      213: -5565543516311353034
+    second: accessories_22
+  - first:
+      213: 1256662223938195902
+    second: accessories_23
+  - first:
+      213: 8385937675037791010
+    second: accessories_24
+  - first:
+      213: 3915036831340848104
+    second: mustache_0
+  - first:
+      213: -8680503484813930912
+    second: mustache_1
+  - first:
+      213: 1968333866732957225
+    second: beard_0
+  - first:
+      213: 2901318472208268201
+    second: accessories_28
+  - first:
+      213: 851789957833491484
+    second: accessories_29
+  - first:
+      213: -2426394338051083412
+    second: accessories_30
+  - first:
+      213: -6714618944615508642
+    second: accessories_31
+  - first:
+      213: 7678704493132989572
+    second: accessories_32
+  - first:
+      213: -4035601335026969757
+    second: accessories_33
+  - first:
+      213: 951349682606378945
+    second: accessories_34
+  - first:
+      213: -1166167809097049972
+    second: nose-piercing_1
+  - first:
+      213: -7323474251015577434
+    second: accessories_36
+  - first:
+      213: 2680188770010620503
+    second: accessories_37
+  - first:
+      213: 6395803634435302137
+    second: accessories_38
+  - first:
+      213: -5097434073148874976
+    second: accessories_39
+  - first:
+      213: 953687710701151653
+    second: accessories_40
+  - first:
+      213: 4034183804007466161
+    second: accessories_41
+  - first:
+      213: 4701362527514927773
+    second: nose-piercing_0
+  - first:
+      213: -7616459939708697910
+    second: freckles_0
+  - first:
+      213: -3983868439959911374
+    second: accessories_44
+  - first:
+      213: 6790247989858193064
+    second: accessories_45
+  - first:
+      213: -1325589744670934070
+    second: accessories_46
+  - first:
+      213: 5796558160162501173
+    second: accessories_47
+  - first:
+      213: 4180321500513655215
+    second: accessories_48
+  - first:
+      213: 7222794407998378391
+    second: accessories_49
+  - first:
+      213: -5427833169481606653
+    second: accessories_50
+  - first:
+      213: -4350523515649060059
+    second: accessories_51
+  - first:
+      213: -5942351553878194634
+    second: accessories_52
+  - first:
+      213: 5773554592515187831
+    second: accessories_53
+  - first:
+      213: 1048893660747338939
+    second: accessories_54
+  - first:
+      213: 649801201977116455
+    second: accessories_55
+  - first:
+      213: -5931943944058031882
+    second: accessories_56
+  - first:
+      213: -8804566072937986189
+    second: accessories_57
+  - first:
+      213: -2516300435614830463
+    second: accessories_58
+  - first:
+      213: 8770525871165158491
+    second: accessories_59
+  - first:
+      213: 6508085503018523686
+    second: accessories_60
+  - first:
+      213: 199737857547001221
+    second: accessories_61
+  - first:
+      213: -5095165030582347735
+    second: accessories_62
+  - first:
+      213: -8239326550223024090
+    second: accessories_63
+  - first:
+      213: -5231732117395248348
+    second: accessories_64
+  - first:
+      213: -8791397482794046755
+    second: accessories_65
+  - first:
+      213: 6952782679035700767
+    second: accessories_66
+  - first:
+      213: 2057613294137690764
+    second: accessories_67
+  - first:
+      213: -9100990362917485042
+    second: accessories_68
+  - first:
+      213: 1710414795783585641
+    second: accessories_69
+  - first:
+      213: -8818171758875934456
+    second: accessories_70
+  - first:
+      213: 2822525840760483841
+    second: accessories_71
+  - first:
+      213: 3744348941911378555
+    second: lip-piercing_0
+  - first:
+      213: -8783998585836923381
+    second: accessories_73
+  - first:
+      213: 3554874497051619586
+    second: accessories_74
+  - first:
+      213: -1469714616206613449
+    second: accessories_75
+  - first:
+      213: 7365822719477028604
+    second: lip-piercing_1
+  - first:
+      213: 6807854956364332703
+    second: lip-piercing_2
+  - first:
+      213: 6486568845817383864
+    second: mustache_2
+  - first:
+      213: 3559015429712420379
+    second: accessories_79
+  - first:
+      213: -8599671643575706776
+    second: mustache_3
+  - first:
+      213: -1146804980614460715
+    second: mole_0
+  - first:
+      213: 2029420825190035113
+    second: accessories_82
+  - first:
+      213: 4695936699633666379
+    second: accessories_83
+  - first:
+      213: -2277864575660443430
+    second: accessories_84
+  - first:
+      213: 3829614115977009511
+    second: accessories_85
+  - first:
+      213: -7771476639094938253
+    second: accessories_86
+  - first:
+      213: -2822411124104372746
+    second: accessories_87
+  - first:
+      213: -7036497785043558907
+    second: accessories_88
+  - first:
+      213: -4210266444921197883
+    second: accessories_89
+  - first:
+      213: -3105565304496198975
+    second: accessories_90
+  - first:
+      213: 580380040406542874
+    second: accessories_91
+  - first:
+      213: -3908440963961649444
+    second: beard_1
+  - first:
+      213: 2532766429855629420
+    second: GlassesLenses
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: glasses_0
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 776
+        width: 541
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e2f3626f7c490b0800000000000000
+      internalID: -5722729366463500746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glasses_1
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 763
+        width: 535
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b98c920b2a95162a0800000000000000
+      internalID: -6746012211549189989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glasses_2
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 770
+        width: 574
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e2a16976e0d9910800000000000000
+      internalID: 1845647260354490014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glasses_3
+      rect:
+        serializedVersion: 2
+        x: 2064
+        y: 738
+        width: 544
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702e4c47aca2ae670800000000000000
+      internalID: 8568708290056610311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: earring_4
+      rect:
+        serializedVersion: 2
+        x: 2638
+        y: 863
+        width: 38
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e3ce18017d61b3d0800000000000000
+      internalID: -3192650328594005023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glasses_4
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 763
+        width: 555
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d67a8f192bc02bc0800000000000000
+      internalID: -3809821907272173864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: earring_5
+      rect:
+        serializedVersion: 2
+        x: 2629
+        y: 839
+        width: 41
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ab779bdc1054040800000000000000
+      internalID: 4631109774911978079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: earring_3
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 489
+        width: 61
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb0f26567ecb34c0800000000000000
+      internalID: -4306621611002360904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: earring_0
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 535
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c4063f6dda83470800000000000000
+      internalID: 8374634645813218413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: earring_1
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 538
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a424655eb009950800000000000000
+      internalID: 6453671345644522064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: earring_2
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 515
+        width: 20
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90be759cb823a1390800000000000000
+      internalID: -7846903824779842807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyebrow-piercing_0
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 527
+        width: 66
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e47273bdeaf5d80800000000000000
+      internalID: -8259690935027806706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mustache_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 309
+        width: 302
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e364ae5141055630800000000000000
+      internalID: 3915036831340848104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mustache_1
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 340
+        width: 226
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e00246218a88780800000000000000
+      internalID: -8680503484813930912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beard_0
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 47
+        width: 536
+        height: 369
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e2dfd193de05b10800000000000000
+      internalID: 1968333866732957225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nose-piercing_1
+      rect:
+        serializedVersion: 2
+        x: 3138
+        y: 299
+        width: 45
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8856466e80f0dfe0800000000000000
+      internalID: -1166167809097049972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nose-piercing_0
+      rect:
+        serializedVersion: 2
+        x: 3023
+        y: 311
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d922cd45f489e3140800000000000000
+      internalID: 4701362527514927773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: freckles_0
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 209
+        width: 386
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac28bafd906ec4690800000000000000
+      internalID: -7616459939708697910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lip-piercing_0
+      rect:
+        serializedVersion: 2
+        x: 3028
+        y: 194
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7accb5368996f330800000000000000
+      internalID: 3744348941911378555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lip-piercing_1
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 201
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf61ee0dcb8a83660800000000000000
+      internalID: 7365822719477028604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lip-piercing_2
+      rect:
+        serializedVersion: 2
+        x: 3201
+        y: 200
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e7a74630c5a7e50800000000000000
+      internalID: 6807854956364332703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mustache_2
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 150
+        width: 174
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb8f0a7ffbe40a50800000000000000
+      internalID: 6486568845817383864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mustache_3
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 107
+        width: 300
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86b9ba30434d7a880800000000000000
+      internalID: -8599671643575706776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mole_0
+      rect:
+        serializedVersion: 2
+        x: 2046
+        y: 150
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da83d732fab510f0800000000000000
+      internalID: -1146804980614460715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beard_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 41
+        width: 57
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd60b7da6ad62c9c0800000000000000
+      internalID: -3908440963961649444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlassesLenses
+      rect:
+        serializedVersion: 2
+        x: 2853
+        y: 620
+        width: 418
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c60449616a1362320800000000000000
+      internalID: 2532766429855629420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
