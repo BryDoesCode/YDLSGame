@@ -26,6 +26,10 @@ public class CharacterCreationArrayGroup : MonoBehaviour
         {
             return spritesToSwap.GetEnumerator();
         }
+        public int Count()
+        {
+            return spritesToSwap.Count;
+        }
     }
     public List<spritesToSwapList> spritesToSwapContainer = new List<spritesToSwapList>();
     //public List<List<Image>> spritesToSwap;
