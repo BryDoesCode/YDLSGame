@@ -62,10 +62,33 @@ public class CharacterCreationController : MonoBehaviour
     public CharacterCreationGroup MouthController;
     public CharacterCreationGroup MouthColorController;
 
-    public CharacterCreationGroup ClothingController;
+    public CharacterCreationGroup FrecklesController;
+    public CharacterCreationGroup MolesController;
+
+    public CharacterCreationGroup MustacheController;
+    public CharacterCreationGroup MustacheColorController;
+    public CharacterCreationArrayGroup BeardController;
+    public CharacterCreationGroup BeardColorController;
+
+    public CharacterCreationGroup GlassesController;
+    public CharacterCreationGroup GlassesColorController;
+    public CharacterCreationGroup GlassesLensColorController;
+
+    public CharacterCreationArrayGroup EarringController;
+    public CharacterCreationGroup EarringColorController;
+    public CharacterCreationArrayGroup NosePiercingController;
+    public CharacterCreationGroup NosePiercingColorController;
+    public CharacterCreationArrayGroup EyebrowPiercingController;
+    public CharacterCreationGroup EyebrowPiercingColorController;
+    public CharacterCreationArrayGroup MouthPiercingController;
+    public CharacterCreationGroup MouthPiercingColorController;
+
+    public CharacterCreationArrayGroup ClothingController;
     public CharacterCreationGroup ClothingColorController;
+    public CharacterCreationGroup ClothingExtraColorController;
 
     public List<CharacterCreationGroup> CharacterCreationGroups;
+    public List<CharacterCreationArrayGroup> CharacterCreationArrayGroups;
 
     private void Start()
     {        
@@ -115,8 +138,12 @@ public class CharacterCreationController : MonoBehaviour
             HijabController.selectedButtonIndex, HijabColorController.selectedButtonIndex,
             EyesController.selectedButtonIndex, RightEyeColorController.selectedButtonIndex, LeftEyeColorController.selectedButtonIndex,
             EyebrowController.selectedButtonIndex, EyebrowColorController.selectedButtonIndex, NoseController.selectedButtonIndex,
-            MouthController.selectedButtonIndex, MouthColorController.selectedButtonIndex, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            ClothingController.selectedButtonIndex, ClothingColorController.selectedButtonIndex);
+            MouthController.selectedButtonIndex, MouthColorController.selectedButtonIndex, MustacheController.selectedButtonIndex, MustacheColorController.selectedButtonIndex,
+            BeardController.selectedButtonIndex, BeardColorController.selectedButtonIndex, FrecklesController.selectedButtonIndex, MolesController.selectedButtonIndex,
+            GlassesController.selectedButtonIndex, GlassesColorController.selectedButtonIndex, GlassesLensColorController.selectedButtonIndex,
+            EarringController.selectedButtonIndex, EarringColorController.selectedButtonIndex, NosePiercingController.selectedButtonIndex, NosePiercingColorController.selectedButtonIndex,
+            EyebrowPiercingController.selectedButtonIndex, EyebrowPiercingColorController.selectedButtonIndex, MouthPiercingController.selectedButtonIndex, MouthPiercingColorController.selectedButtonIndex,
+            ClothingController.selectedButtonIndex, ClothingColorController.selectedButtonIndex, ClothingExtraColorController.selectedButtonIndex);
 
         CreatePlayer(savedFirstName, savedLastName);
 
@@ -173,9 +200,10 @@ public class CharacterCreationController : MonoBehaviour
 
     public void LoadPlayerFromInk(string firstName, string lastName, int face, int ear, int body, int skinColor,
         int hairFront, int hairBack, int hairBase, int hairSideLeft, int hairSideRight, int hairColor, int hijab, int hijabColor, 
-        int eyes, int rightEyeColor, int leftEyeColor, int eyebrow, int eyebrowColor, int nose, int mouth, int mouthColor, 
-        int mustache, int mustacheColor, int beard, int beardColor, int piercings, int freckles, int frecklesColor, int moles, int molesColor,
-        int clothing, int clothingColor)
+        int eyes, int rightEyeColor, int leftEyeColor, int eyebrow, int eyebrowColor, int nose, int mouth, int mouthColor,
+        int mustache, int mustacheColor, int beard, int beardColor, int freckles, int moles, int glasses, int glassesColor, int glassesLensColor,
+        int earring, int earringColor, int nosePiercing, int nosePiercingColor, int eyebrowPiercing, int eyebrowPiercingColor,
+        int mouthPiercing, int mouthPiercingColor, int clothing, int clothingColor, int clothingExtraColor)
     {
         // Create Avatar
         FaceController.OnButtonSelected(FaceController.characterCreationButtons[face]);
@@ -203,14 +231,39 @@ public class CharacterCreationController : MonoBehaviour
         MouthController.OnButtonSelected(MouthController.characterCreationButtons[mouth]);
         MouthColorController.OnButtonSelected(MouthColorController.characterCreationButtons[mouthColor]);
 
+        MustacheController.OnButtonSelected(MustacheController.characterCreationButtons[mustache]);
+        MustacheColorController.OnButtonSelected(MustacheColorController.characterCreationButtons[mustacheColor]);
+        BeardController.OnButtonSelected(BeardController.characterCreationButtons[beard]);
+        BeardColorController.OnButtonSelected(BeardColorController.characterCreationButtons[beardColor]);
+
+        FrecklesController.OnButtonSelected(FrecklesController.characterCreationButtons[freckles]);
+        MolesController.OnButtonSelected(MolesController.characterCreationButtons[moles]);
+        GlassesController.OnButtonSelected(GlassesController.characterCreationButtons[glasses]);
+        GlassesColorController.OnButtonSelected(GlassesColorController.characterCreationButtons[glassesColor]);
+        GlassesLensColorController.OnButtonSelected(GlassesLensColorController.characterCreationButtons[glassesLensColor]);
+
+        EarringController.OnButtonSelected(EarringController.characterCreationButtons[earring]);
+        EarringColorController.OnButtonSelected(EarringColorController.characterCreationButtons[earringColor]);
+        NosePiercingController.OnButtonSelected(NosePiercingController.characterCreationButtons[nosePiercing]);
+        NosePiercingColorController.OnButtonSelected(NosePiercingColorController.characterCreationButtons[nosePiercingColor]);
+        EyebrowPiercingController.OnButtonSelected(EyebrowPiercingController.characterCreationButtons[eyebrowPiercing]);
+        EyebrowPiercingColorController.OnButtonSelected(EyebrowPiercingColorController.characterCreationButtons[eyebrowPiercingColor]);
+        MouthPiercingController.OnButtonSelected(MouthPiercingController.characterCreationButtons[mouthPiercing]);
+        MouthPiercingColorController.OnButtonSelected(MouthPiercingColorController.characterCreationButtons[mouthPiercingColor]);
+
         ClothingController.OnButtonSelected(ClothingController.characterCreationButtons[clothing]);
         ClothingColorController.OnButtonSelected(ClothingColorController.characterCreationButtons[clothingColor]);
+        ClothingExtraColorController.OnButtonSelected(ClothingExtraColorController.characterCreationButtons[clothingExtraColor]);
 
         CreatePlayer(firstName, lastName);
     }
     public void CreatePlayer(string firstName, string lastName)
     {
         foreach (CharacterCreationGroup group in CharacterCreationGroups)
+        {
+            group.MuteSFX(true);
+        }
+        foreach (CharacterCreationArrayGroup group in CharacterCreationArrayGroups)
         {
             group.MuteSFX(true);
         }

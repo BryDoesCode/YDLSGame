@@ -248,8 +248,13 @@ public class GameController : MonoBehaviour
                 (int)story.variablesState["eyebrow"], (int)story.variablesState["eyebrowColor"], (int)story.variablesState["nose"],
                 (int)story.variablesState["mouth"], (int)story.variablesState["mouthColor"], 
                 (int)story.variablesState["mustache"], (int)story.variablesState["mustacheColor"], (int)story.variablesState["beard"], (int)story.variablesState["beardColor"],
-                (int)story.variablesState["piercings"], (int)story.variablesState["freckles"], (int)story.variablesState["frecklesColor"], (int)story.variablesState["moles"], (int)story.variablesState["molesColor"],
-                (int)story.variablesState["clothing"], (int)story.variablesState["clothingColor"]);
+                (int)story.variablesState["freckles"], (int)story.variablesState["moles"],
+                (int)story.variablesState["glasses"], (int)story.variablesState["glassesColor"], (int)story.variablesState["glassesLensColor"],
+                (int)story.variablesState["earring"], (int)story.variablesState["earringColor"],
+                (int)story.variablesState["nosePiercing"], (int)story.variablesState["nosePiercingColor"],
+                (int)story.variablesState["eyebrowPiercing"], (int)story.variablesState["eyebrowPiercingColor"],
+                (int)story.variablesState["mouthPiercing"], (int)story.variablesState["mouthPiercingColor"],
+                (int)story.variablesState["clothing"], (int)story.variablesState["clothingColor"], (int)story.variablesState["clothingExtraColor"]);
                 UpdateNPCs();
             }
         }
@@ -547,13 +552,16 @@ public class GameController : MonoBehaviour
     public void UpdatePlayerInformation(string firstName, string lastName, int face, int ear, int body, int skinColor,
         int hairFront, int hairBack, int hairBase, int hairSideLeft, int hairSideRight, int hairColor, int eyes, int rightEyeColor, int leftEyeColor,
         int eyebrow, int eyebrowColor, int hijab, int hijabColor, int nose, int mouth, int mouthColor, int mustache, int mustacheColor, 
-        int beard, int beardColor, int piercings, int freckles, int frecklesColor, int moles, int molesColor,
-        int clothing, int clothingColor)
+        int beard, int beardColor, int freckles, int moles, int glasses, int glassesColor, int glassesLensColor, 
+        int earring, int earringColor, int nosePiercing, int nosePiercingColor, int eyebrowPiercing, int eyebrowPiercingColor,
+        int mouthPiercing, int mouthPiercingColor,
+        int clothing, int clothingColor, int clothingExtraColor)
     {
         story.EvaluateFunction("CreatePlayerCharacter", firstName, lastName, face, ear, body, skinColor, 
             hairFront, hairBack, hairBase, hairSideLeft, hairSideRight, hairColor, eyes, rightEyeColor, leftEyeColor,
             eyebrow, eyebrowColor, hijab, hijabColor, nose, mouth, mouthColor, mustache, mustacheColor, beard, beardColor,
-            piercings, freckles, frecklesColor, moles, molesColor, clothing, clothingColor);        
+            freckles, moles, glasses, glassesColor, glassesLensColor, earring, earringColor, nosePiercing, nosePiercingColor, eyebrowPiercing, eyebrowPiercingColor,
+            mouthPiercing, mouthPiercingColor, clothing, clothingColor, clothingExtraColor);        
     }
 
     public void UpdateLoadedVariables()

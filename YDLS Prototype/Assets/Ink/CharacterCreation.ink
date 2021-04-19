@@ -51,17 +51,27 @@ VAR beardColor = 1
 
 // Details
 
-VAR piercings = 1
 VAR freckles = 1
-VAR frecklesColor = 1
 VAR moles = 1
-VAR molesColor = 1
 
+VAR glasses = 1
+VAR glassesColor = 1
+VAR glassesLensColor = 1
+
+VAR earring = 1
+VAR earringColor = 1
+VAR nosePiercing = 1
+VAR nosePiercingColor = 1
+VAR eyebrowPiercing = 1
+VAR eyebrowPiercingColor = 1
+VAR mouthPiercing = 1
+VAR mouthPiercingColor = 1
 
 // Clothing
 
 VAR clothing = 1
 VAR clothingColor = 1
+VAR clothingExtraColor = 1
 
 /*--------------------------------------------------------------------------------
 
@@ -86,7 +96,7 @@ VAR objectPronoun = them
 VAR posessivePronoun = theirs
 
 
-=== function CreatePlayerCharacter(firstString, lastString, faceInt, earInt, bodyInt, skinColorInt, hairFrontInt, hairBackInt, hairBaseInt, hairSideLeftInt, hairSideRightInt, hairColorInt, hijabInt, hijabColorInt, eyesInt, rightEyeColorInt, leftEyeColorInt, eyebrowInt, eyebrowColorInt, noseInt, mouthInt, mouthColorInt, mustacheInt, mustacheColorInt, beardInt, beardColorInt, piercingsInt, frecklesInt, frecklesColorInt, molesInt, molesColorInt, clothingInt, clothingColorInt)
+=== function CreatePlayerCharacter(firstString, lastString, faceInt, earInt, bodyInt, skinColorInt, hairFrontInt, hairBackInt, hairBaseInt, hairSideLeftInt, hairSideRightInt, hairColorInt, hijabInt, hijabColorInt, eyesInt, rightEyeColorInt, leftEyeColorInt, eyebrowInt, eyebrowColorInt, noseInt, mouthInt, mouthColorInt, mustacheInt, mustacheColorInt, beardInt, beardColorInt, frecklesInt, molesInt, glassesInt, glassesColorInt, glassesLensColorInt, earringInt, earringColorInt, nosePiercingInt, nosePiercingColorInt, eyebrowPiercingInt, eyebrowPiercingColorInt, mouthPiercingInt, mouthPiercingColorInt, clothingInt, clothingColorInt, clothingExtraColorInt)
 
 ~ firstName = firstString
 ~ lastName = lastString
@@ -118,13 +128,24 @@ VAR posessivePronoun = theirs
 ~ mustache = mustacheInt
 ~ mustacheColor = mustacheColorInt
 ~ beard = beardInt
-~ beardColor = beardColor
+~ beardColor = beardColorInt
 
-~ piercings = piercingsInt
 ~ freckles = frecklesInt
-~ frecklesColor = frecklesColorInt
 ~ moles = molesInt
-~ molesColor = molesInt
+
+~ glasses = glassesInt
+~ glassesColor = glassesColorInt
+~ glassesLensColor = glassesLensColorInt
+
+~ earring = earringInt
+~ earringColor = earringColorInt
+~ nosePiercing = nosePiercingInt
+~ nosePiercingColor = nosePiercingColorInt
+~ eyebrowPiercing = eyebrowPiercingInt
+~ eyebrowPiercingColor = eyebrowPiercingColorInt
+~ mouthPiercing = mouthPiercingInt
+~ mouthPiercingColor = mouthPiercingColorInt
 
 ~ clothing = clothingInt
 ~ clothingColor = clothingColorInt
+~ clothingExtraColor = clothingExtraColorInt
