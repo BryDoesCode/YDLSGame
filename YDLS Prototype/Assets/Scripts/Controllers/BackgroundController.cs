@@ -65,12 +65,7 @@ public class BackgroundController : MonoBehaviour
     public ProceduralImage labelContainerImage;
     public ProceduralImage mainScrollbarImage;
     public Image topBarAccentImage;
-    public ProceduralImage inventoryButton;
-    public ProceduralImage contactsButton;
-    public ProceduralImage needsButton;
-    public ProceduralImage bankingButton;
-    public ProceduralImage calendarButton;
-    public ProceduralImage settingsButton;
+
 
     [Header("Placeholder")]
     public Sprite black;
@@ -150,12 +145,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = apartmentMorningColor;
                 mainScrollbarImage.color = apartmentMorningColor;
 
-                inventoryButton.color = apartmentMorningColor;
-                contactsButton.color = apartmentMorningColor;
-                needsButton.color = apartmentMorningColor;
-                bankingButton.color = apartmentMorningColor;
-                calendarButton.color = apartmentMorningColor;
-                settingsButton.color = apartmentMorningColor;
 
                 break;
             case "apartmentKitchenMorning":
@@ -164,12 +153,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = apartmentKitchenMorningColor;
                 mainScrollbarImage.color = apartmentKitchenMorningColor;
 
-                inventoryButton.color = apartmentKitchenMorningColor;
-                contactsButton.color = apartmentKitchenMorningColor;
-                needsButton.color = apartmentKitchenMorningColor;
-                bankingButton.color = apartmentKitchenMorningColor;
-                calendarButton.color = apartmentKitchenMorningColor;
-                settingsButton.color = apartmentKitchenMorningColor;
 
                 break;
             case "apartmentBathroom":
@@ -178,12 +161,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = apartmentBathroomColor;
                 mainScrollbarImage.color = apartmentBathroomColor;
 
-                inventoryButton.color = apartmentBathroomColor;
-                contactsButton.color = apartmentBathroomColor;
-                needsButton.color = apartmentBathroomColor;
-                bankingButton.color = apartmentBathroomColor;
-                calendarButton.color = apartmentBathroomColor;
-                settingsButton.color = apartmentBathroomColor;
 
                 break;
             case "retailWorkFront":
@@ -192,12 +169,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = retailWorkFrontColor;
                 mainScrollbarImage.color = retailWorkFrontColor;
 
-                inventoryButton.color = retailWorkFrontColor;
-                contactsButton.color = retailWorkFrontColor;
-                needsButton.color = retailWorkFrontColor;
-                bankingButton.color = retailWorkFrontColor;
-                calendarButton.color = retailWorkFrontColor;
-                settingsButton.color = retailWorkFrontColor;
 
                 break;
             case "retailWorkRegister":
@@ -206,12 +177,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = retailWorkRegisterColor;
                 mainScrollbarImage.color = retailWorkRegisterColor;
 
-                inventoryButton.color = retailWorkRegisterColor;
-                contactsButton.color = retailWorkRegisterColor;
-                needsButton.color = retailWorkRegisterColor;
-                bankingButton.color = retailWorkRegisterColor;
-                calendarButton.color = retailWorkRegisterColor;
-                settingsButton.color = retailWorkRegisterColor;
 
                 break;
             case "apartmentMidday":
@@ -220,12 +185,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = apartmentMiddayColor;
                 mainScrollbarImage.color = apartmentMiddayColor;
 
-                inventoryButton.color = apartmentMiddayColor;
-                contactsButton.color = apartmentMiddayColor;
-                needsButton.color = apartmentMiddayColor;
-                bankingButton.color = apartmentMiddayColor;
-                calendarButton.color = apartmentMiddayColor;
-                settingsButton.color = apartmentMiddayColor;
 
                 break;
             case "apartmentEvening":
@@ -234,12 +193,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = apartmentEveningColor;
                 mainScrollbarImage.color = apartmentEveningColor;
 
-                inventoryButton.color = apartmentEveningColor;
-                contactsButton.color = apartmentEveningColor;
-                needsButton.color = apartmentEveningColor;
-                bankingButton.color = apartmentEveningColor;
-                calendarButton.color = apartmentEveningColor;
-                settingsButton.color = apartmentEveningColor;
 
                 break;
             case "apartmentKitchenMidday":
@@ -248,12 +201,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = apartmentKitchenMiddayColor;
                 mainScrollbarImage.color = apartmentKitchenMiddayColor;
 
-                inventoryButton.color = apartmentKitchenMiddayColor;
-                contactsButton.color = apartmentKitchenMiddayColor;
-                needsButton.color = apartmentKitchenMiddayColor;
-                bankingButton.color = apartmentKitchenMiddayColor;
-                calendarButton.color = apartmentKitchenMiddayColor;
-                settingsButton.color = apartmentKitchenMiddayColor;
 
                 break;
             case "apartmentKitchenEvening":
@@ -262,12 +209,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = apartmentKitchenEveningColor;
                 mainScrollbarImage.color = apartmentKitchenEveningColor;
 
-                inventoryButton.color = apartmentKitchenEveningColor;
-                contactsButton.color = apartmentKitchenEveningColor;
-                needsButton.color = apartmentKitchenEveningColor;
-                bankingButton.color = apartmentKitchenEveningColor;
-                calendarButton.color = apartmentKitchenEveningColor;
-                settingsButton.color = apartmentKitchenEveningColor;
 
                 break;
             case "apartmentKitchenNight":
@@ -276,12 +217,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = apartmentKitchenNightColor;
                 mainScrollbarImage.color = apartmentKitchenNightColor;
 
-                inventoryButton.color = apartmentKitchenNightColor;
-                contactsButton.color = apartmentKitchenNightColor;
-                needsButton.color = apartmentKitchenNightColor;
-                bankingButton.color = apartmentKitchenNightColor;
-                calendarButton.color = apartmentKitchenNightColor;
-                settingsButton.color = apartmentKitchenNightColor;
 
                 break;
             case "apartmentNight":
@@ -290,12 +225,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = apartmentNightColor;
                 mainScrollbarImage.color = apartmentNightColor;
 
-                inventoryButton.color = apartmentNightColor;
-                contactsButton.color = apartmentNightColor;
-                needsButton.color = apartmentNightColor;
-                bankingButton.color = apartmentNightColor;
-                calendarButton.color = apartmentNightColor;
-                settingsButton.color = apartmentNightColor;
 
                 break;
             case "convenienceStoreEveningExterior":
@@ -304,12 +233,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = convenienceStoreEveningExteriorColor;
                 mainScrollbarImage.color = convenienceStoreEveningExteriorColor;
 
-                inventoryButton.color = convenienceStoreEveningExteriorColor;
-                contactsButton.color = convenienceStoreEveningExteriorColor;
-                needsButton.color = convenienceStoreEveningExteriorColor;
-                bankingButton.color = convenienceStoreEveningExteriorColor;
-                calendarButton.color = convenienceStoreEveningExteriorColor;
-                settingsButton.color = convenienceStoreEveningExteriorColor;
 
                 break;
             case "convenienceStoreEvening":
@@ -318,12 +241,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = convenienceStoreEveningColor;
                 mainScrollbarImage.color = convenienceStoreEveningColor;
 
-                inventoryButton.color = convenienceStoreEveningColor;
-                contactsButton.color = convenienceStoreEveningColor;
-                needsButton.color = convenienceStoreEveningColor;
-                bankingButton.color = convenienceStoreEveningColor;
-                calendarButton.color = convenienceStoreEveningColor;
-                settingsButton.color = convenienceStoreEveningColor;
 
                 break;            
             case "black":
@@ -332,12 +249,6 @@ public class BackgroundController : MonoBehaviour
                 topBarAccentImage.color = blackColor;
                 mainScrollbarImage.color = blackColor;
 
-                inventoryButton.color = blackColor;
-                contactsButton.color = blackColor;
-                needsButton.color = blackColor;
-                bankingButton.color = blackColor;
-                calendarButton.color = blackColor;
-                settingsButton.color = blackColor;
 
                 break;
             case "parentKitchen":
@@ -345,13 +256,6 @@ public class BackgroundController : MonoBehaviour
                 labelContainerImage.color = parentKitchenColor;
                 topBarAccentImage.color = parentKitchenColor;
                 mainScrollbarImage.color = parentKitchenColor;
-
-                inventoryButton.color = parentKitchenColor;
-                contactsButton.color = parentKitchenColor;
-                needsButton.color = parentKitchenColor;
-                bankingButton.color = parentKitchenColor;
-                calendarButton.color = parentKitchenColor;
-                settingsButton.color = parentKitchenColor;
 
                 break;
             default:

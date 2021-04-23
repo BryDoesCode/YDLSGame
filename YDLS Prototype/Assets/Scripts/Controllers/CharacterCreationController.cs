@@ -288,9 +288,12 @@ public class CharacterCreationController : MonoBehaviour
 
     }
 
-    public void CreatePerson(string firstName, string lastName, int face, int ear, int body, int skinColor, 
-        int hairFront, int hairBack, int hairBase, int hairSideLeft, int hairSideRight, int hairColor, int eyes, int rightEyeColor, int leftEyeColor, 
-        int eyebrow, int eyebrowColor, int nose, int mouth, int mouthColor, int clothing, int clothingColor, 
+    public void CreatePerson(string firstName, string lastName, int face, int ear, int body, int skinColor,
+        int hairFront, int hairBack, int hairBase, int hairSideLeft, int hairSideRight, int hairColor, int hijab, int hijabColor,
+        int eyes, int rightEyeColor, int leftEyeColor, int eyebrow, int eyebrowColor, int nose, int mouth, int mouthColor,
+        int mustache, int mustacheColor, int beard, int beardColor, int freckles, int moles, int glasses, int glassesColor, int glassesLensColor,
+        int earring, int earringColor, int nosePiercing, int nosePiercingColor, int eyebrowPiercing, int eyebrowPiercingColor,
+        int mouthPiercing, int mouthPiercingColor, int clothing, int clothingColor, int clothingExtraColor,
         int relationshipScore, int knowsPlayer, int indexID)
     {
         if (Characters.Count < 1)
@@ -313,10 +316,13 @@ public class CharacterCreationController : MonoBehaviour
 
         HairFrontController.OnButtonSelected(HairFrontController.characterCreationButtons[hairFront]);
         HairBackController.OnButtonSelected(HairBackController.characterCreationButtons[hairBack]);
-        HairColorController.OnButtonSelected(HairColorController.characterCreationButtons[hairColor]);
         HairBaseController.OnButtonSelected(HairBackController.characterCreationButtons[hairBase]);
         HairSideLeftController.OnButtonSelected(HairBackController.characterCreationButtons[hairSideLeft]);
         HairSideRightController.OnButtonSelected(HairBackController.characterCreationButtons[hairSideRight]);
+        HairColorController.OnButtonSelected(HairColorController.characterCreationButtons[hairColor]);
+
+        HijabController.OnButtonSelected(HijabController.characterCreationButtons[hijab]);
+        HijabColorController.OnButtonSelected(HijabColorController.characterCreationButtons[hijabColor]);
 
         EyesController.OnButtonSelected(EyesController.characterCreationButtons[eyes]);
         RightEyeColorController.OnButtonSelected(RightEyeColorController.characterCreationButtons[rightEyeColor]);
@@ -328,14 +334,36 @@ public class CharacterCreationController : MonoBehaviour
         MouthController.OnButtonSelected(MouthController.characterCreationButtons[mouth]);
         MouthColorController.OnButtonSelected(MouthColorController.characterCreationButtons[mouthColor]);
 
+        MustacheController.OnButtonSelected(MustacheController.characterCreationButtons[mustache]);
+        MustacheColorController.OnButtonSelected(MustacheColorController.characterCreationButtons[mustacheColor]);
+        BeardController.OnButtonSelected(BeardController.characterCreationButtons[beard]);
+        BeardColorController.OnButtonSelected(BeardColorController.characterCreationButtons[beardColor]);
+
+        FrecklesController.OnButtonSelected(FrecklesController.characterCreationButtons[freckles]);
+        MolesController.OnButtonSelected(MolesController.characterCreationButtons[moles]);
+        GlassesController.OnButtonSelected(GlassesController.characterCreationButtons[glasses]);
+        GlassesColorController.OnButtonSelected(GlassesColorController.characterCreationButtons[glassesColor]);
+        GlassesLensColorController.OnButtonSelected(GlassesLensColorController.characterCreationButtons[glassesLensColor]);
+
+        EarringController.OnButtonSelected(EarringController.characterCreationButtons[earring]);
+        EarringColorController.OnButtonSelected(EarringColorController.characterCreationButtons[earringColor]);
+        NosePiercingController.OnButtonSelected(NosePiercingController.characterCreationButtons[nosePiercing]);
+        NosePiercingColorController.OnButtonSelected(NosePiercingColorController.characterCreationButtons[nosePiercingColor]);
+        EyebrowPiercingController.OnButtonSelected(EyebrowPiercingController.characterCreationButtons[eyebrowPiercing]);
+        EyebrowPiercingColorController.OnButtonSelected(EyebrowPiercingColorController.characterCreationButtons[eyebrowPiercingColor]);
+        MouthPiercingController.OnButtonSelected(MouthPiercingController.characterCreationButtons[mouthPiercing]);
+        MouthPiercingColorController.OnButtonSelected(MouthPiercingColorController.characterCreationButtons[mouthPiercingColor]);
+
         ClothingController.OnButtonSelected(ClothingController.characterCreationButtons[clothing]);
         ClothingColorController.OnButtonSelected(ClothingColorController.characterCreationButtons[clothingColor]);
+        ClothingExtraColorController.OnButtonSelected(ClothingExtraColorController.characterCreationButtons[clothingExtraColor]);
 
         // Instantiate needed copies. 
         GameObject characterConversationPortrait = Instantiate(characterAvatar);
         characterConversationPortrait.transform.localRotation = new Quaternion(0f, 180f, 0f, 0f);       
         GameObject characterAdditionalPortrait = Instantiate(characterAvatar);
 
+        // Only used for checking if a player is known, and could be cleaned up a lot to not need all the appearance info. Out of scope for this version of the project. 
         Characters.Add(new Person(firstName, lastName, face, skinColor, hairFront, hairBack, hairColor, eyes, rightEyeColor, 
             characterConversationPortrait, characterAdditionalPortrait, relationshipScore, knowsPlayer, indexID));
         

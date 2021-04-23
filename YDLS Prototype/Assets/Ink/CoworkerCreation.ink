@@ -22,7 +22,8 @@ VAR coworkerHairSideLeft = 1
 VAR coworkerHairSideRight = 1
 VAR coworkerHairColor = 1
 
-
+VAR coworkerHijab = 0
+VAR coworkerHijabColor = 1
 
 // Eyes
 
@@ -42,21 +43,38 @@ VAR coworkerMouthColor = 1
 
 // Facial Hair
 
-VAR coworkerMustache = 1
-VAR coworkerBeard = 1
-
+VAR coworkerMustache = 0
+VAR coworkerBeard = 0
+VAR coworkerMustacheColor = 1
+VAR coworkerBeardColor = 1
 
 // Details
 
-VAR coworkerPiercings = 1
 VAR coworkerFreckles = 1
 VAR coworkerMoles = 1
 
+VAR coworkerGlasses = 1
+VAR coworkerGlassesColor = 1
+VAR coworkerGlassesLensColor = 1
+
+VAR coworkerEarring = 0
+VAR coworkerEarringColor = 0
+VAR coworkerNosePiercing = 0
+VAR coworkerNosePiercingColor = 0
+VAR coworkerEyebrowPiercing = 0
+VAR coworkerEyebrowPiercingColor = 0
+VAR coworkerMouthPiercing = 0
+VAR coworkerMouthPiercingColor = 0
 
 // Clothing
 
 VAR coworkerClothing = 1
 VAR coworkerClothingColor = 1
+VAR coworkerClothingExtraColor = 1
+
+// Additional Logic
+VAR coworkerHasFacialHair = 0
+VAR coworkerHasPiercings = 0
 
 /*--------------------------------------------------------------------------------
 
@@ -75,6 +93,12 @@ LIST feminineFirstNames = (Jane), (Karen), (Mary), (Jessica), (Pamela), (Mila), 
 LIST neutralFirstNames = (Cassidy), (Lee), (Riley), (Hunter), (Kai), (Logan), (Avery), (Elliot), (Quinn), (Skylar), (Luca), (River), (Remi), (Rowan), (Ava), (Hayden), (Evan), (Reese), (Harper), (Wyatt), (Izzie), (Indigo), (Dana)
 
 LIST lastNames = (Smith), (Johnson), (McClellan), (Maynard), (Williams), (Brown), (Jones), (Miller), (Davis), (Wilson), (Anderson), (Taylor), (Jackson), (Thompson), (Harris), (Clark), (Robinson), (Lewis), (Ramirez), (Wright), (Nguyen), (Green), (Adams), (Baker), (Hall), (Martin), (Perez), (Turner), (Edwards), (Gomez), (Carter), (Mitchell), (Diaz), (Parker), (Evans), (Ortiz), (Morales), (Morris), (Howard), (Kim), (Ward), (Watson), (Brooks), (Gray), (Price), (Myers), (Foster), (Patel), (Sanders), (Castillo), (Long)
+
+
+// Clothing Lists
+LIST officeClothing = (one=1), (eight=8), (nine=9), (ten=10), (eleven=11), (twelve=12), (thirteen=13)
+
+LIST hijabSafeClothing = (one=1), (two=2), (five=5), (eight=8), (nine=9), (ten=10), (eleven=11)
 
 // Basic Info
 
@@ -113,11 +137,11 @@ VAR coworkerKnowsPlayer = false
 
 //  Hair
 
-~ coworkerHairFront = RANDOM(0, 13)
-~ coworkerHairBack = RANDOM(0, 20)
-~ coworkerHairBase = RANDOM(0, 6)
-~ coworkerHairSideLeft = RANDOM(0, 4)
-~ coworkerHairSideRight = RANDOM(0, 5)
+~ coworkerHairFront = RANDOM(0, 15)
+~ coworkerHairBack = RANDOM(0, 21)
+~ coworkerHairBase = RANDOM(0, 8)
+~ coworkerHairSideLeft = RANDOM(0, 5)
+~ coworkerHairSideRight = RANDOM(0, 6)
 ~ coworkerHairColor = RANDOM(0, 23)
 
 
@@ -138,22 +162,44 @@ VAR coworkerKnowsPlayer = false
 
 // Facial Hair
 
-~ coworkerMustache = RANDOM(0, 5)
-~ coworkerBeard = RANDOM(0, 5)
+~ coworkerHasFacialHair = RANDOM(0, 5)
 
+{
+- coworkerHasFacialHair == 0:
+    ~ coworkerMustache = RANDOM(0, 4)
+    ~ coworkerBeard = RANDOM(0, 3)
+    ~ coworkerMustacheColor = RANDOM(0, 23)
+    ~ coworkerBeardColor = RANDOM(0, 23)
+}
 
 // Details
 
-~ coworkerPiercings = RANDOM(0, 5)
 ~ coworkerFreckles = RANDOM(0, 5)
-~ coworkerMoles = RANDOM(0, 5)
+~ coworkerMoles = RANDOM(0, 8)
 
+~ coworkerGlasses = RANDOM(0, 5)
+~ coworkerGlassesColor = RANDOM(0, 20)
+~ coworkerGlassesLensColor = RANDOM(0, 20)
+
+~ coworkerHasPiercings = RANDOM(0, 2)
+
+{
+- coworkerHasPiercings == 0:
+    ~ coworkerEarring = RANDOM(0, 7)
+    ~ coworkerEarringColor = RANDOM(0, 20)
+    ~ coworkerNosePiercing = RANDOM(0, 3)
+    ~ coworkerNosePiercingColor = RANDOM(0, 20)
+    ~ coworkerEyebrowPiercing = RANDOM(0, 6)
+    ~ coworkerEyebrowPiercingColor = RANDOM(0, 20)
+    ~ coworkerMouthPiercing = RANDOM(0, 6)
+    ~ coworkerMouthPiercingColor = RANDOM(0, 20)
+}
 
 // Clothing
 
-~ coworkerClothing = 0
+~ coworkerClothing = LIST_VALUE(LIST_RANDOM(officeClothing))
 ~ coworkerClothingColor = RANDOM(0, 20)
-
+~ coworkerClothingExtraColor = RANDOM(0,20)
 
 // Basic Info
 

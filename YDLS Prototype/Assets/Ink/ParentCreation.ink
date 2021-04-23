@@ -5,6 +5,7 @@
 	
 --------------------------------------------------------------------------------*/
 
+
 // Face
 
 VAR motherFace = 1
@@ -22,6 +23,8 @@ VAR motherHairSideLeft = 1
 VAR motherHairSideRight = 1
 VAR motherHairColor = 1
 
+VAR motherHijab = 0
+VAR motherHijabColor = 1
 
 // Eyes
 
@@ -41,21 +44,40 @@ VAR motherMouthColor = 1
 
 // Facial Hair
 
-VAR motherMustache = 1
-VAR motherBeard = 1
-
+VAR motherMustache = 0
+VAR motherBeard = 0
+VAR motherMustacheColor = 0
+VAR motherBeardColor = 0
 
 // Details
 
-VAR motherPiercings = 1
 VAR motherFreckles = 1
 VAR motherMoles = 1
+
+VAR motherGlasses = 1
+VAR motherGlassesColor = 1
+VAR motherGlassesLensColor = 1
+
+VAR motherEarring = 0
+VAR motherEarringColor = 0
+VAR motherNosePiercing = 0
+VAR motherNosePiercingColor = 0
+VAR motherEyebrowPiercing = 0
+VAR motherEyebrowPiercingColor = 0
+VAR motherMouthPiercing = 0
+VAR motherMouthPiercingColor = 0
 
 
 // Clothing
 
 VAR motherClothing = 1
 VAR motherClothingColor = 1
+VAR motherClothingExtraColor = 1
+
+
+// Additional Logic
+VAR motherHasFacialHair = 0
+VAR motherHasPiercings = 0
 
 /*--------------------------------------------------------------------------------
 
@@ -84,7 +106,6 @@ VAR motherRelationshipWithPlayer = 0
 VAR motherKnowsPlayer = true
 
 
-
 /*--------------------------------------------------------------------------------
 
 	Character Generation
@@ -110,6 +131,9 @@ VAR motherKnowsPlayer = true
 ~ motherHairSideRight = RANDOM(0, 5)
 ~ motherHairColor = hairColor
 
+~ motherHijab = hijab
+~ motherHijabColor = RANDOM(0, 20)
+
 
 // Eyes
 
@@ -118,27 +142,57 @@ VAR motherKnowsPlayer = true
 ~ motherLeftEyeColor = leftEyeColor
 
 
-// Facial Features
+// Facial Hair
 
-~ motherEyebrow = RANDOM(0, 4)
-~ motherEyebrowColor = motherHairColor
-~ motherNose = RANDOM(0, 6)
-~ motherMouth = RANDOM(0, 5)
-~ motherMouthColor = RANDOM(0, 41)
+~ motherHasFacialHair = RANDOM(0, 3)
 
+{
+- motherHasFacialHair == 0:
+    ~ motherMustache = RANDOM(0, 4)
+    ~ motherBeard = RANDOM(0, 3)
+    ~ motherMustacheColor = RANDOM(0, 23)
+    ~ motherBeardColor = RANDOM(0, 23)
+}
 
 // Details
 
-~ motherPiercings = RANDOM(0, 5)
 ~ motherFreckles = RANDOM(0, 5)
-~ motherMoles = RANDOM(0, 5)
+~ motherMoles = RANDOM(0, 8)
+
+~ motherGlasses = RANDOM(0, 5)
+~ motherGlassesColor = RANDOM(0, 20)
+~ motherGlassesLensColor = RANDOM(0, 20)
+
+~ motherHasPiercings = RANDOM(0, 3)
+
+{
+- motherHasPiercings == 0:
+    ~ motherEarring = RANDOM(0, 7)
+    ~ motherEarringColor = RANDOM(0, 20)
+    ~ motherNosePiercing = RANDOM(0, 3)
+    ~ motherNosePiercingColor = RANDOM(0, 20)
+    ~ motherEyebrowPiercing = RANDOM(0, 6)
+    ~ motherEyebrowPiercingColor = RANDOM(0, 20)
+    ~ motherMouthPiercing = RANDOM(0, 6)
+    ~ motherMouthPiercingColor = RANDOM(0, 20)
+}
 
 
 // Clothing
 
-~ motherClothing = 0
+~ motherClothing = RANDOM(0, 13)
 ~ motherClothingColor = RANDOM(0, 20)
+~ motherClothingExtraColor = RANDOM(0, 20)
 
+// Hijab Check
+{
+- motherHijab: 
+    ~ motherHairFront = hairFront
+    ~ motherHairBack = hairBack
+    ~ motherHairSideLeft = hairSideLeft
+    ~ motherHairSideRight = hairSideRight
+    ~ motherClothing = LIST_VALUE(LIST_RANDOM(hijabSafeClothing))
+}
 
 // Basic Info
 
@@ -153,6 +207,7 @@ VAR motherKnowsPlayer = true
 	Father Appearance
 	
 --------------------------------------------------------------------------------*/
+
 
 // Face
 
@@ -171,6 +226,8 @@ VAR fatherHairSideLeft = 1
 VAR fatherHairSideRight = 1
 VAR fatherHairColor = 1
 
+VAR fatherHijab = 0
+VAR fatherHijabColor = 1
 
 // Eyes
 
@@ -192,19 +249,36 @@ VAR fatherMouthColor = 1
 
 VAR fatherMustache = 1
 VAR fatherBeard = 1
-
+VAR fatherMustacheColor = 1
+VAR fatherBeardColor = 1
 
 // Details
 
-VAR fatherPiercings = 1
 VAR fatherFreckles = 1
 VAR fatherMoles = 1
 
+VAR fatherGlasses = 1
+VAR fatherGlassesColor = 1
+VAR fatherGlassesLensColor = 1
+
+VAR fatherEarring = 0
+VAR fatherEarringColor = 0
+VAR fatherNosePiercing = 0
+VAR fatherNosePiercingColor = 0
+VAR fatherEyebrowPiercing = 0
+VAR fatherEyebrowPiercingColor = 0
+VAR fatherMouthPiercing = 0
+VAR fatherMouthPiercingColor = 0
 
 // Clothing
 
 VAR fatherClothing = 1
 VAR fatherClothingColor = 1
+VAR fatherClothingExtraColor = 1
+
+// Additional Logic
+VAR fatherHasFacialHair = 0
+VAR fatherHasPiercings = 0
 
 /*--------------------------------------------------------------------------------
 
@@ -275,18 +349,47 @@ VAR fatherKnowsPlayer = true
 ~ fatherMouth = RANDOM(0, 5)
 ~ fatherMouthColor = fatherSkinColor
 
+// Facial Hair
+
+~ fatherHasFacialHair = RANDOM(0, 1)
+
+{
+- fatherHasFacialHair == 0:
+    ~ fatherMustache = RANDOM(0, 4)
+    ~ fatherBeard = RANDOM(0, 3)
+    ~ fatherMustacheColor = RANDOM(0, 23)
+    ~ fatherBeardColor = RANDOM(0, 23)
+}
 
 // Details
 
-~ fatherPiercings = RANDOM(0, 5)
 ~ fatherFreckles = RANDOM(0, 5)
-~ fatherMoles = RANDOM(0, 5)
+~ fatherMoles = RANDOM(0, 8)
+
+~ fatherGlasses = RANDOM(0, 5)
+~ fatherGlassesColor = RANDOM(0, 20)
+~ fatherGlassesLensColor = RANDOM(0, 20)
+
+~ fatherHasPiercings = RANDOM(0, 3)
+
+{
+- fatherHasPiercings == 0:
+    ~ fatherEarring = RANDOM(0, 7)
+    ~ fatherEarringColor = RANDOM(0, 20)
+    ~ fatherNosePiercing = RANDOM(0, 3)
+    ~ fatherNosePiercingColor = RANDOM(0, 20)
+    ~ fatherEyebrowPiercing = RANDOM(0, 6)
+    ~ fatherEyebrowPiercingColor = RANDOM(0, 20)
+    ~ fatherMouthPiercing = RANDOM(0, 6)
+    ~ fatherMouthPiercingColor = RANDOM(0, 20)
+}
 
 
 // Clothing
 
-~ fatherClothing = 0
+~ fatherClothing = RANDOM(0, 13)
 ~ fatherClothingColor = RANDOM(0, 20)
+~ fatherClothingExtraColor = RANDOM(0, 20)
 
 
 // Basic Info

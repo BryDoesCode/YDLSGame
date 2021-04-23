@@ -592,7 +592,7 @@ This is it. Your first night in your new apartment. If you weren't exhausted, yo
 ~ locationColor = "apartmentMorning"
 ~ locationMusic = "apartmentMorning"
 ~ money += 50
-{AddTransaction("8/2", "Gift", 50, money)}
+{AddTransaction("8/2", "Gift", 150, money)}
 ~ loadingAnimation = "sleep"
 ~ startLoadingAnimation = true
 You slept.

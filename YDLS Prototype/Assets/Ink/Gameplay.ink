@@ -162,7 +162,7 @@ VAR randomNumber = 0
 ~ electricBill = 54.23
 ~ electricBillDueDate = "8/18"
 ~ phoneBill = 78.25
-~ phoneBillDueDate = "8/23"
+~ phoneBillDueDate = "8/06"
 ~ paycheck = 300.31
 
 ~ foodIngredientsCount = 0
