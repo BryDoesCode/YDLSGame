@@ -48,6 +48,7 @@ public class BackgroundController : MonoBehaviour
     public Color officeWorkComputerColor;
     public Sprite officeWorkBreakroom;
     public Color officeWorkBreakroomColor;
+    public Sprite officeWorkExterior;
 
     [Header("Store")]
     public Sprite convenienceStoreEvening;
@@ -127,6 +128,15 @@ public class BackgroundController : MonoBehaviour
                 break;
             case "parentKitchen":
                 backgroundImage.sprite = parentKitchen;
+                break;
+            case "officeWorkRoom;":
+                backgroundImage.sprite = officeWorkRoom;
+                break;
+            case "officeWorkComputer;;":
+                backgroundImage.sprite = officeWorkComputer;
+                break;
+            case "officeWorkBreakroom;;":
+                backgroundImage.sprite = officeWorkBreakroom;
                 break;
             default:
                 Debug.Log("Unknown Image: " + imageName);

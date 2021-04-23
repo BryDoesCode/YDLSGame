@@ -10,7 +10,7 @@ INCLUDE RetailWork.ink
 INCLUDE ConvenienceStore.ink
 INCLUDE NeedsCheck.ink
 INCLUDE Introduction.ink
-INCLUDE FirstRetailWorkDay.ink
+INCLUDE FirstWorkDay.ink
 
 
 
@@ -125,7 +125,7 @@ VAR startLoadingAnimation = false
 
 // Other Variables
 VAR randomNumber = 0
-
+VAR freeLunch = false
 
 // Initialize Unity UI
 

@@ -30,10 +30,6 @@ It's morning! Today is {today}, {fullDate}.
 You've started with {energy} {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} today.{borrowedEnergy > 0: You borrowed {borrowedEnergy} yesterday, so you only have {energy - borrowedEnergy} to work with.} Make it count!
 ~ energy -= borrowedEnergy
 ~ borrowedEnergy = 0
-* (reminisce)[Reminisce]
-It's been over a week since you fully moved into your apartment. Time sure flies.
-+ {reminisce}[▼]
--
 Guess it's time to get up. 
 + [Wake Up]
 -

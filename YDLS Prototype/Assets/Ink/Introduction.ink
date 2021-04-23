@@ -763,7 +763,7 @@ You gained 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} and 1 {c
 ~ location = "Apartment"
 With a quick stretch, you lay down and drift off. 
 + [Sleep]
-- -> firstRetailWorkDay
+- -> firstOfficeWorkDay
 
 === firstDayShopping === 
 The Convenience Store is nearby, so you can either wait for the bus or just walk there. 
@@ -886,4 +886,4 @@ You lost 2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} shopping.
 - -> energyCheck ->
 You should probably just head to bed. You have to be up early for work tomorrow. You barely manage to get ready for bed before laying down.  
 + [Sleep]
-- -> firstRetailWorkDay
+- -> firstOfficeWorkDay
