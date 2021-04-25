@@ -8,12 +8,10 @@ public class TempCharacterRandomizer : MonoBehaviour
     public List<CharacterCreationArrayGroup> CharacterCreationArrayGroups;
     public List<CharacterCreationGroup> CharacterCreationGroupsColors;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
-        RandomizeCharacter();
+       
     }
     public void RandomizeCharacter()
     {

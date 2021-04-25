@@ -33,6 +33,7 @@ public class CharacterCreationController : MonoBehaviour
     public GameController GameController;
     public ContactsController ContactsController;
     public ConversationController ConversationController;
+    public TempCharacterRandomizer TempCharacterRandomizer;
 
     [Header("Creation Controllers")]
     public CharacterCreationGroup FaceController;
@@ -92,7 +93,11 @@ public class CharacterCreationController : MonoBehaviour
 
     private void Start()
     {        
-        Characters = new List<Person>();     
+        Characters = new List<Person>();
+
+        MuteButtonSounds(true);
+        TempCharacterRandomizer.RandomizeCharacter();
+        MuteButtonSounds(false);
     }
 
 
@@ -205,6 +210,7 @@ public class CharacterCreationController : MonoBehaviour
         int earring, int earringColor, int nosePiercing, int nosePiercingColor, int eyebrowPiercing, int eyebrowPiercingColor,
         int mouthPiercing, int mouthPiercingColor, int clothing, int clothingColor, int clothingExtraColor)
     {
+        MuteButtonSounds(true);
         // Create Avatar
         FaceController.OnButtonSelected(FaceController.characterCreationButtons[face]);
         EarController.OnButtonSelected(EarController.characterCreationButtons[ear]);
@@ -256,17 +262,13 @@ public class CharacterCreationController : MonoBehaviour
         ClothingExtraColorController.OnButtonSelected(ClothingExtraColorController.characterCreationButtons[clothingExtraColor]);
 
         CreatePlayer(firstName, lastName);
+        MuteButtonSounds(false);
+
     }
     public void CreatePlayer(string firstName, string lastName)
     {
-        foreach (CharacterCreationGroup group in CharacterCreationGroups)
-        {
-            group.MuteSFX(true);
-        }
-        foreach (CharacterCreationArrayGroup group in CharacterCreationArrayGroups)
-        {
-            group.MuteSFX(true);
-        }
+        MuteButtonSounds(true);
+
         // Instantiate needed copies. 
         GameObject playerCharacterConversationPortrait = Instantiate(characterAvatar);
         GameObject playerCharacterNeedsPortrait = Instantiate(characterAvatar);
@@ -286,6 +288,7 @@ public class CharacterCreationController : MonoBehaviour
         playerCharacterConversationPortrait.gameObject.GetComponent<Mask>().showMaskGraphic = true;
         //playerPortraitOverlay.transform.SetParent(playerCharacterConversationPortrait.transform, false);
 
+        MuteButtonSounds(false);
     }
 
     public void CreatePerson(string firstName, string lastName, int face, int ear, int body, int skinColor,
@@ -308,7 +311,10 @@ public class CharacterCreationController : MonoBehaviour
               + " - \nOTHER:" + relationshipScore + " - " + knowsPlayer + " - " + indexID);
         */
 
+        MuteButtonSounds(true);
+
         // Create Avatar
+
         FaceController.OnButtonSelected(FaceController.characterCreationButtons[face]);
         EarController.OnButtonSelected(EarController.characterCreationButtons[ear]);
         BodyController.OnButtonSelected(BodyController.characterCreationButtons[body]);
@@ -376,5 +382,19 @@ public class CharacterCreationController : MonoBehaviour
         ContactsController.UpdateNameLabel(firstName, lastName, indexID);
         ContactsController.UpdateRelationship(relationshipScore, indexID);
         ContactsController.UpdatePortrait(characterAdditionalPortrait, indexID);
+
+        MuteButtonSounds(false);
+    }
+
+    public void MuteButtonSounds(bool condition)
+    {
+        foreach (CharacterCreationGroup group in CharacterCreationGroups)
+        {
+            group.MuteSFX(condition);
+        }
+        foreach (CharacterCreationArrayGroup group in CharacterCreationArrayGroups)
+        {
+            group.MuteSFX(condition);
+        }
     }
 }

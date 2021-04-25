@@ -267,7 +267,7 @@ public class GameController : MonoBehaviour
         ClearUI();
         storyText.text = GetNextStoryBlock();
         
-        Debug.Log(narrativeLog);
+        //Debug.Log(narrativeLog);
 
         if (story.currentTags.Count > 0)
         {

@@ -38,7 +38,7 @@ public class CharacterCreationArrayGroup : MonoBehaviour
     [Header("Game Controllers")]
     public SFXController SFXController;
 
-    private bool muteSFX = true;
+    private bool muteSFX = false;
 
     //public bool multipleColored;
     //public List<Image> extraSpritesToSwap;
