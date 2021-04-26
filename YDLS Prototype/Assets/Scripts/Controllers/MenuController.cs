@@ -15,73 +15,111 @@ public class MenuController : MonoBehaviour
     public GameObject settingsContainer;
     public GameObject narrativeLogContainer;
 
+    [Header("Button Containers")]
+    
+    /*public GameObject homeButton;
+    public GameObject inventoryButton;
+    public GameObject bankButton;
+    public GameObject contactsButton;
+    public GameObject calendarButton;
+    public GameObject settingsButton;*/
+
+    public RectTransform homeRect;
+    public RectTransform inventoryRect;
+    public RectTransform bankRect;
+    public RectTransform contactsRect;
+    public RectTransform calendarRect;
+
+
     [Header("Game Controllers")]
     public SettingsController SettingsController;
     public SFXController SFXController;
 
-    public void MenuOnClick()
+    private Vector2 pressedSize = new Vector2 (170, 170);
+    private Vector2 originalSize = new Vector2(140, 140);
+
+    private void Start()
     {
+        homeRect.sizeDelta = pressedSize;
+    }
+    
+    public void HomeOnClick()
+    {
+        
         inventoryScreen.SetActive(false);
         contactScreen.SetActive(false);
         needsScreen.SetActive(false);
         settingsContainer.SetActive(false);
-        homeScreen.SetActive(true);
         calendarScreen.SetActive(false);
         bankScreen.SetActive(false);
         narrativeLogContainer.SetActive(false);
 
-
-        menuContainer.SetActive(!menuContainer.activeSelf);
-
+        homeRect.sizeDelta = pressedSize;
+        inventoryRect.sizeDelta = originalSize;
+        bankRect.sizeDelta = originalSize;
+        contactsRect.sizeDelta = originalSize;
+        calendarRect.sizeDelta = originalSize;
+        
         SFXController.PlayButtonClick();
+
     }
 
     public void InventoryOnClick()
-    {
-        homeScreen.SetActive(false);
+    {        
         inventoryScreen.SetActive(true);
-
+        contactScreen.SetActive(false);
+        needsScreen.SetActive(false);
+        settingsContainer.SetActive(false);
+        calendarScreen.SetActive(false);
+        bankScreen.SetActive(false);
+        narrativeLogContainer.SetActive(false);
+                        
+        homeRect.sizeDelta = originalSize;
+        inventoryRect.sizeDelta = pressedSize;
+        bankRect.sizeDelta = originalSize;
+        contactsRect.sizeDelta = originalSize;
+        calendarRect.sizeDelta = originalSize;
+        
         SFXController.PlayButtonClick();
     }
-
-    public void InventoryExitOnClick()
-    {
-        homeScreen.SetActive(true);
-        inventoryScreen.SetActive(false);
-
-        SFXController.PlayButtonClick();
-    }
-
+        
     public void ContactsOnClick()
     {
-        homeScreen.SetActive(false);
+        inventoryScreen.SetActive(false);
         contactScreen.SetActive(true);
+        needsScreen.SetActive(false);
+        settingsContainer.SetActive(false);
+        calendarScreen.SetActive(false);
+        bankScreen.SetActive(false);
+        narrativeLogContainer.SetActive(false);
 
         SFXController.PlayButtonClick();
+
+        homeRect.sizeDelta = originalSize;
+        inventoryRect.sizeDelta = originalSize;
+        bankRect.sizeDelta = originalSize;
+        contactsRect.sizeDelta = pressedSize;
+        calendarRect.sizeDelta = originalSize;
     }
 
-    public void ContactExitOnClick()
-    {
-        homeScreen.SetActive(true);
-        contactScreen.SetActive(false);
-
-        SFXController.PlayButtonClick();
-    }
 
     public void NeedsOnClick()
     {
-        homeScreen.SetActive(false);
+        inventoryScreen.SetActive(false);
+        contactScreen.SetActive(false);
         needsScreen.SetActive(true);
+        settingsContainer.SetActive(false);
+        calendarScreen.SetActive(false);
+        bankScreen.SetActive(false);
+        narrativeLogContainer.SetActive(false);
 
         SFXController.PlayButtonClick();
-    }
 
-    public void NeedsExitOnClick()
-    {
-        homeScreen.SetActive(true);
-        needsScreen.SetActive(false);
-
-        SFXController.PlayButtonClick();
+        homeRect.sizeDelta = originalSize;
+        inventoryRect.sizeDelta = originalSize;
+        bankRect.sizeDelta = originalSize;
+        contactsRect.sizeDelta = originalSize;
+        calendarRect.sizeDelta = originalSize;
     }
 
     public void SettingsOnClick()
@@ -96,34 +134,41 @@ public class MenuController : MonoBehaviour
 
     public void BankOnClick()
     {
-        homeScreen.SetActive(false);
+        inventoryScreen.SetActive(false);
+        contactScreen.SetActive(false);
+        needsScreen.SetActive(false);
+        settingsContainer.SetActive(false);
+        calendarScreen.SetActive(false);
         bankScreen.SetActive(true);
+        narrativeLogContainer.SetActive(false);
 
         SFXController.PlayButtonClick();
+
+        homeRect.sizeDelta = originalSize;
+        inventoryRect.sizeDelta = originalSize;
+        bankRect.sizeDelta = pressedSize;
+        contactsRect.sizeDelta = originalSize;
+        calendarRect.sizeDelta = originalSize;
     }
 
-    public void BankExitOnClick()
-    {
-        homeScreen.SetActive(true);
-        bankScreen.SetActive(false);
-
-        SFXController.PlayButtonClick();
-    }
 
     public void CalendarOnClick()
     {
-        homeScreen.SetActive(false);
+        inventoryScreen.SetActive(false);
+        contactScreen.SetActive(false);
+        needsScreen.SetActive(false);
+        settingsContainer.SetActive(false);
         calendarScreen.SetActive(true);
+        bankScreen.SetActive(false);
+        narrativeLogContainer.SetActive(false);
 
         SFXController.PlayButtonClick();
-    }
 
-    public void CalendarExitOnClick()
-    {
-        homeScreen.SetActive(true);
-        calendarScreen.SetActive(false);
-
-        SFXController.PlayButtonClick();
+        homeRect.sizeDelta = originalSize;
+        inventoryRect.sizeDelta = originalSize;
+        bankRect.sizeDelta = originalSize;
+        contactsRect.sizeDelta = originalSize;
+        calendarRect.sizeDelta = pressedSize;
     }
 
     public void NarrativeLogOnClick()

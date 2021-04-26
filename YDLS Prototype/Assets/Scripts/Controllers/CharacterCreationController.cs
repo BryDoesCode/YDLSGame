@@ -23,6 +23,7 @@ public class CharacterCreationController : MonoBehaviour
 
     [Header("GameObjects")]
     public GameObject avatarContainer;
+    public GameObject topAvatarContainer;
     public TextMeshProUGUI nameLabel;
     public GameObject playerPortraitContainer;
     public GameObject playerPortraitOverlay;
@@ -272,18 +273,24 @@ public class CharacterCreationController : MonoBehaviour
         // Instantiate needed copies. 
         GameObject playerCharacterConversationPortrait = Instantiate(characterAvatar);
         GameObject playerCharacterNeedsPortrait = Instantiate(characterAvatar);
+        GameObject playerCharacterTopPortrait = Instantiate(characterAvatar);
 
 
         // Update Need Window Info
         nameLabel.text = firstName + " " + lastName;
         playerCharacterNeedsPortrait.transform.SetParent(avatarContainer.transform, false);
         playerCharacterNeedsPortrait.transform.localScale = new Vector3(.6f, .6f, 1f);
-        playerCharacterNeedsPortrait.transform.localPosition = new Vector3(35f, -235f, 0);
+        playerCharacterNeedsPortrait.transform.localPosition = new Vector3(35f, -585f, 0);
+
+        // Update Top Avatar
+        playerCharacterTopPortrait.transform.SetParent(topAvatarContainer.transform, false);
+        playerCharacterTopPortrait.transform.localScale = new Vector3(.25f, .25f, 1f);
+        playerCharacterTopPortrait.transform.localPosition = new Vector3(148f, -245f, 0);
 
         // Update Conversation Info
         playerCharacterConversationPortrait.transform.SetParent(playerPortraitContainer.transform, false);
-        playerCharacterConversationPortrait.transform.localScale = new Vector3(.5f, .5f, 1f);
-        playerCharacterConversationPortrait.transform.localPosition = new Vector3(-225, -300);
+        playerCharacterConversationPortrait.transform.localScale = new Vector3(.48f, .48f, 1f);
+        playerCharacterConversationPortrait.transform.localPosition = new Vector3(-225f, -175f, 0);
         playerCharacterConversationPortrait.gameObject.AddComponent<Mask>();
         playerCharacterConversationPortrait.gameObject.GetComponent<Mask>().showMaskGraphic = true;
         //playerPortraitOverlay.transform.SetParent(playerCharacterConversationPortrait.transform, false);
@@ -374,8 +381,8 @@ public class CharacterCreationController : MonoBehaviour
             characterConversationPortrait, characterAdditionalPortrait, relationshipScore, knowsPlayer, indexID));
         
         characterConversationPortrait.transform.SetParent(NPCPortraitContainer.transform, false);
-        characterConversationPortrait.transform.localScale = new Vector3(.5f, .5f, 1f);
-        characterConversationPortrait.transform.localPosition = new Vector3(225, -300);
+        characterConversationPortrait.transform.localScale = new Vector3(.48f, .48f, 1f);
+        characterConversationPortrait.transform.localPosition = new Vector3(225, -175);
         characterConversationPortrait.name = firstName + "ConversationPortrait";
         ConversationController.AddContainerToList(characterConversationPortrait);
 

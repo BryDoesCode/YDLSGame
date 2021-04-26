@@ -25,6 +25,10 @@ public class UIUnlockController : MonoBehaviour
         ShowNeedsButton(0);
         ShowBankingButton(0);
         ShowCalendarButton(0);
+
+        ShowEnergySlider(0);
+        ShowHealthSlider(0);
+        ShowWellnessSlider(0);
     }
 
     public void ShowInventoryButton(int value)
@@ -56,20 +60,48 @@ public class UIUnlockController : MonoBehaviour
         if (value == 1)
         {
             needsButton.SetActive(true);
-            energyStat.SetActive(true);
-            healthStat.SetActive(true);
-            wellnessStat.SetActive(true);
-
         }
         else
         {
             needsButton.SetActive(false);
-            energyStat.SetActive(false);
-            healthStat.SetActive(false);
-            wellnessStat.SetActive(false);
-
         }
 
+    }
+
+    public void ShowEnergySlider(int value)
+    {
+        if (value == 1)
+        {
+            energyStat.SetActive(true);
+        }
+        else
+        {
+            energyStat.SetActive(false);
+        }
+    }
+
+    public void ShowHealthSlider(int value)
+    {
+        if (value == 1)
+        {
+            healthStat.SetActive(true);
+        }
+        else
+        {
+            healthStat.SetActive(false);
+        }
+    }
+
+    public void ShowWellnessSlider(int value)
+    {
+        if (value == 1)
+        {
+            wellnessStat.SetActive(true);
+        }
+        else
+        {
+            wellnessStat.SetActive(false);
+        }
     }
 
     public void ShowBankingButton(int value)

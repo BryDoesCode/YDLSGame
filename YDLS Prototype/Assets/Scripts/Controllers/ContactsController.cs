@@ -46,8 +46,8 @@ public class ContactsController : MonoBehaviour
         if (indexID < NPCContactContainers.Count)
         {
             portrait.transform.SetParent(NPCContactContainers[indexID].transform.GetChild(0).GetChild(0).transform, false);
-            portrait.transform.localScale = new Vector3(.2f, .2f, 1f);
-            portrait.transform.localPosition = new Vector3(20, -90);
+            portrait.transform.localScale = new Vector3(.19f, .19f, 1f);
+            portrait.transform.localPosition = new Vector3(10, -90);
         }
     }
 

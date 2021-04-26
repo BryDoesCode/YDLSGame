@@ -145,7 +145,7 @@ public class BackgroundController : MonoBehaviour
         backgroundScrollContainer.horizontalNormalizedPosition = .5f;
     }
 
-    public void ChangeContainerColor(string colorName)
+    /*public void ChangeContainerColor(string colorName)
     {
         switch (colorName)
         {
@@ -273,4 +273,5 @@ public class BackgroundController : MonoBehaviour
                 break;
         }
     }
+    */
 }

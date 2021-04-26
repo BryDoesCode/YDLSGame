@@ -92,6 +92,10 @@ VAR showSignNameContainer = false
 VAR showCharacterCreationContainer = false
 VAR characterCreationCompleted = false
 
+VAR showEnergySlider = false
+VAR showHealthSlider = false
+VAR showWellnessSlider = false
+
 VAR showRentBill = false
 VAR showElectricBill = false
 VAR showPhoneBill = false
@@ -182,6 +186,9 @@ VAR freeLunch = false
 ~ showCalendarButton = false
 ~ showSignNameContainer = false
 ~ showCharacterCreationContainer = false
+~ showEnergySlider = false
+~ showHealthSlider = false
+~ showWellnessSlider = false
 
 ~ showRentBill = false
 ~ showElectricBill = false

@@ -97,9 +97,9 @@ public class GameController : MonoBehaviour
         story.ObserveVariable("background", (string varName, object newValue) => {
             LabelController.UpdateBackground((string)newValue);
         });
-        story.ObserveVariable("locationColor", (string varName, object newValue) => {
+        /*story.ObserveVariable("locationColor", (string varName, object newValue) => {
             LabelController.UpdateContainerColor((string)newValue);
-        });
+        });*/
 
         // Audio
         story.ObserveVariable("locationMusic", (string varName, object newValue) => {
@@ -211,6 +211,15 @@ public class GameController : MonoBehaviour
         story.ObserveVariable("showCalendarButton", (string varName, object newValue) => {
             UIUnlockController.ShowCalendarButton((int)newValue);
         });
+        story.ObserveVariable("showEnergySlider", (string varName, object newValue) => {
+            UIUnlockController.ShowEnergySlider((int)newValue);
+        });
+        story.ObserveVariable("showHealthSlider", (string varName, object newValue) => {
+            UIUnlockController.ShowHealthSlider((int)newValue);
+        });
+        story.ObserveVariable("showWellnessSlider", (string varName, object newValue) => {
+            UIUnlockController.ShowWellnessSlider((int)newValue);
+        });
         story.ObserveVariable("showSignNameContainer", (string varName, object newValue) => {
             CharacterCreationController.ShowSignNameContainer((int)newValue);
         });
@@ -294,7 +303,7 @@ public class GameController : MonoBehaviour
                     
 
                 choiceText.text = choice.text.Replace("\\n", "\n"); // Allows for newlines during choices.
-                choiceText.gameObject.GetComponentInParent<ProceduralImage>(true).color = BackgroundController.CurrentColor;
+                //choiceText.gameObject.GetComponentInParent<ProceduralImage>(true).color = BackgroundController.CurrentColor;
 
                 choiceSelectionButton.GetComponentInChildren<Button>().onClick.AddListener(delegate { OnClickChoiceButton(choice); });
                 choiceButtonContainer.SetActive(true);
@@ -308,7 +317,7 @@ public class GameController : MonoBehaviour
             {
                 //Debug.Log("Choice Name: " + choice.text);
                 singleChoiceButtonText.text = choice.text.Replace("\\n", "\n");
-                singleChoiceButtonImage.color = BackgroundController.CurrentColor;
+                //singleChoiceButtonImage.color = BackgroundController.CurrentColor;
             }
         }
 
@@ -458,6 +467,11 @@ public class GameController : MonoBehaviour
     public void OnClickSkipTypewriter()
     {
         storyTextAnimator.SkipTypewriter();
+
+        if(singleChoiceButtonContainer.activeInHierarchy)
+        {
+            OnClickContinueButton();
+        }
     }
 
     void SetConversationActive(int value)
@@ -619,13 +633,16 @@ public class GameController : MonoBehaviour
         LabelController.UpdateTimeSlot(story.variablesState["time"].ToString(), conversationActive);
         LabelController.UpdateLocation(story.variablesState["location"].ToString(), conversationActive);
         LabelController.UpdateBackground(story.variablesState["background"].ToString());
-        LabelController.UpdateContainerColor(story.variablesState["locationColor"].ToString());
+        //LabelController.UpdateContainerColor(story.variablesState["locationColor"].ToString());
 
         UIUnlockController.ShowInventoryButton((int)story.variablesState["showInventoryButton"]);
         UIUnlockController.ShowContactsButton((int)story.variablesState["showContactsButton"]);
         UIUnlockController.ShowNeedsButton((int)story.variablesState["showNeedsButton"]);
         UIUnlockController.ShowBankingButton((int)story.variablesState["showBankingButton"]);
         UIUnlockController.ShowCalendarButton((int)story.variablesState["showCalendarButton"]);
+        UIUnlockController.ShowEnergySlider((int)story.variablesState["showEnergySlider"]);
+        UIUnlockController.ShowHealthSlider((int)story.variablesState["showHealthSlider"]);
+        UIUnlockController.ShowWellnessSlider((int)story.variablesState["showWellnessSlider"]);
         CharacterCreationController.ShowSignNameContainer((int)story.variablesState["showSignNameContainer"]);
         CharacterCreationController.ShowCharacterCreationContainer((int)story.variablesState["showCharacterCreationContainer"]);
 

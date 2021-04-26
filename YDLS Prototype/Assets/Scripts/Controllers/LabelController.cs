@@ -79,8 +79,9 @@ public class LabelController : MonoBehaviour
     {
         BackgroundController.ChangeBackgroundImage(background);
     }
-    public void UpdateContainerColor(string color)
+    /*public void UpdateContainerColor(string color)
     {
         BackgroundController.ChangeContainerColor(color);
     }
+    */
 }

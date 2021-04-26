@@ -80,26 +80,29 @@ It's a bit old fashion, but you heard the best place to find apartments and jobs
 Just as you're about to leave, you pause for a second to check-in with yourself. When you're excited, it's easy to lose track of how you're actually feeling. 
 + [▼]
 -
-Your current {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} is {energy}. It reprents the general {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} you have to accomplish tasks and exist in the world.
+~ showEnergySlider = true
+Your current {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} is {energy}. It reprents the general {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} you have to accomplish tasks and exist in the world. 
 + [▼]
 -
 If you run out of {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} you can push yourself further, for a price. It is shown using a {coloredText:<color=\#89a15c>}green color{coloredText:</color>}.
 + [▼]
 -
-Your current {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} is {health}. It represents your physical {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>}. The lower your {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} the sicker you feel.
+~ showHealthSlider = true
+Your current {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} is {health}. It represents your physical {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>}. The lower your {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} the sicker you feel. 
 + [▼]
 -
 If you run out of {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} you pass out. It is shown using a {coloredText:<color=\#9f4d3a>}red color{coloredText:</color>}. 
 + [▼]
 -
-Your current {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} is {wellness}. It represents your mental {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>}. The lower your {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} the worse you feel emotionally.
+~ showWellnessSlider = true
+Your current {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} is {wellness}. It represents your mental {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>}. The lower your {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} the worse you feel emotionally. 
 + [▼]
 -
 If you run out of {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} you pass out. It is shown using a {coloredText:<color=\#7a8f8b>}blue color{coloredText:</color>}. 
 + [▼]
 -
 ~ showNeedsButton = true
-You can check-in with yourself at any time by viewing the Needs app in the menu. Or looking at the numbers in the top-right corner of the screen. 
+You can check-in with yourself at any time by viewing the Needs menu by clicking on your avatar in the top-left corner. Or looking at the numbers at the top of the screen.
 + [▼]
 -
 You're not feeling the best, but you should have enough {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} to make it to the store and back. 
