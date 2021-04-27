@@ -48,6 +48,7 @@ public class GameController : MonoBehaviour
     public UIUnlockController UIUnlockController;
     public ConversationController ConversationController;
     public SettingsController SettingsController;
+    public CalendarController CalendarController;
 
     //Variables
     List<string> ingredientsCostList;
@@ -85,6 +86,9 @@ public class GameController : MonoBehaviour
         story.ObserveVariable("fullDate", (string varName, object newValue) => {
             LabelController.UpdateDate((string)newValue);
         });
+        story.ObserveVariable("date", (string varName, object newValue) => {
+            CalendarController.UpdateToday((int)newValue);
+        });
         story.ObserveVariable("today", (string varName, object newValue) => {
             LabelController.UpdateWeekday(newValue);
         });
@@ -108,11 +112,29 @@ public class GameController : MonoBehaviour
 
         // Inventory
         
-        story.ObserveVariable("prepackagedMealCount", (string varName, object newValue) => {
-            InventoryController.UpdatePrepackagedFoodQuantity((int)newValue);
+        story.ObserveVariable("breakfastPrepackagedMealCount", (string varName, object newValue) => {
+            InventoryController.UpdateBreakfastPrepackagedFoodQuantity((int)newValue);
         });
-        story.ObserveVariable("foodIngredientsCount", (string varName, object newValue) => {
-            InventoryController.UpdateIngredientsSet((int)newValue);
+        story.ObserveVariable("breakfastIngredientsCount", (string varName, object newValue) => {
+            InventoryController.UpdateBreakfastIngredientsQuantity((int)newValue);
+        });
+        story.ObserveVariable("lunchPrepackagedMealCount", (string varName, object newValue) => {
+            InventoryController.UpdateLunchPrepackagedFoodQuantity((int)newValue);
+        });
+        story.ObserveVariable("lunchIngredientsCount", (string varName, object newValue) => {
+            InventoryController.UpdateLunchIngredientsQuantity((int)newValue);
+        });
+        story.ObserveVariable("dinnerPrepackagedMealCount", (string varName, object newValue) => {
+            InventoryController.UpdateDinnerPrepackagedFoodQuantity((int)newValue);
+        });
+        story.ObserveVariable("dinnerIngredientsCount", (string varName, object newValue) => {
+            InventoryController.UpdateDinnerIngredientsQuantity((int)newValue);
+        });
+        story.ObserveVariable("toiletriesCount", (string varName, object newValue) => {
+            InventoryController.UpdateToiletriesQuantity((int)newValue);
+        });
+        story.ObserveVariable("cleaningSuppliesCount", (string varName, object newValue) => {
+            InventoryController.UpdateCleaningSuppliesQuantity((int)newValue);
         });
         story.ObserveVariable("newspaperCount", (string varName, object newValue) => {
             InventoryController.UpdateNewspaperQuantity((int)newValue);
@@ -140,7 +162,10 @@ public class GameController : MonoBehaviour
         });
 
         // Store
-        ingredientsCostList = new List<string> { "costPrepackagedMeal", "costFoodIngredients", "costNewspaper" };
+        ingredientsCostList = new List<string> { "costBreakfastPrepackagedMeal", "costBreakfastIngredients",
+            "costLunchPrepackagedMeal", "costLunchIngredients",
+            "costDinnerPrepackagedMeal", "costDinnerIngredients",
+            "costToiletries", "costCleaningSupplies", "costNewspaper" };
         story.ObserveVariable("storePrompt", (string varName, object newValue) => {
             StoreController.StoreState((int)newValue);
                 });
@@ -491,9 +516,15 @@ public class GameController : MonoBehaviour
         story.EvaluateFunction(functionName);
     }
 
-    public bool CallInkPurchaseFunction(int prepackagedQuantity, int ingredientsQuantity, int newspaperQuantity)
+    public bool CallInkPurchaseFunction(int breakfastPrepackagedPurchaseCount, int breakfastIngredientsPurchaseCount,
+        int lunchPrepackagedPurchaseCount, int lunchIngredientsPurchaseCount,
+        int dinnerPrepackagedPurchaseCount, int dinnerIngredientsPurchaseCount,
+        int toiletriesPurchaseCount, int cleaningSuppliesPurchaseCount, int newspaperPurchaseCount)
     {
-        if ((int)story.EvaluateFunction("PurchaseItems", prepackagedQuantity, ingredientsQuantity, newspaperQuantity) == 1)
+        if ((int)story.EvaluateFunction("PurchaseItems", breakfastPrepackagedPurchaseCount, breakfastIngredientsPurchaseCount, 
+            lunchPrepackagedPurchaseCount, lunchIngredientsPurchaseCount, 
+            dinnerPrepackagedPurchaseCount, dinnerIngredientsPurchaseCount, 
+            toiletriesPurchaseCount, cleaningSuppliesPurchaseCount, newspaperPurchaseCount) == 1)
         {
             return true;
         }
@@ -633,7 +664,7 @@ public class GameController : MonoBehaviour
         LabelController.UpdateTimeSlot(story.variablesState["time"].ToString(), conversationActive);
         LabelController.UpdateLocation(story.variablesState["location"].ToString(), conversationActive);
         LabelController.UpdateBackground(story.variablesState["background"].ToString());
-        //LabelController.UpdateContainerColor(story.variablesState["locationColor"].ToString());
+        CalendarController.UpdateToday((int)story.variablesState["date"]);
 
         UIUnlockController.ShowInventoryButton((int)story.variablesState["showInventoryButton"]);
         UIUnlockController.ShowContactsButton((int)story.variablesState["showContactsButton"]);
@@ -648,8 +679,14 @@ public class GameController : MonoBehaviour
 
 
         // Inventory
-        InventoryController.UpdatePrepackagedFoodQuantity((int)story.variablesState["prepackagedMealCount"]);
-        InventoryController.UpdateIngredientsSet((int)story.variablesState["foodIngredientsCount"]);
+        InventoryController.UpdateBreakfastPrepackagedFoodQuantity((int)story.variablesState["breakfastPrepackagedMealCount"]);
+        InventoryController.UpdateBreakfastIngredientsQuantity((int)story.variablesState["breakfastIngredientsCount"]);
+        InventoryController.UpdateLunchPrepackagedFoodQuantity((int)story.variablesState["lunchPrepackagedMealCount"]);
+        InventoryController.UpdateLunchIngredientsQuantity((int)story.variablesState["lunchIngredientsCount"]);
+        InventoryController.UpdateDinnerPrepackagedFoodQuantity((int)story.variablesState["dinnerPrepackagedMealCount"]);
+        InventoryController.UpdateDinnerIngredientsQuantity((int)story.variablesState["dinnerIngredientsCount"]);
+        InventoryController.UpdateToiletriesQuantity((int)story.variablesState["toiletriesCount"]);
+        InventoryController.UpdateCleaningSuppliesQuantity((int)story.variablesState["cleaningSuppliesCount"]);
         InventoryController.UpdateNewspaperQuantity((int)story.variablesState["newspaperCount"]);
 
         // Store

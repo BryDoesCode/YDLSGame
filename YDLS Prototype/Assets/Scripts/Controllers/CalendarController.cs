@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI.ProceduralImage;
+using TMPro;
 
 public class CalendarController : MonoBehaviour
 {
@@ -10,6 +12,11 @@ public class CalendarController : MonoBehaviour
     public GameObject electricDue;
     public GameObject workDay;
     public GameObject paycheckDay;
+    public TextMeshProUGUI todayText;
+
+    public List<ProceduralImage> days;
+    public Color todayColor;
+    public Color generalColor;
 
     [Header("Game Controllers")]
     public SFXController SFXController;
@@ -81,5 +88,21 @@ public class CalendarController : MonoBehaviour
         paycheckDay.SetActive(true);
 
         SFXController.PlayButtonClick();
+    }
+
+    public void UpdateToday(int date)
+    {
+        todayText.text = date.ToString();
+        // Reset colors/styles of all dates.
+        foreach(ProceduralImage day in days)
+        {
+            day.color = generalColor;
+            day.GetComponentInChildren<TextMeshProUGUI>().fontStyle = FontStyles.Normal;
+        }
+
+        // Change color/style of today.
+        ProceduralImage today = days[date - 1];
+        today.color = todayColor;
+        today.GetComponentInChildren<TextMeshProUGUI>().fontStyle = FontStyles.Bold;
     }
 }

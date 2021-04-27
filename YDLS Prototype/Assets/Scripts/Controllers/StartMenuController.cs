@@ -21,6 +21,7 @@ public class StartMenuController : MonoBehaviour
     public GameObject finalConfirmationModalContainer;
     public GameObject noSavedLifeContainer;
     public GameObject aboutContainer;
+    public GameObject menuButtonsContainer;
 
     public void OnClickNewLife()
     {
@@ -35,6 +36,7 @@ public class StartMenuController : MonoBehaviour
         {
             startMenuContainer.SetActive(false);
             characterCreationContainer.SetActive(false);
+            menuButtonsContainer.SetActive(true);
             GameController.StoryLoop();
 
             // Allow controllers to play SFX again
@@ -57,6 +59,9 @@ public class StartMenuController : MonoBehaviour
             // Hide containers
             startMenuContainer.SetActive(false);
             characterCreationContainer.SetActive(false);
+
+            // Show container
+            menuButtonsContainer.SetActive(true);
 
             // Update and start game
             GameController.UpdateLoadedVariables();

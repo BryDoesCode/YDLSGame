@@ -11,6 +11,13 @@ public class ContactsController : MonoBehaviour
     public GameObject noContactContainer;
 
     public bool hasContacts;
+
+    [Header("Modal Containers")]
+    public GameObject mainModalContainer;
+    public GameObject contactsModalContainer;
+    public TextMeshProUGUI modalLabel;
+    public TextMeshProUGUI modalDesc;
+    public TextMeshProUGUI modalStat;
     public void UpdateRelationship (int score, int indexID)
     {
         if (indexID < CharacterCreationController.Characters.Count)
@@ -62,5 +69,45 @@ public class ContactsController : MonoBehaviour
                 noContactContainer.SetActive(false);
             }
         }
+    }
+
+    public void OnClickContactsModal(string item)
+    {
+        mainModalContainer.SetActive(true);
+        contactsModalContainer.SetActive(true);
+
+        switch (item)
+        {
+            case "Mom":
+                modalLabel.text = NPCContactContainers[0].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text;
+                modalDesc.text = "You and your mother have always been fairly close. " +
+                    "You don't always see eye to eye and she doesn't always understand how you feel, but you both love each other.";
+                modalStat.text = "Your relationship score with your mother is " + NPCContactContainers[0].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text + ".";
+                break;
+            case "Dad":
+                modalLabel.text = NPCContactContainers[1].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text;
+                modalDesc.text = "You and your father have always gotten along. He makes the best pancakes and always knows how to cheer you up.";
+                modalStat.text = "Your relationship score with your father is " + NPCContactContainers[1].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text + ".";
+                break;
+            case "Coworker":
+                modalLabel.text = NPCContactContainers[2].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text;
+                modalDesc.text = "You haven't known your coworker very long, but they seem nice enough.";
+                modalStat.text = "Your relationship score with your coworker is " + NPCContactContainers[2].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text + ".";
+                break;
+            case "Manager":
+                modalLabel.text = NPCContactContainers[3].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text;
+                modalDesc.text = "You haven't known your manager long enought to have an opinion about them.";
+                modalStat.text = "Your relationship score with your coworker is " + NPCContactContainers[3].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text + ".";
+                break;
+            default:
+                Debug.Log("Unknown Contacts Modal Item: " + item);
+                break;
+        }
+    }
+
+    public void OnClickCloseModal()
+    {
+        mainModalContainer.SetActive(false);
+        contactsModalContainer.SetActive(false);
     }
 }

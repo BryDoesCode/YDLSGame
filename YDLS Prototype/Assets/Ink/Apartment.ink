@@ -52,22 +52,22 @@ You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from getti
 ~ background = "apartmentKitchenMorning"
 ~ locationColor = "apartmentKitchenMorning"
 What would you like to eat for breakfast? 
-\\nYou have {prepackagedMealCount} Prepackaged Meal{prepackagedMealCount!=1:s} and {foodIngredientsCount} Set{foodIngredientsCount!=1:s} of Ingredients.
+\\nYou have {breakfastPrepackagedMealCount} Breakfast Prepackaged Meal{breakfastPrepackagedMealCount!=1:s} and {breakfastIngredientsCount} Set{breakfastIngredientsCount!=1:s} of Breakfast Ingredients.
 + [Choose]
 -
-{prepackagedMealCount == 0 and foodIngredientsCount == 0: Looks like you don't have any food.}
-+ {prepackagedMealCount > 0}[Prepacked Meal{statHints: \\n<size={statSize}>(+1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>})\\n(-1 Prepackaged Meal)</size>}]
+{breakfastPrepackagedMealCount == 0 and breakfastIngredientsCount == 0: Looks like you don't have any food.}
++ {breakfastPrepackagedMealCount > 0}[Prepacked Meal{statHints: \\n<size={statSize}>(+1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>})\\n(-1 Prepackaged Meal)</size>}]
 	{~You settled on cereal this morning. It’s quick and it’s easy. | It's a toast kind of morning. {~This time with butter.| A quick swipe of peanut butter makes all the difference. | Some jelly on top adds just enough sweetness.} | Just a container of yogurt should be fine.} 
 	#eatingSFX
     
     ++ [▼]
 	You gained 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from eating.
 	~ health += 1
-	You used up 1 Prepackaged Meal. 
-	~ prepackagedMealCount -= 1
+	You used up 1 Breakfast Prepackaged Meal. 
+	~ breakfastPrepackagedMealCount -= 1
 	     
 	     
-+ {foodIngredientsCount > 0}[Recipe{statHints: \\n<size={statSize}>(-2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} / +2 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} / +1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>}) \\n(-1 Set of Ingredients)</size>}]
++ {breakfastIngredientsCount > 0}[Recipe{statHints: \\n<size={statSize}>(-2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} / +2 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} / +1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>}) \\n(-1 Set of Ingredients)</size>}]
 	{~Today was a pancake morning. Sure, you’re a bit tired now but nothing beats the smell of freshly cooked pancakes. | You're exhausted already, but that omlette sure was worth it.}
 	#eatingSFX
     
@@ -78,8 +78,8 @@ What would you like to eat for breakfast?
 	    ~ health += 2
 	    You gained 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from the homecooked meal.
 	    ~ wellness += 1
-	    You used up 1 Set of Ingredients.
-	    ~ foodIngredientsCount -= 1
+	    You used up 1 Set of Breakfast Ingredients.
+	    ~ breakfastIngredientsCount -= 1
 	    
 + [Skip Eating{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} / -1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>})</size>}]
         Guess today is not a food day. 

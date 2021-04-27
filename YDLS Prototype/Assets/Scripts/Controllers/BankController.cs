@@ -29,6 +29,7 @@ public class BankController : MonoBehaviour
     public TextMeshProUGUI balanceText;
     public TextMeshProUGUI interestRateText;
     public TextMeshProUGUI earnedInterestText;
+    public TextMeshProUGUI storeBalanceText;
 
     public GameObject rentBillContainer;
     public TextMeshProUGUI rentBillText;
@@ -58,16 +59,12 @@ public class BankController : MonoBehaviour
             Transactions = new List<string>();
         }
 
-        //AddTransaction("8/10", "Paycheck", 1000f);
-        //AddTransaction("8/12", "Rent", -500f);
-        //AddTransaction("8/12", "Electric", -50f);
-        //AddTransaction("8/12", "Store", -17f);
-
     }
     public void UpdateBalance (float amount)
     {
         Balance = amount;
         balanceText.text = Balance.ToString("C");
+        storeBalanceText.text = "You Have: " + Balance.ToString("C");
         //Debug.Log("MONEY UDPATED: " + amount);
     }
 
@@ -105,9 +102,6 @@ public class BankController : MonoBehaviour
     }
     public void AddTransaction (string date, string desc, float amount, float transactionBalance)
     {
-        // Update Amounts and Create Transaction GameObject
-        //float transactionBalance = Balance + amount;
-        //Balance = transactionBalance;
 
         GameObject newTransaction = Instantiate(transactionContainerPrefab);
         foreach(TextMeshProUGUI text in newTransaction.GetComponentsInChildren<TextMeshProUGUI>())
@@ -120,7 +114,7 @@ public class BankController : MonoBehaviour
                 case "desc":
                     text.text = desc;
                     break;
-                case "amount":
+                case "amount":                
                     if (amount >= 0)
                     {
                         text.text = amount.ToString("C");
@@ -129,6 +123,7 @@ public class BankController : MonoBehaviour
                     {
                         text.text = "(" + Mathf.Abs(amount).ToString("C") + ")";
                     }
+                    
                     break;
                 case "balance":
                     text.text = transactionBalance.ToString("C");
@@ -140,7 +135,7 @@ public class BankController : MonoBehaviour
         newTransaction.transform.SetParent(transactionContent.transform, false);
         newTransaction.transform.SetAsFirstSibling();
         RectTransform transactionContentRect = transactionContent.GetComponent<RectTransform>();
-        transactionContentRect.sizeDelta = new Vector2(transactionContentRect.sizeDelta.x, transactionContentRect.sizeDelta.y + 150f);
+        transactionContentRect.sizeDelta = new Vector2(transactionContentRect.sizeDelta.x, transactionContentRect.sizeDelta.y + 80f);
 
 
         // Add to List
@@ -163,11 +158,6 @@ public class BankController : MonoBehaviour
             Debug.Log("Saved Transaction " + i + " :" + Transactions[i]);
             
         }
-        /*if (Transactions.Count > 1)
-        {
-            GameController.SaveStoryState(); // This breaks the flow a bit. 
-        }
-        */
     }
 
     public void LoadTransactions ()
@@ -178,7 +168,6 @@ public class BankController : MonoBehaviour
         for (int i = 0; PlayerPrefs.HasKey("transaction" + i); i++)
         {
             //Debug.Log("PlayerPref Key " + i + ": " + PlayerPrefs.HasKey("transaction" + i));
-            //Transactions.Add(PlayerPrefs.GetString("transaction" + i));
             string[] tempTransactionContainer = PlayerPrefs.GetString("transaction" + i).Split(',');
             //Debug.Log("TempTransactionContainer THING: " + tempTransactionContainer[0] + ", " + tempTransactionContainer[1] + ", " + tempTransactionContainer[2]);
             AddTransaction(tempTransactionContainer[0], tempTransactionContainer[1], float.Parse(tempTransactionContainer[2]), float.Parse(tempTransactionContainer[3]));

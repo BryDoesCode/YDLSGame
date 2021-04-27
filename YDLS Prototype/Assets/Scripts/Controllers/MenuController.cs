@@ -6,7 +6,6 @@ public class MenuController : MonoBehaviour
 {
     [Header("Containers")]
     public GameObject menuContainer;
-    public GameObject homeScreen;
     public GameObject inventoryScreen;
     public GameObject contactScreen;
     public GameObject needsScreen;
@@ -124,12 +123,21 @@ public class MenuController : MonoBehaviour
 
     public void SettingsOnClick()
     {
-        homeScreen.SetActive(false);
+        inventoryScreen.SetActive(false);
+        contactScreen.SetActive(false);
+        needsScreen.SetActive(false);
         settingsContainer.SetActive(true);
-        settingsContainer.transform.GetChild(0).gameObject.SetActive(false);
-        SettingsController.inGameMenu = true;
+        calendarScreen.SetActive(false);
+        bankScreen.SetActive(true);
+        narrativeLogContainer.SetActive(false);
 
         SFXController.PlayButtonClick();
+
+        homeRect.sizeDelta = originalSize;
+        inventoryRect.sizeDelta = originalSize;
+        bankRect.sizeDelta = originalSize;
+        contactsRect.sizeDelta = originalSize;
+        calendarRect.sizeDelta = originalSize;
     }
 
     public void BankOnClick()

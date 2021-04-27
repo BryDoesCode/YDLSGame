@@ -35,6 +35,7 @@ public class CharacterCreationController : MonoBehaviour
     public ContactsController ContactsController;
     public ConversationController ConversationController;
     public TempCharacterRandomizer TempCharacterRandomizer;
+    public GameObject menuButtonsContainer;
 
     [Header("Creation Controllers")]
     public CharacterCreationGroup FaceController;
@@ -163,10 +164,12 @@ public class CharacterCreationController : MonoBehaviour
         if (value == 1)
         {
             characterCreationContainer.SetActive(true);
+            menuButtonsContainer.SetActive(false);
         }
         else
         {
             characterCreationContainer.SetActive(false);
+            menuButtonsContainer.SetActive(true);
         }
     }
     public void ShowSignNameContainer(int value)

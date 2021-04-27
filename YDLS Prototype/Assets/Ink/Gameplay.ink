@@ -109,12 +109,12 @@ VAR purchaseResponse = ""
 // Bank Variables
 VAR interestRate = 0.01
 VAR earnedInterest = 0.0
-VAR rentBillDueDate = "5/31" // Due Dates Must Come First
-VAR rentBill = 750.00
-VAR electricBillDueDate = "5/20" // Due Dates Must Come First
-VAR electricBill = 54.23
-VAR phoneBillDueDate = "5/25"  // Due Dates Must Come First
-VAR phoneBill = 78.25
+VAR rentBillDueDate = "5/1" // Due Dates Must Come First
+VAR rentBill = 0.0
+VAR electricBillDueDate = "5/1" // Due Dates Must Come First
+VAR electricBill = 0.0
+VAR phoneBillDueDate = "5/1"  // Due Dates Must Come First
+VAR phoneBill = 0.0
 VAR paycheck = 300.31
 
 // Conversation Variables
@@ -161,19 +161,35 @@ VAR freeLunch = false
 ~ earnedInterest = 0.0
 ~ interestRate = 0.01
 
-~ rentBill = 600.00
 ~ rentBillDueDate = "8/31"
-~ electricBill = 54.23
+~ rentBill = 600.00
 ~ electricBillDueDate = "8/18"
-~ phoneBill = 78.25
+~ electricBill = 54.23
 ~ phoneBillDueDate = "8/06"
+~ phoneBill = 78.25
+
 ~ paycheck = 300.31
 
-~ foodIngredientsCount = 0
-~ prepackagedMealCount = 0
+~ breakfastIngredientsCount = 0
+~ breakfastPrepackagedMealCount = 0
+~ lunchPrepackagedMealCount = 0
+~ lunchIngredientsCount = 0
+~ dinnerPrepackagedMealCount = 0
+~ dinnerIngredientsCount = 0
+~ toiletriesCount = 0
+~ cleaningSuppliesCount = 0
+~ newspaperCount = 0
 
-~ costPrepackagedMeal = 5.00
-~ costFoodIngredients = 3.00
+~ costBreakfastPrepackagedMeal = 5.00
+~ costBreakfastIngredients = 3.00
+~ costLunchPrepackagedMeal = 5.00
+~ costLunchIngredients = 3.00
+~ costDinnerPrepackagedMeal = 5.00
+~ costDinnerIngredients = 3.00
+~ costToiletries = 2.25
+~ costCleaningSupplies = 2.99
+~ costNewspaper = 1.79
+
 ~ storePrompt = false
 
 ~ loadingAnimation = ""
@@ -239,29 +255,6 @@ Are you ready to begin?
 === function StatHintToggle(state) 
 ~ statHints = state
 
-
-=== function ResetStats
-~ energy = 8
-~ health = 6
-~ wellness = 7
-~ borrowedEnergy = 0
-
-~ month = "May"
-~ monthNumber = 5
-~ date = 11
-~ fullDate = month + " " + date
-~ fullDateNumbers = monthNumber + "/" + date
-~ today = Tuesday
-~ time = Evening
-~ location = "Apartment"
-~ background = "apartmentMorning"
-~ locationColor = "apartmentMorning"
-~ locationMusic = "apartmentMorning"
-
-~ foodIngredientsCount = 2
-~ prepackagedMealCount = 1
-~ money = 50.00
-~ storePrompt = false
 
 {GenerateCoworker()}
 

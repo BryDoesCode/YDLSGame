@@ -15,28 +15,59 @@ public class StoreController : MonoBehaviour
     public GameObject newspaperContainer;
 
     [Header("Item Info")]
-    public TextMeshProUGUI prepackagedPriceLabel;
-    //public TMP_InputField prepackagedQuantity;
-    public TextMeshProUGUI prepackagedQuantity;  
 
-    public TextMeshProUGUI ingredientsPriceLabel;
-    //public TMP_InputField ingredientsQuantity;
-    public TextMeshProUGUI ingredientsQuantity;
+    public TextMeshProUGUI breakfastIngredientsPriceLabel;
+    public TextMeshProUGUI breakfastIngredientsQuantity;
+
+    public TextMeshProUGUI breakfastPrepackagedPriceLabel;
+    public TextMeshProUGUI breakfastPrepackagedQuantity;
+
+    public TextMeshProUGUI lunchIngredientsPriceLabel;
+    public TextMeshProUGUI lunchIngredientsQuantity;
+
+    public TextMeshProUGUI lunchPrepackagedPriceLabel;
+    public TextMeshProUGUI lunchPrepackagedQuantity;
+
+    public TextMeshProUGUI dinnerIngredientsPriceLabel;
+    public TextMeshProUGUI dinnerIngredientsQuantity;
+
+    public TextMeshProUGUI dinnerPrepackagedPriceLabel;
+    public TextMeshProUGUI dinnerPrepackagedQuantity;
+
+    public TextMeshProUGUI toiletriesPriceLabel;
+    public TextMeshProUGUI toiletriesQuantity;
+
+    public TextMeshProUGUI cleaningSuppliesPriceLabel;
+    public TextMeshProUGUI cleaningSuppliesQuantity;
 
     public TextMeshProUGUI newspaperPriceLabel;
-    //public TMP_InputField newspaperQuantity;
     public TextMeshProUGUI newspaperQuantity;
 
     public TextMeshProUGUI calculatedCosts;
     public TextMeshProUGUI purchaseResponseText;
 
-    private float ingredientsPrice = 3;
-    private float prepackedPrice = 5;
+
+    private float breakfastIngredientsPrice = 3;
+    private float breakfastPrepackedPrice = 5;
+    private float lunchIngredientsPrice = 3;
+    private float lunchPrepackedPrice = 5;
+    private float dinnerIngredientsPrice = 3;
+    private float dinnerPrepackedPrice = 5;
+    private float toiletriesPrice = 1.25f;
+    private float cleaningSuppliesPrice = 2.99f;
     private float newspaperPrice = 1.79f;
 
-    private int ingredientsQuantityInt;
-    private int prepackagedQuantityInt;
+
+    private int breakfastIngredientsQuantityInt;
+    private int breakfastPrepackagedQuantityInt;
+    private int lunchIngredientsQuantityInt;
+    private int lunchPrepackagedQuantityInt;
+    private int dinnerIngredientsQuantityInt;
+    private int dinnerPrepackagedQuantityInt;
+    private int toiletriesQuantityInt;
+    private int cleaningSuppliesQuantityInt;
     private int newspaperQuantityInt;
+
 
     private bool muteSFX;
 
@@ -52,20 +83,62 @@ public class StoreController : MonoBehaviour
         switch (index)
         {
             case 0:
-                if ((prepackagedQuantityInt + 1) < 100)
+                if ((breakfastIngredientsQuantityInt + 1) < 100)
                 {
-                    prepackagedQuantityInt += 1;
-                    prepackagedQuantity.text = prepackagedQuantityInt.ToString();
+                    breakfastIngredientsQuantityInt += 1;
+                    breakfastIngredientsQuantity.text = breakfastIngredientsQuantityInt.ToString();
                 }
                 break;
             case 1:
-                if ((ingredientsQuantityInt + 1) < 100)
+                if ((breakfastPrepackagedQuantityInt + 1) < 100)
                 {
-                    ingredientsQuantityInt += 1;
-                    ingredientsQuantity.text = ingredientsQuantityInt.ToString();
+                    breakfastPrepackagedQuantityInt += 1;
+                    breakfastPrepackagedQuantity.text = breakfastPrepackagedQuantityInt.ToString();
                 }
                 break;
             case 2:
+                if ((lunchIngredientsQuantityInt + 1) < 100)
+                {
+                    lunchIngredientsQuantityInt += 1;
+                    lunchIngredientsQuantity.text = lunchIngredientsQuantityInt.ToString();
+                }
+                break;
+            case 3:
+                if ((lunchPrepackagedQuantityInt + 1) < 100)
+                {
+                    lunchPrepackagedQuantityInt += 1;
+                    lunchPrepackagedQuantity.text = lunchPrepackagedQuantityInt.ToString();
+                }
+                break;
+            case 4:
+                if ((dinnerIngredientsQuantityInt + 1) < 100)
+                {
+                    dinnerIngredientsQuantityInt += 1;
+                    dinnerIngredientsQuantity.text = dinnerIngredientsQuantityInt.ToString();
+                }
+                break;
+            case 5:
+                if ((dinnerPrepackagedQuantityInt + 1) < 100)
+                {
+                    dinnerPrepackagedQuantityInt += 1;
+                    dinnerPrepackagedQuantity.text = dinnerPrepackagedQuantityInt.ToString();
+                }
+                break;
+            case 6:
+                if ((toiletriesQuantityInt + 1) < 100)
+                {
+                    toiletriesQuantityInt += 1;
+                    toiletriesQuantity.text = toiletriesQuantityInt.ToString();
+                }
+                break;
+            case 7:
+                if ((cleaningSuppliesQuantityInt + 1) < 100)
+                {
+                    cleaningSuppliesQuantityInt += 1;
+                    cleaningSuppliesQuantity.text = cleaningSuppliesQuantityInt.ToString();
+                }
+                break;
+            case 8:
                 if ((newspaperQuantityInt + 1) < 100)
                 {
                     newspaperQuantityInt += 1;
@@ -84,20 +157,62 @@ public class StoreController : MonoBehaviour
         switch (index)
         {
             case 0:
-                if ((prepackagedQuantityInt - 1) > -1)
+                if ((breakfastIngredientsQuantityInt - 1) > -1)
                 {
-                    prepackagedQuantityInt -= 1;
-                    prepackagedQuantity.text = prepackagedQuantityInt.ToString();
+                    breakfastIngredientsQuantityInt -= 1;
+                    breakfastIngredientsQuantity.text = breakfastIngredientsQuantityInt.ToString();
                 }
                 break;
             case 1:
-                if ((ingredientsQuantityInt - 1) > -1)
+                if ((breakfastPrepackagedQuantityInt - 1) > -1)
                 {
-                    ingredientsQuantityInt -= 1;
-                    ingredientsQuantity.text = ingredientsQuantityInt.ToString();
+                    breakfastPrepackagedQuantityInt -= 1;
+                    breakfastPrepackagedQuantity.text = breakfastPrepackagedQuantityInt.ToString();
                 }
                 break;
             case 2:
+                if ((lunchIngredientsQuantityInt - 1) > -1)
+                {
+                    lunchIngredientsQuantityInt -= 1;
+                    lunchIngredientsQuantity.text = lunchIngredientsQuantityInt.ToString();
+                }
+                break;
+            case 3:
+                if ((lunchPrepackagedQuantityInt - 1) > -1)
+                {
+                    lunchPrepackagedQuantityInt -= 1;
+                    lunchPrepackagedQuantity.text = lunchPrepackagedQuantityInt.ToString();
+                }
+                break;
+            case 4:
+                if ((dinnerIngredientsQuantityInt - 1) > -1)
+                {
+                    dinnerIngredientsQuantityInt -= 1;
+                    dinnerIngredientsQuantity.text = dinnerIngredientsQuantityInt.ToString();
+                }
+                break;
+            case 5:
+                if ((dinnerPrepackagedQuantityInt - 1) > -1)
+                {
+                    dinnerPrepackagedQuantityInt -= 1;
+                    dinnerPrepackagedQuantity.text = dinnerPrepackagedQuantityInt.ToString();
+                }
+                break;
+            case 6:
+                if ((toiletriesQuantityInt - 1) > -1)
+                {
+                    toiletriesQuantityInt -= 1;
+                    toiletriesQuantity.text = toiletriesQuantityInt.ToString();
+                }
+                break;
+            case 7:
+                if ((cleaningSuppliesQuantityInt - 1) > -1)
+                {
+                    cleaningSuppliesQuantityInt -= 1;
+                    cleaningSuppliesQuantity.text = cleaningSuppliesQuantityInt.ToString();
+                }
+                break;
+            case 8:
                 if ((newspaperQuantityInt - 1) > -1)
                 {
                     newspaperQuantityInt -= 1;
@@ -114,19 +229,22 @@ public class StoreController : MonoBehaviour
 
     public void PurchaseItems()
     {
-        /*
-        int ingredientsQuantityInt = Int32.Parse(ingredientsQuantity.text);
-
-        int prepackagedQuantityInt = Int32.Parse(prepackagedQuantity.text);
-
-        int newspaperQuantityInt = Int32.Parse(newspaperQuantity.text);
-        */
-
-        if (GameController.CallInkPurchaseFunction(prepackagedQuantityInt, ingredientsQuantityInt, newspaperQuantityInt))
+ 
+        if (GameController.CallInkPurchaseFunction(breakfastPrepackagedQuantityInt, breakfastIngredientsQuantityInt, 
+            lunchPrepackagedQuantityInt, lunchIngredientsQuantityInt,
+            dinnerPrepackagedQuantityInt, dinnerIngredientsQuantityInt,
+            toiletriesQuantityInt, cleaningSuppliesQuantityInt, newspaperQuantityInt))
         {
-            ingredientsQuantity.text = "0";
-            prepackagedQuantity.text = "0";
+            breakfastIngredientsQuantity.text = "0";
+            breakfastPrepackagedQuantity.text = "0";
+            lunchIngredientsQuantity.text = "0";
+            lunchPrepackagedQuantity.text = "0";
+            dinnerIngredientsQuantity.text = "0";
+            dinnerPrepackagedQuantity.text = "0";
+            toiletriesQuantity.text = "0";
+            cleaningSuppliesQuantity.text = "0";
             newspaperQuantity.text = "0";
+
             calculatedCosts.text = "Total: $0";
             SFXController.PlayRegisterDing();
         }
@@ -135,14 +253,10 @@ public class StoreController : MonoBehaviour
 
     public void CalculateCost()
     {
-        /*
-        int ingredientsQuantityInt = Int32.Parse(ingredientsQuantity.text);
-        int prepackagedQuantityInt = Int32.Parse(prepackagedQuantity.text);
-        int newspaperQuantityInt = Int32.Parse(newspaperQuantity.text);
-        */
-
-        //SFXController.PlayButtonClick();
-        calculatedCosts.text = "Total: $" + ((ingredientsQuantityInt * ingredientsPrice) + (prepackagedQuantityInt * prepackedPrice) + 
+        calculatedCosts.text = "Total: $" + ((breakfastIngredientsQuantityInt * breakfastIngredientsPrice) + (breakfastPrepackagedQuantityInt * breakfastPrepackedPrice) +
+            (lunchIngredientsQuantityInt * lunchIngredientsPrice) + (lunchPrepackagedQuantityInt * lunchPrepackedPrice) +
+            (dinnerIngredientsQuantityInt * dinnerIngredientsPrice) + (dinnerPrepackagedQuantityInt * dinnerPrepackedPrice) +
+            (toiletriesQuantityInt * toiletriesPrice) + (cleaningSuppliesQuantityInt * cleaningSuppliesPrice) +
             (newspaperQuantityInt * newspaperPrice));
     }
 
@@ -150,13 +264,37 @@ public class StoreController : MonoBehaviour
     {
              switch(itemType)
         {
-            case "costPrepackagedMeal":
-                prepackedPrice = float.Parse(itemPrice.ToString());
-                prepackagedPriceLabel.text = "$" + prepackedPrice;
+            case "costBreakfastPrepackagedMeal":
+                breakfastPrepackedPrice = float.Parse(itemPrice.ToString());
+                breakfastPrepackagedPriceLabel.text = "$" + breakfastPrepackedPrice;
                 break;
-            case "costFoodIngredients":
-                ingredientsPrice = float.Parse(itemPrice.ToString());
-                ingredientsPriceLabel.text = "$" + ingredientsPrice;
+            case "costBreakfastIngredients":
+                breakfastIngredientsPrice = float.Parse(itemPrice.ToString());
+                breakfastIngredientsPriceLabel.text = "$" + breakfastIngredientsPrice;
+                break;
+            case "costLunchPrepackagedMeal":
+                lunchPrepackedPrice = float.Parse(itemPrice.ToString());
+                lunchPrepackagedPriceLabel.text = "$" + lunchPrepackedPrice;
+                break;
+            case "costLunchIngredients":
+                lunchIngredientsPrice = float.Parse(itemPrice.ToString());
+                lunchIngredientsPriceLabel.text = "$" + lunchIngredientsPrice;
+                break;
+            case "costDinnerPrepackagedMeal":
+                dinnerPrepackedPrice = float.Parse(itemPrice.ToString());
+                dinnerPrepackagedPriceLabel.text = "$" + dinnerPrepackedPrice;
+                break;
+            case "costDinnerIngredients":
+                dinnerIngredientsPrice = float.Parse(itemPrice.ToString());
+                dinnerIngredientsPriceLabel.text = "$" + dinnerIngredientsPrice;
+                break;
+            case "costToiletries":
+                toiletriesPrice = float.Parse(itemPrice.ToString());
+                toiletriesPriceLabel.text = "$" + toiletriesPrice;
+                break;
+            case "costCleaningSupplies":
+                cleaningSuppliesPrice = float.Parse(itemPrice.ToString());
+                cleaningSuppliesPriceLabel.text = "$" + cleaningSuppliesPrice;
                 break;
             case "costNewspaper":
                 newspaperPrice = float.Parse(itemPrice.ToString());

@@ -128,8 +128,14 @@ You traveled by bus.
 ~ locationMusic = "exteriorCity"
 ~ startLoadingAnimation = false
 
-~ costPrepackagedMeal = 5.00
-~ costFoodIngredients = 3.00
+~ costBreakfastPrepackagedMeal = 5.00
+~ costBreakfastIngredients = 3.00
+~ costLunchPrepackagedMeal = 5.00
+~ costLunchIngredients = 3.00
+~ costDinnerPrepackagedMeal = 5.00
+~ costDinnerIngredients = 3.00
+~ costToiletries = 2.25
+~ costCleaningSupplies = 2.99
 ~ costNewspaper = 1.79
 
 You've arrived at the convenience store.
@@ -594,7 +600,7 @@ This is it. Your first night in your new apartment. If you weren't exhausted, yo
 ~ background = "apartmentMorning"
 ~ locationColor = "apartmentMorning"
 ~ locationMusic = "apartmentMorning"
-~ money += 50
+~ money += 150
 {AddTransaction("8/2", "Gift", 150, money)}
 ~ loadingAnimation = "sleep"
 ~ startLoadingAnimation = true
@@ -815,8 +821,14 @@ Walking is free but takes energy. The bus was free when you were a student (and 
     ++ [▼]
     --
 -
-~ costPrepackagedMeal = 5.00
-~ costFoodIngredients = 3.00
+~ costBreakfastPrepackagedMeal = 5.00
+~ costBreakfastIngredients = 3.00
+~ costLunchPrepackagedMeal = 5.00
+~ costLunchIngredients = 3.00
+~ costDinnerPrepackagedMeal = 5.00
+~ costDinnerIngredients = 3.00
+~ costToiletries = 2.25
+~ costCleaningSupplies = 2.99
 ~ costNewspaper = 1.79
 
 You've arrived at the convenience store. By the time you got here it's already evening. Time sure flies. 

@@ -14,10 +14,10 @@ public class SettingsController : MonoBehaviour
 
     [Header("Containers")]
     public GameObject settingsContainer;
-    public GameObject menuContainer;
-    public GameObject homeScreenContainer;
     public TextMeshProUGUI narrativeText;
     public GameObject resolutionContainer;
+    public GameObject closeButtonContainer;
+    public RectTransform insideBackgroundRect;
 
     [Header("Audio Sources")]
     public AudioSource SFXAudioSource;
@@ -34,7 +34,6 @@ public class SettingsController : MonoBehaviour
     public TextMeshProUGUI musicVolumeLabel;
     public TextMeshProUGUI SFXVolumeLabel;
 
-    public bool inGameMenu;
     public bool muteSFX;
 
     private void Start()
@@ -76,8 +75,6 @@ public class SettingsController : MonoBehaviour
             OnResolutionDropdownValueChange();
         }
         #endif
-
-        inGameMenu = false;        
 
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
@@ -127,25 +124,24 @@ public class SettingsController : MonoBehaviour
 
     public void OnClickSettingsButton()
     {
+        // This is when the button is clicked from the Start Menu
+
         settingsContainer.SetActive(true);
-        MuteSFX(false);
-        settingsContainer.transform.GetChild(0).gameObject.SetActive(true);
-        inGameMenu = false;        
         SFXController.PlayButtonClick();
-            
+        closeButtonContainer.SetActive(true);
+        insideBackgroundRect.offsetMin = new Vector2(insideBackgroundRect.offsetMin.x, 30);
+
+        muteSFX = false;
     }
 
     public void OnClickCloseButton()
     {
-        settingsContainer.SetActive(false);
-        if (inGameMenu)
-        {
-            homeScreenContainer.SetActive(true);
-        }
-
+        settingsContainer.SetActive(false);      
         SFXController.PlayButtonClick();
-        MuteSFX(true);
+        closeButtonContainer.SetActive(false);
+        insideBackgroundRect.offsetMin = new Vector2(insideBackgroundRect.offsetMin.x, 220);
 
+        muteSFX = true;
     }
 
     private void OnFontSliderValueChange()
