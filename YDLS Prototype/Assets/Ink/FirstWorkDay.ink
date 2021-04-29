@@ -12,17 +12,17 @@ You slept.
 ~ energy = RANDOM(7, 9)
 ~ location = "Apartment"
 ~ background = "apartmentMorning"
-~ locationColor = "apartmentMorning"
 ~ locationMusic = "apartmentMorning"
 ~ startLoadingAnimation = false
 
+{ResetStatTracking()}
 {CalculateInterest()}
 {EarnPaycheck()}
 
 It's morning! Today is {today}, {fullDate}.
 
 You've started with {energy} {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} today.{borrowedEnergy > 0: You borrowed {borrowedEnergy} yesterday, so you only have {energy - borrowedEnergy} to work with.} Make it count!
-~ energy -= borrowedEnergy
+{UpdateEnergy(-borrowedEnergy)}
 ~ borrowedEnergy = 0
 Guess it's time to get up. 
 + [Wake Up]
@@ -36,47 +36,51 @@ Today is your first day of work! How exciting! You head to the bathroom to conti
 + [▼]
 -
 ~ background = "apartmentBathroom"
-~ locationColor = "apartmentBathroom"
 You brush your teeth and take your medicine like normal, then turn your attention to food.
-- 
 + [▼]
-~ background = "apartmentMorning"
-~ locationColor = "apartmentMorning"
-You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from getting ready.
-~ energy -= 1
 -
+You used up one Set of Toiletries brushing your teeth.
+You used up one dose of medication.
+~ toiletriesCount -= 1
+~ medicationCount -= 1
++ [▼]
+-
+~ background = "apartmentMorning"
+You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from getting ready.
+{UpdateEnergy(-1)}
 + [▼] -> energyCheck -> firstBreakfast
 
 =firstBreakfast
 ~ background = "apartmentKitchenMorning"
-~ locationColor = "apartmentKitchenMorning"
 What would you like to eat for breakfast? 
-\\nYou have {breakfastPrepackagedMealCount} Breakfast Prepackaged Meal{breakfastPrepackagedMealCount!=1:s} and {breakfastIngredientsCount} Set{breakfastIngredientsCount!=1:s} of Breakfast Ingredients.
+\\nYou have {breakfastPrepackagedMealCount} Prepackaged Breakfast{breakfastPrepackagedMealCount!=1:s} and {breakfastIngredientsCount} Set{breakfastIngredientsCount!=1:s} of Breakfast Ingredients.
 + [Choose]
 -
 {breakfastPrepackagedMealCount == 0 and breakfastIngredientsCount == 0: Looks like you don't have any Breakfast food.}
-+ {breakfastPrepackagedMealCount > 0}[Prepacked Meal{statHints: \\n<size={statSize}>(+1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>})\\n(-1 Breakfast Prepackaged Meal)</size>}]
++ {breakfastPrepackagedMealCount > 0}[Prepacked Meal{statHints: \\n<size={statSize}>(+1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>})\\n(-1 Prepackaged Breakfast)</size>}]
+	{closedCaptions: [chewing]\\n}
 	{~You settled on cereal this morning. It’s quick and it’s easy. | It's a toast kind of morning. {~This time with butter.| A quick swipe of peanut butter makes all the difference. | Some jelly on top adds just enough sweetness.} | Just a container of yogurt should be fine.} 
 	#eatingSFX
     
     ++ [▼]
 	You gained 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from eating.
-	~ health += 1
-	You used up 1 Breakfast Prepackaged Meal. 
+	{UpdateHealth(1)}
+	You used up 1 Prepackaged Breakfast. 
 	~ breakfastPrepackagedMealCount -= 1
 	     
 	     
 + {breakfastIngredientsCount > 0}[Recipe{statHints: \\n<size={statSize}>(-2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} / +2 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} / +1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>}) \\n(-1 Set of Ingredients)</size>}]
+	{closedCaptions: [chewing]\\n}
 	{~Today was a pancake morning. Sure, you’re a bit tired now but nothing beats the smell of freshly cooked pancakes. | You're exhausted already, but that omlette sure was worth it.}
 	#eatingSFX
     
     ++ [▼]
 	    You lost 2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from cooking.
-	    ~ energy -= 2
+        {UpdateEnergy(-2)}
 	    You gained 2 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from eating.
-	    ~ health += 2
+	    {UpdateHealth(2)}
 	    You gained 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from the homecooked meal.
-	    ~ wellness += 1
+	    {UpdateWellness(1)}
 	    You used up 1 Set of Breakfast Ingredients.
 	    ~ breakfastIngredientsCount -= 1
 	    
@@ -85,47 +89,41 @@ What would you like to eat for breakfast?
     
     ++ [▼]
 	    You lost 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} and 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from not eating.
-	    ~ health -= 1
-	    ~ wellness -= 1
+	    {UpdateHealth(-1)}
+        {UpdateWellness(-1)}
 
 - 
 + [▼] -> healthCheck -> wellnessCheck -> energyCheck -> firstShower
 = firstShower
 ~ background = "apartmentMorning"
-~ locationColor = "apartmentMorning"
-
-- You still have some time this morning. 
+- You still have some time this morning.
 Would you like to take a shower?
 + [▼]
 -
 + [Yes{statHints: \\n<size={statSize}>(-3 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} / +1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} / +1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>})</size>}]
     ~ background = "apartmentBathroom"
-    ~ locationColor = "apartmentBathroom"
+    {closedCaptions: [water drops and splashes]\\n}
     Ah, that was a wonderful shower. You feel a bit more tired, but you’re clean and ready to face the day. It felt great. Now it’s time to get dressed and head out.
     #showerSFX
     ++ [▼]
     ~ background = "apartmentMorning"
-    ~ locationColor = "apartmentMorning"
     You lost 2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from taking a shower.
     You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from getting dressed. 
-    ~ energy -= 3
+    {UpdateEnergy(-3)}
     You gained 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} and 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from taking a shower. 
-    ~ health += 1
-    ~ wellness += 1
-    
-    
-    
+    {UpdateHealth(1)}
+    {UpdateWellness(1)}
+    You used up one Set of Toiletries taking a shower. 
+    ~toiletriesCount -= 1
 + [No{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} / -1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} / -1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
     No time for a shower this morning. You’d rather just get to work. You get dressed as normal and head to work. 
     
     ++ [▼]
     You lost 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} and 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from not taking a shower.
     You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from getting dressed.
-   
-    ~ health -= 1
-    ~ wellness -= 1
-    ~ energy -= 1
-
+    {UpdateEnergy(-1)}
+    {UpdateHealth(-1)}
+    {UpdateWellness(-1)}
 - 
 +  [Go to Work] -> healthCheck -> wellnessCheck -> energyCheck -> firstWorkTransportation
 
@@ -136,28 +134,28 @@ You can either walk to work, or take the bus.
 + [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
     ~loadingAnimation = "walking"
     You decide to walk. You leave your apartment and begin the short walk to work.  
-    ++ [▼]
+    ++ (firstWorkWalk) [▼]
     --
     ~startLoadingAnimation = true
     You walked. 
     ++ [▼]
     --
-    ~ energy -= 1
     ~ time = Midday
     ~ location = "Work"
     ~ background = "officeWorkExterior"
-    ~ locationColor = "officeWorkExterior"
     ~ locationMusic = "exteriorCity"
     ~ startLoadingAnimation = false
     You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} walking.
+    {UpdateEnergy(-1)}
     ++ [▼]
     -- -> energyCheck ->
-+[Bus{statHints: \\n<size={statSize}>(-$2.00)</size>}]
-    ~loadingAnimation = "bus"
-    You decide to travel by bus. You leave your apartment to go wait at the bus stop. 
++ [Bus{statHints: \\n<size={statSize}>(-$2.00)</size>}]
+    {money - 2.00 < 0.01: Oops, looks like you don't have enough money to ride the bus. Guess you're walking. -> firstWorkWalk} You decide to travel by bus. You leave your apartment to go wait at the bus stop. 
     ++ [▼]
     --
+    ~loadingAnimation = "bus"
     ~ startLoadingAnimation = true
+    ~ locationMusic = "bus"
     You traveled by bus. 
     ++ [▼]
     --
@@ -166,13 +164,13 @@ You can either walk to work, or take the bus.
     ~ time = Midday
     ~ location = "Work"
     ~ background = "officeWorkExterior"
-    ~ locationColor = "officeWorkExterior"
     ~ locationMusic = "exteriorCity"
     ~ startLoadingAnimation = false
     You spent $2.00 on bus fare.
     ++ [▼]
     --
 -
+{closedCaptions: [city sounds]\\n}
 Upon arriving outside the office building, you stare at the surrounding city in awe. It's almost unreal that you work and live here, now. 
 + [▼]
 -
@@ -180,11 +178,11 @@ With a deep breath, you walk into the building and get ready to face your first 
 + [▼]
 -
 ~ background = "officeWorkRoom"
-~ locationColor = "officeWorkRoom"
 ~ locationMusic = "work"
 You end up inside the main office room and feel a bit lost for a moment, before the manager you interviewed with sees you and walks over to say "hello". 
 + [▼]
 - -> managerConversation
+
 = managerConversation
 ~ conversationActive = true
 ~ activeNPCID = 3
@@ -199,6 +197,7 @@ You end up inside the main office room and feel a bit lost for a moment, before 
     ++ [▼]
     {managerFirstName} has been added to your contacts.
     \\nYour relationship with {managerFirstName} increased by 2. 
+    ~ managerKnowsPlayer = true
     ~ managerRelationshipWithPlayer += 2
     ~ managerKnowsPlayer = true
 + ["Fine." {statHints: \\n<size={statSize}>(No Change)</size>}]
@@ -214,7 +213,6 @@ You end up inside the main office room and feel a bit lost for a moment, before 
     ~ managerRelationshipWithPlayer -= 1
     ~ managerKnowsPlayer = true
 -
-{ChangeConversationFocus(NPC, "{managerFirstName}")}
 + [▼]
 -
 You follow the manager to your cubicle and listen as they begin to explain your new job. 
@@ -238,14 +236,13 @@ Finally you arrive at your workstation.
     ++ [▼]
     Your relationship with {managerFirstName} increased by 1. 
     ~ managerRelationshipWithPlayer += 1
-+ ["I think I'm good. Should I come to you if I have any questions in the future? {statHints: \\n<size={statSize}>(+2 Relationship)</size>}]
++ ["I think I'm good. Should I come to you if I have any in the future?" {statHints: \\n<size={statSize}>(+2 Relationship)</size>}]
     {ChangeConversationFocus(NPC, "{managerFirstName}")}
     "Yes please. We're a small branch here, so I work directly with everyone."
     ++ [▼]
     Your relationship with {managerFirstName} increased by 2. 
     ~ managerRelationshipWithPlayer += 2
-    
-+ [Should I have questions? That was too simple. {statHints: \\n<size={statSize}>(-1 Relationship)</size>}]
++ ["Should I have questions? That was too simple." {statHints: \\n<size={statSize}>(-1 Relationship)</size>}]
     {ChangeConversationFocus(NPC, "{managerFirstName}")}
     "Not necessarily. I just wanted to make sure you're all set. It's my job, after all."
     ++ [▼]
@@ -254,7 +251,6 @@ Finally you arrive at your workstation.
 -
 + [▼]
 -
-{ChangeConversationFocus(NPC, "{managerFirstName}")}
 "Your first assignment is there on your desk. The instructions should be pretty clear. Take today to get familiar with your computer system and see if you can handle the assignment."
 + [▼]
 -
@@ -264,14 +260,14 @@ Finally you arrive at your workstation.
 {managerFirstName} gives you a friendly wave as they walk away, leaving you to your own devices until lunch. 
 ~ conversationActive = false
 ~ activeNPCID = 99
-+ [▼]
-- -> firstWorkDay
++ [▼] -> firstWorkDay
+
 = firstWorkDay
 You spend the next few hours personalizing your desk area, reading through the instructions, and seeing how hard this work actually is. 
 + [▼]
 -
 You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from working.
-~ energy -= 1
+{UpdateEnergy(-1)}
 -
 + [▼] -> energyCheck ->
 -
@@ -295,28 +291,25 @@ Just as you think you're getting the hang of everything, your manager shows up n
     ~ managerRelationshipWithPlayer += 1
 + ["It was okay." {statHints: \\n<size={statSize}>(No Change)</size>}]
     {ChangeConversationFocus(NPC, "{managerFirstName}")}<>"At least you made it. And now it's time for lunch!"
-    ++ [▼]
-    
 + ["It sucked." {statHints: \\n<size={statSize}>(-1 Relationship)</size>}]    
     {ChangeConversationFocus(NPC, "{managerFirstName}")}<>"Can't always have a great day, I guess. Maybe lunch will help out."
     ++ [▼]
     \\nYour relationship with {managerFirstName} decreased by 1. 
     ~ managerRelationshipWithPlayer -= 1
 -
-{ChangeConversationFocus(NPC, "{managerFirstName}")}
 + [▼]
 -
-"Follow me and I'll take you to the break room. It's well equipped, and a great place to take lunch."
+"Follow me and I'll take you to the breakroom. It's well equipped, and a great place to take lunch."
 + [▼]
 -
 After turning a few corners, you reach the break room. 
 + [▼]
 -
-~ background = "officeBreakRoom"
+~ background = "officeWorkBreakroom"
 "See? What did I tell you? State of the art."
 + [▼]
 -
-You keep any personal opinions you have about the break room to yourself and just nod. 
+You keep any personal opinions you have about the breakroom to yourself and just nod. 
 + [▼]
 -
 "You didn't bring a lunch today, did you?" 
@@ -354,7 +347,7 @@ You keep any personal opinions you have about the break room to yourself and jus
 -
 ~ conversationActive = false
 ~ activeNPCID = 99 
- {
+    {
     - freeLunch: -> firstDayFreeLunch ->
     - else: -> firstDayNoLunch ->
     }
@@ -363,18 +356,14 @@ You head back to your desk once lunch is over and finish the rest of your work d
 + [▼]
 -
 You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from working. 
-~ energy -= 1
--> energyCheck ->
-+ [▼]
+{UpdateEnergy(-1)}
++ [▼] -> energyCheck ->
 -
+~ background = "officeWorkExterior"
+~ locationMusic = "exteriorCity"
 You made it to the end of the day. Finally. You look back at the building once you're outside and decide what to do with the rest of your night.
--
-+ [▼]
--
-+ [Head Home]
--> endofday
-+ [Go to Store]
--> store
++ [▼] -> LeaveWork
+
 === firstDayFreeLunch
 You and {managerFirstName} sit at one of the tables and eat lunch together. 
 + [▼]
@@ -385,10 +374,11 @@ The food is good, and the time passes quickly. Before you know it, lunch is over
 You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from socializing. 
 You gained 2 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from a good meal. 
 Your relationship with {managerFirstName} increased by 2. 
-    ~ energy -=1
-    ~ health +=2
-    ~ managerRelationshipWithPlayer += 2
-    -> energyCheck ->
+{UpdateEnergy(-1)}
+{UpdateHealth(2)}
+~ managerRelationshipWithPlayer += 2
++ [▼] -> energyCheck ->
+-
 ->->
 === firstDayNoLunch
 {managerFirstName} bids you goodbye and heads back to their office to eat. It seems they're taking a "working lunch". 
@@ -400,16 +390,19 @@ You forgot to bring a lunch to work. There are vending machines here, so you cou
     ++ [▼]
     You lost 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from not eating.
     You gained 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from your nap. 
-    ~ health -= 1
-    ~ energy += 1
+    {UpdateEnergy(1)}
+    {UpdateHealth(-1)}
     -> healthCheck ->
 +[Snack{statHints: \\n<size={statSize}>(+1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>}\\n -$1.50)</size>}]  
+    {money - 1.50 < 0.01: As you go to use the machine you realize you don't have enough money. Guess you'll just head back to your desk, then. ->->}
     You grab a snack from the vending machines and take the time to eat it. 
     ++ [▼]
     You gained 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from eating. 
     You paid $1.50 for your snack. 
-    ~ health += 1
+    {UpdateHealth(1)}
+    ~ money -= 1.50
     {AddTransaction(fullDateNumbers, "Vending Machine", 1.50, money)}
 -
 + [▼]
+-
 ->->

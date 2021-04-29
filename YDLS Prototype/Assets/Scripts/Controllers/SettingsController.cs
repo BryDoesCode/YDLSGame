@@ -28,6 +28,8 @@ public class SettingsController : MonoBehaviour
     public Slider musicVolumeSlider;
     public Slider SFXVolumeSlider;
     public Toggle statToggle;
+    public Toggle captionToggle;
+    public Toggle colorTextToggle;
     public TMP_Dropdown resolutionDropdown;
 
     public TextMeshProUGUI fontSizeLabel;
@@ -44,6 +46,8 @@ public class SettingsController : MonoBehaviour
         musicVolumeSlider.onValueChanged.AddListener(delegate { OnMusicVolumeSliderValueChange(); });
         SFXVolumeSlider.onValueChanged.AddListener(delegate { OnSFXVolumeSliderValueChange(); });
         statToggle.onValueChanged.AddListener(delegate { OnStatToggleValueChange(); });
+        captionToggle.onValueChanged.AddListener(delegate { OnCaptionToggleValueChange(); });
+        colorTextToggle.onValueChanged.AddListener(delegate { OnColorTextToggleValueChange(); });
 
         resolutionContainer.SetActive(false);
 
@@ -119,6 +123,36 @@ public class SettingsController : MonoBehaviour
         else
         {
             statToggle.isOn = true;
+        }
+        if (PlayerPrefs.HasKey("CaptionToggle"))
+        {
+            if (PlayerPrefs.GetInt("CaptionToggle") == 1)
+            {
+                captionToggle.isOn = true;
+            }
+            else
+            {
+                captionToggle.isOn = false;
+            }
+        }
+        else
+        {
+            captionToggle.isOn = true;
+        }
+        if (PlayerPrefs.HasKey("ColorTextToggle"))
+        {
+            if (PlayerPrefs.GetInt("ColorTextToggle") == 1)
+            {
+                colorTextToggle.isOn = true;
+            }
+            else
+            {
+                colorTextToggle.isOn = false;
+            }
+        }
+        else
+        {
+            colorTextToggle.isOn = true;
         }
     }
 
@@ -220,6 +254,73 @@ public class SettingsController : MonoBehaviour
             statToggle.isOn = false;
         }
     }
+
+    public void OnCaptionToggleValueChange()
+    {
+        bool state = captionToggle.isOn;
+        if (state)
+        {
+            GameController.CallInkClosedCaptionHintFunction(1);
+            PlayerPrefs.SetInt("CaptionToggle", 1);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            GameController.CallInkClosedCaptionHintFunction(0);
+            PlayerPrefs.SetInt("CaptionToggle", 0);
+            PlayerPrefs.Save();
+        }
+        if (!muteSFX)
+        {
+            SFXController.PlayButtonClick();
+        }
+    }
+
+    public void UpdateCaptionToggle(int state)
+    {
+        if (state == 1)
+        {
+            captionToggle.isOn = true;
+        }
+        else
+        {
+            captionToggle.isOn = false;
+        }
+    }
+
+    public void OnColorTextToggleValueChange()
+    {
+        bool state = colorTextToggle.isOn;
+        if (state)
+        {
+            GameController.CallInkColorTextFunction(1);
+            PlayerPrefs.SetInt("ColorTextToggle", 1);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            GameController.CallInkColorTextFunction(0);
+            PlayerPrefs.SetInt("ColorTextToggle", 0);
+            PlayerPrefs.Save();
+        }
+        if (!muteSFX)
+        {
+            SFXController.PlayButtonClick();
+        }
+    }
+
+    public void UpdateColorTextToggle(int state)
+    {
+        if (state == 1)
+        {
+            colorTextToggle.isOn = true;
+        }
+        else
+        {
+            colorTextToggle.isOn = false;
+        }
+    }
+
     public void MuteSFX(bool condition)
     {
         muteSFX = condition;

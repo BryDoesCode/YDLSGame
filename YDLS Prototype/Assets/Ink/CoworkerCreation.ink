@@ -218,7 +218,7 @@ VAR coworkerKnowsPlayer = false
 ~ conversationActive = true
 ~ activeNPCID = 2
 {ChangeConversationFocus(NPC, "{coworkerFirstName}")}
-"Hey {firstName}! It's almost the end of your shift, right?"
+"Hey {firstName}! I heard about you from {managerFirstName}. It's your first week here, right?"
 
 + [Respond]
 {ChangeConversationFocus(Player, "{coworkerFirstName}")}

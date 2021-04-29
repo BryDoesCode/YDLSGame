@@ -39,12 +39,16 @@ public class BankController : MonoBehaviour
     public TextMeshProUGUI electricBillText;
     public TextMeshProUGUI electricBillDateText;
 
-
     public GameObject phoneBillContainer;
     public TextMeshProUGUI phoneBillText;
     public TextMeshProUGUI phoneBillDateText;
 
     public GameObject noBillsContainer;
+
+    [Header("Modals")]
+    public GameObject mainModalContainer;
+    public GameObject billPaidModalContainer;
+    public TextMeshProUGUI billPaidModalDesc;
 
 
     [Header("Controllers")]
@@ -135,7 +139,7 @@ public class BankController : MonoBehaviour
         newTransaction.transform.SetParent(transactionContent.transform, false);
         newTransaction.transform.SetAsFirstSibling();
         RectTransform transactionContentRect = transactionContent.GetComponent<RectTransform>();
-        transactionContentRect.sizeDelta = new Vector2(transactionContentRect.sizeDelta.x, transactionContentRect.sizeDelta.y + 80f);
+        transactionContentRect.sizeDelta = new Vector2(transactionContentRect.sizeDelta.x, transactionContentRect.sizeDelta.y + 90f);
 
 
         // Add to List
@@ -155,7 +159,7 @@ public class BankController : MonoBehaviour
         {
             
             PlayerPrefs.SetString("transaction" + i, Transactions[i]);
-            Debug.Log("Saved Transaction " + i + " :" + Transactions[i]);
+            //Debug.Log("Saved Transaction " + i + " :" + Transactions[i]);
             
         }
     }
@@ -172,7 +176,7 @@ public class BankController : MonoBehaviour
             //Debug.Log("TempTransactionContainer THING: " + tempTransactionContainer[0] + ", " + tempTransactionContainer[1] + ", " + tempTransactionContainer[2]);
             AddTransaction(tempTransactionContainer[0], tempTransactionContainer[1], float.Parse(tempTransactionContainer[2]), float.Parse(tempTransactionContainer[3]));
         }
-        Debug.Log("Loaded Transactions");        
+        //Debug.Log("Loaded Transactions");        
     }
     public void SaveBills()
     {
@@ -214,21 +218,18 @@ public class BankController : MonoBehaviour
     {
         if (GameController.CallInkPayBillFunction(billName))
         {
-            switch(billName)
+            switch (billName)
             {
                 case "Rent":
                     rentBillContainer.SetActive(false);
-                    //PlayerPrefs.SetInt("rentBill", 0);
                     rentBill = 0;
                     break;
                 case "Phone":
                     phoneBillContainer.SetActive(false);
-                    //PlayerPrefs.SetInt("phoneBill", 0);
                     phoneBill = 0;
                     break;
                 case "Electric":
                     electricBillContainer.SetActive(false);
-                    //PlayerPrefs.SetInt("electricBill", 0);
                     electricBill = 0;
                     break;
                 default:
@@ -236,7 +237,18 @@ public class BankController : MonoBehaviour
                     break;
             }
             SFXController.PlayRegisterDing();
+            billPaidModalDesc.text = "Bill paid successfully!";
+            mainModalContainer.SetActive(true);
+            billPaidModalContainer.SetActive(true);
         }
+        else
+        {
+            SFXController.PlayNegativeDing();
+            billPaidModalDesc.text = "You don't have enough money to pay that bill.";
+            mainModalContainer.SetActive(true);
+            billPaidModalContainer.SetActive(true);
+        }
+        
     }
 
     public void ShowRentBill(int value)
@@ -276,5 +288,11 @@ public class BankController : MonoBehaviour
         {
             phoneBillContainer.SetActive(false);
         }
+    }
+    public void OnClickCloseModal()
+    {
+        mainModalContainer.SetActive(false);
+        billPaidModalContainer.SetActive(false);
+        SFXController.PlayButtonClick();
     }
 }

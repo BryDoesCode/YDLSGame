@@ -18,6 +18,9 @@ public class ContactsController : MonoBehaviour
     public TextMeshProUGUI modalLabel;
     public TextMeshProUGUI modalDesc;
     public TextMeshProUGUI modalStat;
+
+    [Header("Game Controllers")]
+    public SFXController SFXController;
     public void UpdateRelationship (int score, int indexID)
     {
         if (indexID < CharacterCreationController.Characters.Count)
@@ -73,9 +76,6 @@ public class ContactsController : MonoBehaviour
 
     public void OnClickContactsModal(string item)
     {
-        mainModalContainer.SetActive(true);
-        contactsModalContainer.SetActive(true);
-
         switch (item)
         {
             case "Mom":
@@ -97,17 +97,22 @@ public class ContactsController : MonoBehaviour
             case "Manager":
                 modalLabel.text = NPCContactContainers[3].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text;
                 modalDesc.text = "You haven't known your manager long enought to have an opinion about them.";
-                modalStat.text = "Your relationship score with your coworker is " + NPCContactContainers[3].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text + ".";
+                modalStat.text = "Your relationship score with your manager is " + NPCContactContainers[3].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text + ".";
                 break;
             default:
                 Debug.Log("Unknown Contacts Modal Item: " + item);
                 break;
         }
+
+        mainModalContainer.SetActive(true);
+        contactsModalContainer.SetActive(true);
+        SFXController.PlayButtonClick();
     }
 
     public void OnClickCloseModal()
     {
         mainModalContainer.SetActive(false);
         contactsModalContainer.SetActive(false);
+        SFXController.PlayButtonClick();
     }
 }

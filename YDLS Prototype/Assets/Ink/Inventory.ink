@@ -28,6 +28,8 @@ VAR costToiletries = 0
 VAR cleaningSuppliesCount = 0
 VAR costCleaningSupplies = 0
 
+VAR medicationCount = 0
+
 
 // Show Items
 VAR showBreakfastPrepackagedMeals = false

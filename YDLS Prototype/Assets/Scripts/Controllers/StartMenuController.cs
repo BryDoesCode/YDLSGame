@@ -108,15 +108,14 @@ public class StartMenuController : MonoBehaviour
         if (choice)
         {            
             GameController.ResetStoryState();
+            menuButtonsContainer.SetActive(false);
             finalConfirmationModalContainer.SetActive(true);
         }
         else
         {
             startMenuModalContainer.SetActive(false);
         }
-
         secondConfirmationModalContainer.SetActive(false);
-
     }
 
     public void OnClickFinalConfirm()

@@ -12,6 +12,9 @@ public class MusicController : MonoBehaviour
     public AudioClip workMusic;
     public AudioClip storeMusic;
     public AudioClip parentKitchenMusic;
+    public AudioClip busMusic;
+    public AudioClip hospitalMusic;
+
 
     private AudioSource audioSource;
     public AudioMixer audioMixer;
@@ -26,7 +29,7 @@ public class MusicController : MonoBehaviour
     {
         if (!musicName.Equals(currentMusicName))
         {
-            StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "FadeParameter", 3f, 0f));
+            StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "FadeParameter", 6f, 0f));
             audioSource.Stop();
             switch (musicName)
             {
@@ -70,13 +73,22 @@ public class MusicController : MonoBehaviour
                     Debug.Log("Playing: " + musicName);
                     break;
 
+                case "bus":
+                    audioSource.clip = busMusic;
+                    Debug.Log("Playing: " + musicName);
+                    break;
+                case "hospital":
+                    audioSource.clip = hospitalMusic;
+                    Debug.Log("Playing: " + musicName);
+                    break;
+
                 default:
                     Debug.Log("Unknown Music: " + musicName);
                     break;
             }
             currentMusicName = musicName;
             audioSource.Play();
-            StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "FadeParameter", 6f, 4f));
+            StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "FadeParameter", 6f, 1f));
         }
     }
 

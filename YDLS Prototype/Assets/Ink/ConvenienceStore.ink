@@ -1,16 +1,4 @@
 === store ===
-~loadingAnimation = "bus"
-~startLoadingAnimation = true
-You traveled by bus.
-+ [▼]
--
-~ background = "convenienceStoreEveningExterior"
-~ time = Evening
-~ location = "Store"
-~ locationColor = "convenienceStoreEveningExterior"
-~ locationMusic = "exteriorCity"
-~ startLoadingAnimation = false
-
 ~ costBreakfastPrepackagedMeal = 5.00
 ~ costBreakfastIngredients = 3.00
 ~ costLunchPrepackagedMeal = 5.00
@@ -20,7 +8,6 @@ You traveled by bus.
 ~ costToiletries = 2.25
 ~ costCleaningSupplies = 2.99
 ~ costNewspaper = 1.79
-
 You've arrived at the convenience store.
 + [▼]
 -
@@ -28,11 +15,13 @@ You've arrived at the convenience store.
 You go inside. -> insideStore
 
 + [Go Home]
+
+
+
 -> endofday
 
 = insideStore
 ~ background = "convenienceStoreEvening"
-~ locationColor = "convenienceStoreEvening"
 ~ locationMusic = "store"
 
 You see rows and rows of items and a bored cashier at the register. 
@@ -54,34 +43,34 @@ You see rows and rows of items and a bored cashier at the register.
 === function PurchaseItems(breakfastPrepackagedPurchaseCount, breakfastIngredientsPurchaseCount, lunchPrepackagedPurchaseCount, lunchIngredientsPurchaseCount, dinnerPrepackagedPurchaseCount, dinnerIngredientsPurchaseCount, toiletriesPurchaseCount, cleaningSuppliesPurchaseCount, newspaperPurchaseCount)
 {
     - breakfastPrepackagedPurchaseCount < 0:
-        ~ purchaseResponse = "You can't buy negative of an item. Try again."
+        ~ purchaseResponse = "{closedCaptions: [error chime]\\n\\n}You can't buy negative of an item. Try again."
         ~ return false
     - breakfastIngredientsPurchaseCount < 0:
-        ~ purchaseResponse = "You can't buy negative of an item. Try again."
+        ~ purchaseResponse = "{closedCaptions: [error chime]\\n\\n}You can't buy negative of an item. Try again."
         ~ return false
     - lunchPrepackagedPurchaseCount < 0:
-        ~ purchaseResponse = "You can't buy negative of an item. Try again."
+        ~ purchaseResponse = "{closedCaptions: [error chime]\\n\\n}You can't buy negative of an item. Try again."
         ~ return false
     - lunchIngredientsPurchaseCount < 0:
-        ~ purchaseResponse = "You can't buy negative of an item. Try again."
+        ~ purchaseResponse = "{closedCaptions: [error chime]\\n\\n}You can't buy negative of an item. Try again."
         ~ return false
     - dinnerPrepackagedPurchaseCount < 0:
-        ~ purchaseResponse = "You can't buy negative of an item. Try again."
+        ~ purchaseResponse = "{closedCaptions: [error chime]\\n\\n}You can't buy negative of an item. Try again."
         ~ return false
     - dinnerIngredientsPurchaseCount < 0:
-        ~ purchaseResponse = "You can't buy negative of an item. Try again."
+        ~ purchaseResponse = "{closedCaptions: [error chime]\\n\\n}You can't buy negative of an item. Try again."
         ~ return false
     - toiletriesPurchaseCount < 0:
-        ~ purchaseResponse = "You can't buy negative of an item. Try again."
+        ~ purchaseResponse = "{closedCaptions: [error chime]\\n\\n}You can't buy negative of an item. Try again."
         ~ return false
     - cleaningSuppliesPurchaseCount < 0:
-        ~ purchaseResponse = "You can't buy negative of an item. Try again."
+        ~ purchaseResponse = "{closedCaptions: [error chime]\\n\\n}You can't buy negative of an item. Try again."
         ~ return false
     - newspaperPurchaseCount < 0:
-        ~ purchaseResponse = "You can't buy negative of an item. Try again."
+        ~ purchaseResponse = "{closedCaptions: [error chime]\\n\\n}You can't buy negative of an item. Try again."
         ~ return false
     - newspaperPurchaseCount == 0 and breakfastPrepackagedPurchaseCount == 0 and breakfastIngredientsPurchaseCount == 0 and lunchPrepackagedPurchaseCount == 0 and lunchIngredientsPurchaseCount == 0 and dinnerPrepackagedPurchaseCount == 0 and dinnerIngredientsPurchaseCount == 0 and cleaningSuppliesPurchaseCount == 0 and toiletriesPurchaseCount == 0:
-        ~ purchaseResponse = "You didn't select anything to purchase. Try again."
+        ~ purchaseResponse = "{closedCaptions: [error chime]\\n\\n}You didn't select anything to purchase. Try again."
         ~ return false
 }
 
@@ -101,12 +90,11 @@ You see rows and rows of items and a bored cashier at the register.
         ~ newspaperCount += newspaperPurchaseCount
         ~ money -= totalCost
 
-        ~ purchaseResponse = "Purchase Successful!"
+        ~ purchaseResponse = "{closedCaptions: [register ding]\\n\\n}Purchase Successful!"
         {AddTransaction(fullDateNumbers, "Store", -totalCost, money)}
         ~ return true
-      
         
     - else:
-        ~purchaseResponse = "You don't have enough money to buy everything."
+        ~purchaseResponse = "{closedCaptions: [error chime]\\n\\n}You don't have enough money to buy what you have selected."
        ~ return false
 }

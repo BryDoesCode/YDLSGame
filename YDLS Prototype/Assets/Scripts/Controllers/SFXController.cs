@@ -15,6 +15,7 @@ public class SFXController : MonoBehaviour
     [Header("UI SFX")]
     public AudioClip buttonClick;
     public AudioClip registerDing;
+    public AudioClip negativeDing;
 
     private AudioSource audioSource;
     public AudioMixer audioMixer;
@@ -68,6 +69,11 @@ public class SFXController : MonoBehaviour
     public void PlayRegisterDing()
     {
         audioSource.PlayOneShot(registerDing);
+    }
+
+    public void PlayNegativeDing()
+    {
+        audioSource.PlayOneShot(negativeDing);
     }
 
     public void UpdateVolume(float value)

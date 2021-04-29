@@ -6,23 +6,24 @@ INCLUDE ParentCreation.ink
 INCLUDE ManagerCreation.ink
 INCLUDE Inventory.ink
 INCLUDE Apartment.ink
-INCLUDE RetailWork.ink
+INCLUDE OfficeWork.ink
 INCLUDE ConvenienceStore.ink
 INCLUDE NeedsCheck.ink
 INCLUDE Introduction.ink
 INCLUDE FirstWorkDay.ink
-
-
-
-
-
-
+INCLUDE SaturdayWithPhoneCall.ink
+INCLUDE Hospital.ink
 
 // External Functions for Unity
 
 EXTERNAL EndGame()
 EXTERNAL UpdateNPCs()
 EXTERNAL AddTransaction(dateNumber, desc, amount, transactionBalance)
+EXTERNAL UpdateEnergySummary(start, used)
+EXTERNAL UpdateHealthSummary(start, used)
+EXTERNAL UpdateWellnessSummary(start, used)
+EXTERNAL ShowStatSummary(showBills)
+
 
 /*--------------------------------------------------------------------------------
 
@@ -38,6 +39,12 @@ VAR energy = 8
 VAR health = 6
 VAR wellness = 7
 VAR borrowedEnergy = 0
+VAR energyAtStart = 0
+VAR healthAtStart = 0
+VAR wellnessAtStart = 0
+VAR energyUsedToday = 0
+VAR healthUsedToday = 0
+VAR wellnessUsedToday = 0
 
 
 // Date Variables 
@@ -67,7 +74,6 @@ VAR time = Morning
 
 VAR location = "New Life"
 VAR background = "black"
-VAR locationColor = "black"
 VAR locationMusic = "startMenu"
 
 
@@ -75,6 +81,7 @@ VAR locationMusic = "startMenu"
 
 VAR statHints = true
 VAR coloredText = true
+VAR closedCaptions = true
 
 // Apartment / Job Choices
 VAR apartmentChoosen = false
@@ -82,7 +89,7 @@ VAR jobChoosen = false
 
 // UI Variables
 
-VAR statSize = 42
+VAR statSize = 40
 VAR showInventoryButton = false
 VAR showContactsButton = false
 VAR showNeedsButton = false
@@ -99,7 +106,7 @@ VAR showWellnessSlider = false
 VAR showRentBill = false
 VAR showElectricBill = false
 VAR showPhoneBill = false
-
+VAR showAnyBills = false
 
 // Store Variables
 
@@ -117,6 +124,10 @@ VAR phoneBillDueDate = "5/1"  // Due Dates Must Come First
 VAR phoneBill = 0.0
 VAR paycheck = 300.31
 
+VAR phoneBillPaid = false
+VAR electricBillPaid = false
+VAR rentBillPaid = false
+
 // Conversation Variables
 VAR conversationActive = false
 VAR activeNPCID = 99
@@ -130,6 +141,9 @@ VAR startLoadingAnimation = false
 // Other Variables
 VAR randomNumber = 0
 VAR freeLunch = false
+VAR lunchToWork = false
+VAR hospitalVisit = false
+VAR passedOut = false
 
 // Initialize Unity UI
 
@@ -147,7 +161,6 @@ VAR freeLunch = false
 ~ time = Evening
 ~ location = "New Life"
 ~ background = "black"
-~ locationColor = "black"
 ~ locationMusic = "startMenu"
 
 ~ conversationActive = false
@@ -167,6 +180,7 @@ VAR freeLunch = false
 ~ electricBill = 54.23
 ~ phoneBillDueDate = "8/06"
 ~ phoneBill = 78.25
+
 
 ~ paycheck = 300.31
 
@@ -240,12 +254,6 @@ Are you ready to begin?
 -> morning
 
 
-
-
-
-
-
-
 /*--------------------------------------------------------------------------------
 
     Stat Update Functions
@@ -255,8 +263,41 @@ Are you ready to begin?
 === function StatHintToggle(state) 
 ~ statHints = state
 
+=== function CaptionToggle(state)
+~ closedCaptions = state
 
-{GenerateCoworker()}
+=== function ColorText(state)
+~ coloredText = state
+
+=== function UpdateStatSummary() 
+{UpdateEnergySummary(energyAtStart, energyUsedToday)}
+{UpdateHealthSummary(healthAtStart, healthUsedToday)}
+{UpdateWellnessSummary(wellnessAtStart, wellnessUsedToday)}
+{ShowStatSummary(showAnyBills)}
+
+=== function UpdateEnergy(amount)
+~ energy += amount
+~ energyUsedToday += amount
+{
+- energy < 0:
+~ energy = 0
+}
+
+=== function UpdateHealth(amount)
+~ health += amount
+~ healthUsedToday += amount
+
+=== function UpdateWellness(amount)
+~ wellness += amount
+~ wellnessUsedToday += amount
+
+=== function ResetStatTracking()
+~ energyAtStart = energy
+~ healthAtStart = health
+~ wellnessAtStart = wellness
+~ energyUsedToday = 0
+~ healthUsedToday = 0
+~ wellnessUsedToday = 0
 
 /*--------------------------------------------------------------------------------
 
@@ -291,12 +332,11 @@ Are you ready to begin?
     ~ interestCalculation = FLOOR(interestCalculation)
     ~ interestCalculation = interestCalculation / 100
     ~ earnedInterest = interestCalculation
-    {date == 11: {PayInterest()}}
+    {date == 14: {PayInterest()}}
 
 === function PayInterest
     ~ money += earnedInterest
     {AddTransaction(fullDateNumbers, "Interest", earnedInterest, money)}
-
     ~ earnedInterest = 0.0
 
 === function PayBill(billName)
@@ -307,26 +347,42 @@ Are you ready to begin?
             ~ billAmount = rentBill
         - billName == "Electric":
             ~ billAmount = electricBill
+            ~ billName = "Electric Bill"
         - billName == "Phone":
             ~ billAmount = phoneBill
+            ~ billName = "Phone Bill"
     }
     
     { 
-    - billAmount <= money:
-        ~ money -= billAmount
-        {AddTransaction(fullDateNumbers, billName, -billAmount, money)}
-        ~ return true
-    - else:
-       ~ return false
-}
+        - billAmount <= money:
+            ~ money -= billAmount
+            {AddTransaction(fullDateNumbers, billName, -billAmount, money)}
+            { 
+                - billName == "Rent":
+                    ~ rentBillPaid = true
+                - billName == "Electric":
+                    ~ electricBillPaid = true
+                - billName == "Phone":
+                    ~ phoneBillPaid = true
+            }
+            ~ return true
+        - else:
+           ~ return false
+    }
 
     
 
 === function EarnPaycheck
-    {date == 10: 
+    {
+        - date == 13: 
             ~ money += paycheck
-        {AddTransaction(fullDateNumbers, "Paycheck", paycheck, money)}
-
+            {AddTransaction(fullDateNumbers, "Paycheck", paycheck, money)}
+        - date == 20: 
+            ~ money += paycheck
+            {AddTransaction(fullDateNumbers, "Paycheck", paycheck, money)}
+        - date == 27:
+            ~ money += paycheck
+            {AddTransaction(fullDateNumbers, "Paycheck", paycheck, money)}
     }
 
 
@@ -364,3 +420,15 @@ Are you ready to begin?
 
 === function AddTransaction(dateNumber, desc, amount, transactionBalance)
 ~ return
+
+=== function UpdateEnergySummary(start, used)
+~return
+
+=== function UpdateHealthSummary(start, used)
+~return
+
+=== function UpdateWellnessSummary(start, used)
+~return
+
+=== function ShowStatSummary(showBills)
+~return

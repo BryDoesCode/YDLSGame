@@ -7,6 +7,7 @@ using TMPro;
 using System;
 using Febucci.UI;
 using UnityEngine.UI.ProceduralImage;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -101,9 +102,7 @@ public class GameController : MonoBehaviour
         story.ObserveVariable("background", (string varName, object newValue) => {
             LabelController.UpdateBackground((string)newValue);
         });
-        /*story.ObserveVariable("locationColor", (string varName, object newValue) => {
-            LabelController.UpdateContainerColor((string)newValue);
-        });*/
+
 
         // Audio
         story.ObserveVariable("locationMusic", (string varName, object newValue) => {
@@ -138,6 +137,9 @@ public class GameController : MonoBehaviour
         });
         story.ObserveVariable("newspaperCount", (string varName, object newValue) => {
             InventoryController.UpdateNewspaperQuantity((int)newValue);
+        });
+        story.ObserveVariable("medicationCount", (string varName, object newValue) => {
+            InventoryController.UpdateMedicationQuantity((int)newValue);
         });
 
         // Banking
@@ -212,6 +214,14 @@ public class GameController : MonoBehaviour
             ContactsController.UpdateKnowingPlayer((int)newValue, 2);
         });
 
+        // Manager NPC
+        story.ObserveVariable("managerRelationshipWithPlayer", (string varName, object newValue) => {
+            ContactsController.UpdateRelationship((int)newValue, 3);
+        });
+        story.ObserveVariable("managerKnowsPlayer", (string varName, object newValue) => {
+            ContactsController.UpdateKnowingPlayer((int)newValue, 3);
+        });
+
         // Loading Screen
         story.ObserveVariable("loadingAnimation", (string varName, object newValue) => {
             LoadingScreenController.ChangeLoadingImage(newValue.ToString());
@@ -266,7 +276,12 @@ public class GameController : MonoBehaviour
         story.BindExternalFunction("EndGame", () => EndGame());
         story.BindExternalFunction("UpdateNPCs", () => UpdateNPCs());
         story.BindExternalFunction("AddTransaction", (string date, string desc, float amount, float transactionBalance) => BankController.AddTransaction(date, desc, amount, transactionBalance));
-        
+        story.BindExternalFunction("UpdateEnergySummary", (int start, int used) => StatController.UpdateEnergySummary(start, used));
+        story.BindExternalFunction("UpdateHealthSummary", (int start, int used) => StatController.UpdateHealthSummary(start, used));
+        story.BindExternalFunction("UpdateWellnessSummary", (int start, int used) => StatController.UpdateWellnessSummary(start, used));
+        story.BindExternalFunction("ShowStatSummary", (int showBills) => StatController.ShowStatSummary(showBills));
+
+
         if (PlayerPrefs.HasKey("inkSaveState"))
         {
             string savedState = PlayerPrefs.GetString("inkSaveState");
@@ -431,7 +446,7 @@ public class GameController : MonoBehaviour
         //Debug.Log("Transactions Saved");
         BankController.SaveBills();
         //Debug.Log("Bills Saved");
-        Debug.Log("Save Successful.");
+        //Debug.Log("Save Successful.");
     }
 
     public void ResetStoryState()
@@ -467,7 +482,7 @@ public class GameController : MonoBehaviour
         {
             PlayerPrefs.DeleteKey("electricBill");
         }
-        Debug.Log("Bill Prefs Deleted");
+        //Debug.Log("Bill Prefs Deleted");
 
         // Delete Saved Names
         if (PlayerPrefs.HasKey("firstName"))
@@ -480,12 +495,21 @@ public class GameController : MonoBehaviour
         }
 
         story.ResetState();
-        Debug.Log("Ink Story State Reset");
+        //Debug.Log("Ink Story State Reset");
         if (PlayerPrefs.HasKey("StatToggle")) 
         {
             CallInkStatHintFunction(PlayerPrefs.GetInt("StatToggle"));
-            Debug.Log("Stat Toggle Updated");
+            //Debug.Log("Stat Toggle Updated");
         }
+        if (PlayerPrefs.HasKey("CaptionToggle"))
+        {
+            CallInkClosedCaptionHintFunction(PlayerPrefs.GetInt("CaptionToggle"));
+        }
+        if (PlayerPrefs.HasKey("ColorTextToggle"))
+        {
+            CallInkClosedCaptionHintFunction(PlayerPrefs.GetInt("ColorTextToggle"));
+        }
+
         //StoryLoop();
     }
 
@@ -549,6 +573,16 @@ public class GameController : MonoBehaviour
     public void CallInkStatHintFunction (int state)
     {
         story.EvaluateFunction("StatHintToggle", state);
+    }
+
+    public void CallInkClosedCaptionHintFunction(int state)
+    {
+        story.EvaluateFunction("CaptionToggle", state);
+    }
+
+    public void CallInkColorTextFunction(int state)
+    {
+        story.EvaluateFunction("ColorText", state);
     }
 
     public void UpdateNPCs()
@@ -677,7 +711,6 @@ public class GameController : MonoBehaviour
         CharacterCreationController.ShowSignNameContainer((int)story.variablesState["showSignNameContainer"]);
         CharacterCreationController.ShowCharacterCreationContainer((int)story.variablesState["showCharacterCreationContainer"]);
 
-
         // Inventory
         InventoryController.UpdateBreakfastPrepackagedFoodQuantity((int)story.variablesState["breakfastPrepackagedMealCount"]);
         InventoryController.UpdateBreakfastIngredientsQuantity((int)story.variablesState["breakfastIngredientsCount"]);
@@ -688,6 +721,7 @@ public class GameController : MonoBehaviour
         InventoryController.UpdateToiletriesQuantity((int)story.variablesState["toiletriesCount"]);
         InventoryController.UpdateCleaningSuppliesQuantity((int)story.variablesState["cleaningSuppliesCount"]);
         InventoryController.UpdateNewspaperQuantity((int)story.variablesState["newspaperCount"]);
+        InventoryController.UpdateMedicationQuantity((int)story.variablesState["medicationCount"]);
 
         // Store
         StoreController.StoreState((int)story.variablesState["storePrompt"]);
@@ -715,6 +749,8 @@ public class GameController : MonoBehaviour
 
         // Settings
         SettingsController.UpdateStatToggle((int)story.variablesState["statHints"]);
+        SettingsController.UpdateCaptionToggle((int)story.variablesState["closedCaptions"]);
+        SettingsController.UpdateColorTextToggle((int)story.variablesState["coloredText"]);
 
         if (PlayerPrefs.HasKey("NarrativeLog"))
         {
@@ -735,7 +771,7 @@ public class GameController : MonoBehaviour
 
     void EndGame()
     {
-        Debug.Log("QUIT");
-        Application.Quit();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ResetStoryState();
     }
 }

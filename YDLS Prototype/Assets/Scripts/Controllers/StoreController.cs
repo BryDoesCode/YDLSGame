@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 public class StoreController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class StoreController : MonoBehaviour
 
     [Header("Item Containers")]
     public GameObject newspaperContainer;
+    public ScrollRect itemContainer;
 
     [Header("Item Info")]
 
@@ -235,18 +237,14 @@ public class StoreController : MonoBehaviour
             dinnerPrepackagedQuantityInt, dinnerIngredientsQuantityInt,
             toiletriesQuantityInt, cleaningSuppliesQuantityInt, newspaperQuantityInt))
         {
-            breakfastIngredientsQuantity.text = "0";
-            breakfastPrepackagedQuantity.text = "0";
-            lunchIngredientsQuantity.text = "0";
-            lunchPrepackagedQuantity.text = "0";
-            dinnerIngredientsQuantity.text = "0";
-            dinnerPrepackagedQuantity.text = "0";
-            toiletriesQuantity.text = "0";
-            cleaningSuppliesQuantity.text = "0";
-            newspaperQuantity.text = "0";
 
+            ResetQuantities();
             calculatedCosts.text = "Total: $0";
             SFXController.PlayRegisterDing();
+        }
+        else
+        {
+            SFXController.PlayNegativeDing();
         }
 
     }
@@ -308,9 +306,31 @@ public class StoreController : MonoBehaviour
 
     public void UpdatePurchaseResponse(string text)
     {
-        purchaseResponseText.text = text;
+        purchaseResponseText.text = text.Replace("\\n", "\n");
     }
 
+    private void ResetQuantities()
+    {
+        breakfastIngredientsQuantity.text = "0";
+        breakfastPrepackagedQuantity.text = "0";
+        lunchIngredientsQuantity.text = "0";
+        lunchPrepackagedQuantity.text = "0";
+        dinnerIngredientsQuantity.text = "0";
+        dinnerPrepackagedQuantity.text = "0";
+        toiletriesQuantity.text = "0";
+        cleaningSuppliesQuantity.text = "0";
+        newspaperQuantity.text = "0";
+
+        breakfastIngredientsQuantityInt = 0;
+        breakfastPrepackagedQuantityInt = 0;
+        lunchIngredientsQuantityInt = 0;
+        lunchPrepackagedQuantityInt = 0;
+        dinnerIngredientsQuantityInt = 0;
+        dinnerPrepackagedQuantityInt = 0;
+        toiletriesQuantityInt = 0;
+        cleaningSuppliesQuantityInt = 0;
+        newspaperQuantityInt = 0;
+    }
 
     public void CloseStore()
     {
@@ -320,11 +340,14 @@ public class StoreController : MonoBehaviour
         {
             SFXController.PlayButtonClick();
         }
+
+        ResetQuantities();
     }
 
     public void OpenStore()
     {
         storeContainer.SetActive(true);
+        itemContainer.verticalNormalizedPosition = 1f;
     }
 
     public void StoreState(int state)
