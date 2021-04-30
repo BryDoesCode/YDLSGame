@@ -59,7 +59,7 @@ What would you like to eat for breakfast?
 {breakfastPrepackagedMealCount == 0 and breakfastIngredientsCount == 0: Looks like you don't have any Breakfast food.}
 + {breakfastPrepackagedMealCount > 0}[Prepacked Meal{statHints: \\n<size={statSize}>(+1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>})\\n(-1 Prepackaged Breakfast)</size>}]
 	{closedCaptions: [chewing]\\n}
-	{~You settled on cereal this morning. It’s quick and it’s easy. | It's a toast kind of morning. {~This time with butter.| A quick swipe of peanut butter makes all the difference. | Some jelly on top adds just enough sweetness.} | Just a container of yogurt should be fine.} 
+	{~You settled on cereal this morning. It’s quick and it’s easy.|Time for the fancy, fruity cereal.|It's a toast kind of morning. {~This time with butter.|A quick swipe of peanut butter makes all the difference.|Some jelly on top adds just enough sweetness. | With nothing on it, it's just that kind of morning.}| Just a container of yogurt should be fine.|Better have some yogurt with cereal on top.|Some plain bread with peanut butter spread will do, no need to toast it today.|Dry cereal sounds good.|Just a handful of berries will be perfect.} 
 	#eatingSFX
     
     ++ [▼]
@@ -71,7 +71,7 @@ What would you like to eat for breakfast?
 	     
 + {breakfastIngredientsCount > 0}[Recipe{statHints: \\n<size={statSize}>(-2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} / +2 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} / +1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>}) \\n(-1 Set of Ingredients)</size>}]
 	{closedCaptions: [chewing]\\n}
-	{~Today was a pancake morning. Sure, you’re a bit tired now but nothing beats the smell of freshly cooked pancakes. | You're exhausted already, but that omlette sure was worth it.}
+	{~Today was a pancake morning. Sure, you’re a bit tired now but nothing beats the smell of freshly cooked pancakes.|You're exhausted already, but that omlette sure was worth it.|There's a reason you begged for a waffle maker. Waffles are the best.|How about some fancy, blueberry pancakes?|Obviously, it's a chocolate chip pancake kind of day.|Maybe some blueberry waffles today?}
 	#eatingSFX
     
     ++ [▼]
@@ -133,6 +133,7 @@ You can either walk to work, or take the bus.
 -
 + [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
     ~loadingAnimation = "walking"
+    ~ locationMusic = "walking"
     You decide to walk. You leave your apartment and begin the short walk to work.  
     ++ (firstWorkWalk) [▼]
     --

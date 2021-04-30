@@ -565,6 +565,7 @@ With a final glance at your parent's kitchen, you head out the door and begin yo
 === newPlace
 ~ loadingAnimation = "van"
 ~ startLoadingAnimation = true
+~ locationMusic = "van"
 You rode in the moving van to your new place. 
 + [▼]
 -
@@ -765,7 +766,7 @@ Since you don't have to worry about work today, you can probably fit both in jus
     {UpdateHealth(1)}
     {UpdateWellness(1)}
     You used up one Set of Toiletries taking a shower. 
-    ~toiletriesCount -= 1
+    ~ toiletriesCount -= 1
     ++ [▼] -> energyCheck ->
     --
     Now that you're refreshed, would you still like to go shopping today? You can always put it off until after work. But then you won't have anything for breakfast.
@@ -847,11 +848,12 @@ Walking is free but takes energy. The bus was free when you were a student (and 
 + [▼]
 -
 + [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
-    ~loadingAnimation = "walking"
+    ~ loadingAnimation = "walking"
+    ~ locationMusic = "walking"
     You decide to walk. You leave your apartment and begin the short walk to the store.  
     ++ [▼]
     --
-    ~startLoadingAnimation = true
+    ~ startLoadingAnimation = true
     You walked. 
     ++ [▼]
     --
@@ -859,7 +861,7 @@ Walking is free but takes energy. The bus was free when you were a student (and 
     ~ location = "Store"
     ~ background = "convenienceStoreEveningExterior"
     ~ locationMusic = "exteriorCity"
-    ~startLoadingAnimation = false
+    ~ startLoadingAnimation = false
     {closedCaptions: [city sounds]\\n}
     You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} walking.
     {UpdateEnergy(-1)}
@@ -870,7 +872,7 @@ Walking is free but takes energy. The bus was free when you were a student (and 
     You decide to travel by bus. You leave your apartment to go wait at the bus stop. 
     ++ [▼]
     --
-    ~startLoadingAnimation = true
+    ~ startLoadingAnimation = true
     ~ locationMusic = "bus"
     You traveled by bus. 
     ++ [▼]
@@ -919,11 +921,12 @@ You can ride the bus home or walk home. You'll have to pay the fare again, but i
 + [▼]
 -
 + [Walk{statHints: \\n<size={statSize}>(-2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
-    ~loadingAnimation = "walking"
+    ~ loadingAnimation = "walking"
+    ~ locationMusic = "walking"
     You decide to walk. You leave the store and begin the short walk home.  
     ++ [▼]
     --
-    ~startLoadingAnimation = true
+    ~ startLoadingAnimation = true
     You walked. 
     ++ [▼]
     --
@@ -937,7 +940,8 @@ You can ride the bus home or walk home. You'll have to pay the fare again, but i
     ++ [▼] -> energyCheck ->
     -- 
 + [Bus{statHints: \\n<size={statSize}>(-$2.00)</size>}]
-    ~loadingAnimation = "bus"
+    ~ loadingAnimation = "bus"
+    ~ locationMusic = "bus"
     You decide to travel by bus. You head back to wait at the bus stop. 
     ++ [▼]
     --

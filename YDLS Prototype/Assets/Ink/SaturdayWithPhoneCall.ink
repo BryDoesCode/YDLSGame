@@ -20,6 +20,7 @@ You discuss how you've been feeling. {hospitalVisit: You admit you ended up in t
 {passedOut: Reluctantly, you explain that you did pass out at home. Your mom expresses her concern but otherwise doesn't press for details.} {not passedOut: You assure her again that things aren't weren't that bad.} 
 + [▼]
 -
+~ background="apartmentKitchenMidday"
 After what feels like hours of further discussion, your stomach growls loudly and your mother starts to apologize. She sternly tells you to go eat and mentions that they might bring some fancy food over the next day if it was okay.
 + [▼]
 -

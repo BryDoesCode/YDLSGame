@@ -50,5 +50,6 @@ You take the taxi home when it arrives.
 -
 ~ loadingAnimation = "taxi"
 ~ startLoadingAnimation = true
+~ locationMusic = "taxi"
 You ride in the taxi. 
 + [▼] -> afterHospitalEndOfDay

@@ -61,7 +61,7 @@ What would you like to eat for breakfast?
 {breakfastPrepackagedMealCount == 0 and breakfastIngredientsCount == 0: Looks like you don't have any breakfast food.}
 + {breakfastPrepackagedMealCount > 0}[Prepacked Meal{statHints: \\n<size={statSize}>(+1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>})\\n(-1 Prepackaged Meal)</size>}]
 	{closedCaptions: [chewing]\\n}
-	{~You settled on cereal this morning. It’s quick and it’s easy. | Time for the fancy, fruity cereal. | It's a toast kind of morning. {~This time with butter.| A quick swipe of peanut butter makes all the difference. | Some jelly on top adds just enough sweetness. | With nothing on it, it's just that kind of morning.} | Just a container of yogurt should be fine. | Better have some yogurt with cereal on top. | Some plain bread with peanut butter spread will do, no need to toast it today. | Dry cereal sounds good. | Just a handful of berries will be perfect.} 
+	{~You settled on cereal this morning. It’s quick and it’s easy.|Time for the fancy, fruity cereal.|It's a toast kind of morning. {~This time with butter.|A quick swipe of peanut butter makes all the difference.|Some jelly on top adds just enough sweetness. | With nothing on it, it's just that kind of morning.}| Just a container of yogurt should be fine.|Better have some yogurt with cereal on top.|Some plain bread with peanut butter spread will do, no need to toast it today.|Dry cereal sounds good.|Just a handful of berries will be perfect.} 
 	#eatingSFX
     
     ++ [▼]
@@ -72,7 +72,7 @@ What would you like to eat for breakfast?
 	     
 + {breakfastIngredientsCount > 0}[Recipe{statHints: \\n<size={statSize}>(-2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} / +2 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} / +1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>}) \\n(-1 Set of Ingredients)</size>}]
 	{closedCaptions: [chewing]\\n}
-	{~Today was a pancake morning. Sure, you’re a bit tired now but nothing beats the smell of freshly cooked pancakes. | You're exhausted already, but that omlette sure was worth it. | There's a reason you begged for a waffle maker. Waffles are the best. | How about some fancy, blueberry pancakes? | Obviously, it's a chocolate chip pancake kind of day. | Maybe some blueberry waffles today?}
+	{~Today was a pancake morning. Sure, you’re a bit tired now but nothing beats the smell of freshly cooked pancakes.|You're exhausted already, but that omlette sure was worth it.|There's a reason you begged for a waffle maker. Waffles are the best.|How about some fancy, blueberry pancakes?|Obviously, it's a chocolate chip pancake kind of day.|Maybe some blueberry waffles today?}
 	#eatingSFX
     ++ [▼]
 	    You lost 2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from cooking.
@@ -191,14 +191,107 @@ Oh well, not much you can do about it now. Better just get ready.
 === endofday ===
 
 Looks like you made it home for the day. 
-
 + [▼]
 -
+You should grab dinner. 
++ [▼]
+-
+~ background = "apartmentKitchenEvening"
+What would you like to eat for dinner? 
+\\nYou have {dinnerPrepackagedMealCount} Prepackaged Dinner{dinnerPrepackagedMealCount!=1:s} and {dinnerIngredientsCount} Set{dinnerIngredientsCount!=1:s} of Dinner Ingredients.
++ [Choose]
+-
+{dinnerPrepackagedMealCount == 0 and dinnerIngredientsCount == 0: Looks like you don't have any food for dinner.}
++ {dinnerPrepackagedMealCount > 0}[Prepacked Meal{statHints: \\n<size={statSize}>(+1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>})\\n(-1 Prepackaged Meal)</size>}]
+	{closedCaptions: [chewing]\\n}
+	{~Time to put in that fancy spaghetti frozen dinner|Guess you'll just have a PB&J, it's not very dinner-like but it's good.|It's a perfect night for frozen mashed potatoes and veggies.|Chicken nugget meals make you so nostalgic.|Frozen pot pie, it is!|You're really feeling that frozen rice pilaf.|Did someone say pizza rolls?|I mean, you can eat a whole frozen pizza, right?} 
+	#eatingSFX
+    
+    ++ [▼]
+	You gained 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from eating.
+	{UpdateHealth(1)}
+	You used up 1 Prepackaged Dinner. 
+	~ dinnerPrepackagedMealCount -= 1
+	     
++ {dinnerIngredientsCount > 0}[Recipe{statHints: \\n<size={statSize}>(-2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} / +2 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} / +1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>}) \\n(-1 Set of Ingredients)</size>}]
+	{closedCaptions: [chewing]\\n}
+	{~Full on homemade pasta sauce with spaghetti|Just regular pasta and sauce is fine.|Time for baked potatoes.|A fresh salad sounds great.|Homemade pizza dough isn't too hard, right?|Mac-and-cheese! That's it, that's what you're having.|Some fancy alfredo sauce and spiral pasta.|Plain pasta with shredded cheese isn't too bad.}
+	#eatingSFX
+    ++ [▼]
+	    You lost 2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from cooking.
+	    {UpdateEnergy(-2)}
+	    You gained 2 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from eating.
+	    {UpdateHealth(2)}
+	    You gained 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from the homecooked meal.
+	    {UpdateWellness(1)}
+	    You used up 1 Set of Dinner Ingredients.
+	    ~ dinnerIngredientsCount -= 1
+	    
++ [Skip Eating{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} / -1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>})</size>}]
+        Guess today is not a dinner day. 
+    ++ [▼]
+	    You lost 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} and 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from not eating.
+	   {UpdateHealth(-1)}
+	   {UpdateWellness(-1)}
+- 
++ [▼] -> healthCheck -> wellnessCheck -> energyCheck -> 
+~ background = "apartmentEvening"
+You have a few hours remaining. What would you like to do? 
++ [Decorate{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})\\n(+2 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>})</size>}]
+    You spend the rest of the evening decorating your new home. It's a subtle difference, but you feel accomplished. And only a little tired. 
+    ++ [▼]
+    --
+    You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} decorating.
+    You gained 2 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} for feeling accomplished. 
+    {UpdateEnergy(-1)}
+    {UpdateWellness(2)}
+    ++ [▼] -> energyCheck ->
+    -- 
+    It feels so late already, you should probably head to bed. 
+    ++ [▼]
+    --
++ [Read{statHints: \\n<size={statSize}>(+1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>})</size>}]
+    You spend the rest of the evening reading. It's very relaxing. 
+    ++ [▼]
+    --
+    You gained 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from being relaxed.
+    {UpdateWellness(1)}
+    ++ [▼]
+    --
+    You're already cozy in bed, but you'd better actually get ready for bed before you just fall asleep. 
+    ++ [▼]
+    --
++ [Go to Bed{statHints: \\n<size={statSize}>(+1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>})</size>}]
+    You decide to just call it a night. It's better to be well rested. Not that going to bed early means you'll be rested, but you can dream. 
+    ++ [▼]
+    --
+    You gained 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from resting early.
+    {UpdateHealth(1)}
+    ++ [▼]
+    --
+-
+~ background = "apartmentBathroom"
+You casually get ready for bed, taking your time. 
++ [▼]
+-
+You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} getting ready.
+You gained 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} and 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from feeling refreshed. 
+{UpdateEnergy(-1)}
+{UpdateHealth(1)}
+{UpdateWellness(1)}
+You used up one Set of Toiletries brushing your teeth. 
+~toiletriesCount -= 1
++ [▼]
+-
+~ background = "apartmentNight"
+~ time = Night
+~ location = "Apartment"
+With a quick stretch, you lay down and drift off. 
++ [Sleep]
+- 
 {UpdateStatSummary()}
 Stat Summary Updated.
-+ [▼]
--
-    -> morning
++ [▼] -> morning
 
 === afterHospitalEndOfDay ===
 ~ background = "apartmentEvening"

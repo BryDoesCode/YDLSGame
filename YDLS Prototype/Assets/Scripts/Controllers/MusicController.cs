@@ -14,6 +14,9 @@ public class MusicController : MonoBehaviour
     public AudioClip parentKitchenMusic;
     public AudioClip busMusic;
     public AudioClip hospitalMusic;
+    public AudioClip movingVanMusic;
+    public AudioClip taxiMusic;
+    public AudioClip walkingMusic;
 
 
     private AudioSource audioSource;
@@ -52,6 +55,15 @@ public class MusicController : MonoBehaviour
                     audioSource.clip = workMusic;
                     Debug.Log("Playing: " + musicName);
                     break;
+                case "bus":
+                    audioSource.clip = busMusic;
+                    Debug.Log("Playing: " + musicName);
+                    break;
+
+                case "walking":
+                    audioSource.clip = walkingMusic;
+                    Debug.Log("Playing: " + musicName);
+                    break;
 
                 case "store":
                     audioSource.clip = storeMusic;
@@ -62,7 +74,7 @@ public class MusicController : MonoBehaviour
                     audioSource.clip = exteriorCityMusic;
                     Debug.Log("Playing: " + musicName);
                     break;
-
+                
                 case "rain":
                     audioSource.clip = exteriorRainMusic;
                     Debug.Log("Playing: " + musicName);
@@ -71,14 +83,20 @@ public class MusicController : MonoBehaviour
                 case "parentKitchen":
                     audioSource.clip = parentKitchenMusic;
                     Debug.Log("Playing: " + musicName);
-                    break;
-
-                case "bus":
-                    audioSource.clip = busMusic;
-                    Debug.Log("Playing: " + musicName);
-                    break;
+                    break;                
+                
                 case "hospital":
                     audioSource.clip = hospitalMusic;
+                    Debug.Log("Playing: " + musicName);
+                    break;
+
+                case "taxi":
+                    audioSource.clip = taxiMusic;
+                    Debug.Log("Playing: " + musicName);
+                    break;
+
+                case "van":
+                    audioSource.clip = movingVanMusic;
                     Debug.Log("Playing: " + musicName);
                     break;
 
