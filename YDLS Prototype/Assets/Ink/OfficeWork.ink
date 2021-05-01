@@ -9,12 +9,12 @@
 You can either walk to work, or take the bus. 
 + [▼]
 -
-+ [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
++ (officeWorkMorningWalk) [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
+    You leave your apartment and begin the short walk to work.  
+    ++ [▼]
+    --
     ~ loadingAnimation = "walking"
     ~ locationMusic = "walking"
-    You decide to walk. You leave your apartment and begin the short walk to work.  
-    ++ (officeWorkMorningWalk) [▼]
-    --
     ~ startLoadingAnimation = true
     You walked. 
     ++ [▼]
@@ -55,7 +55,7 @@ Time to head inside.
 -
 ~ background = "officeWorkRoom"
 ~ locationMusic = "work"
--> ArriveAtOfficeWork -> healthCheck -> wellnessCheck ->
+-> ArriveAtOfficeWork -> healthCheck -> wellnessCheck -> energyCheck ->
 + [▼]
 -
 ~ background = "officeWorkComputer"
@@ -98,15 +98,14 @@ You head to the breakroom.
     {closedCaptions: [chewing]\\n}
     You grab the lunch you brought and eat it at one of the tables.
     #eatingSFX
-    + [▼]
-    -
+    ++ [▼]
     You gained 2 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from eating.
     {UpdateHealth(2)}
     You used up one Prepackaged Lunch. 
     ~ lunchPrepackagedMealCount -= 1
 + {not lunchToWork}[Buy Snack{statHints: \\n<size={statSize}>(+1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>}\\n -$1.50)</size>}]  
-    {money - 1.50 < 0.01: As you go to use the machine you realize you don't have enough money. Guess you'll just head back to your desk, then. ->->}
-    You grab a snack from the vending machines and take the time to eat it. 
+    {money - 1.50 < 0.01: <>As you go to use the machine you realize you don't have enough money. Guess you'll just head back to your desk, then. -> afternoonCheck}
+    <>You grab a snack from the vending machines and take the time to eat it. 
     ++ [▼]
     You gained 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from eating. 
     You paid $1.50 for your snack. 
@@ -120,22 +119,25 @@ You head to the breakroom.
     You gained 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from your nap.
     {UpdateHealth(-1)}
     {UpdateEnergy(1)}
-+ [Talk to a Coworker]
++ {coworkerConvoCount < 3} [Talk to a Coworker]
     {coworkerConvoCount == 0: -> coworkerConversation ->}{coworkerConvoCount == 1: -> coworkerConversationTwo ->}{coworkerConvoCount == 2: -> coworkerConversationThree ->}
      ~ location = "Work"
-    -
-    + [▼]
-    -
+    --
+    ++ [▼]
+    --
     You lost track of time and didn't end up eating anything for lunch. 
-    + [▼]
-    -
+    ++ [▼]
+    --
     You lost 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from not eating. 
     {UpdateHealth(-1)}
 -
-+ [▼]
++ (afternoonCheck)[▼] -> healthCheck -> wellnessCheck -> energyCheck ->
 -
+~ background = "officeWorkComputer"
 You head back to work, resigned to finish your shift. 
-+ [▼] -> OfficeAfternoon ->
++ [▼] -> OfficeAfternoon -> healthCheck -> wellnessCheck -> energyCheck ->
+-
++ [▼]
 -
 Another few hours of typing later and you've made it to the end of the day. Finally. 
 + [▼] -> LeaveWork
@@ -146,13 +148,13 @@ Another few hours of typing later and you've made it to the end of the day. Fina
 You can either walk home or take the bus.
 ++ [▼]
 --
-++ [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
+++ (officeWorkWalkHome) [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
+    You leave work and walk home.  
+    +++ [▼]
+    ---
     ~ loadingAnimation = "walking"
     ~ locationMusic = "walking"
-    You decide to walk. You leave work and head home.  
-    +++ (officeWorkWalkHome) [▼]
-    ---
-    ~startLoadingAnimation = true
+    ~ startLoadingAnimation = true
     You walked. 
     +++ [▼]
     ---
@@ -160,18 +162,17 @@ You can either walk home or take the bus.
     ~ background = "apartmentEvening"
     ~ time = Evening
     ~ locationMusic = "apartmentEvening"
-    ~startLoadingAnimation = false
-    {closedCaptions: [city sounds]\\n}
+    ~ startLoadingAnimation = false
     You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} walking.
     {UpdateEnergy(-1)}
     +++ [▼] -> energyCheck -> endofday
 ++[Bus{statHints: \\n<size={statSize}>(-$2.00)</size>}]
-    ~loadingAnimation = "bus"
     {money - 2.00 < 0.01: Oops, looks like you don't have enough money to ride the bus. Guess you're walking. -> officeWorkWalkHome}
     You decide to travel by bus. You leave work to go wait at the bus stop. 
     +++ [▼]
     ---
-    ~startLoadingAnimation = true
+    ~ loadingAnimation = "bus"
+    ~ startLoadingAnimation = true
     ~ locationMusic = "bus"
     You traveled by bus. 
     +++ [▼]
@@ -189,13 +190,13 @@ You can either walk home or take the bus.
 The Convenience Store is nearby, so you can either wait for the bus or just walk there. 
 ++ [▼]
 --
-++ [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
+++ (firstWorkDaySecondWalk) [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
+    You leave work and walk to the store.  
+    +++  [▼]
+    ---
     ~ loadingAnimation = "walking"
     ~ locationMusic = "walking"
-    You decide to walk. You leave work and head to the store.  
-    +++ (firstWorkDaySecondWalk) [▼]
-    ---
-    ~startLoadingAnimation = true
+    ~ startLoadingAnimation = true
     You walked. 
     +++ [▼]
     ---
@@ -209,11 +210,11 @@ The Convenience Store is nearby, so you can either wait for the bus or just walk
     {UpdateEnergy(-1)}
     +++ [▼] -> energyCheck -> store
 ++ [Bus{statHints: \\n<size={statSize}>(-$2.00)</size>}]
-    ~ loadingAnimation = "bus"
     {money - 2.00 < 0.01: Oops, looks like you don't have enough money to ride the bus. Guess you're walking. -> firstWorkDaySecondWalk}
     You decide to travel by bus. You leave work to go wait at the bus stop. 
     +++ [▼]
     ---
+    ~ loadingAnimation = "bus"
     ~ startLoadingAnimation = true
     ~ locationMusic = "bus"
     You traveled by bus. 
@@ -243,28 +244,28 @@ The Convenience Store is nearby, so you can either wait for the bus or just walk
 ~ randomNumber = RANDOM(1, 7)
 { randomNumber:
 - 1:
-    You arrived just on time.  
+    <>You arrived just on time.  
     ->->
 - 2: 
-    You're a few minutes early. You take a moment to breathe and prepare yourself for the day.  
+    <>You're a few minutes early. You take a moment to breathe and prepare yourself for the day.  
     + [▼]
     You gained 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from destressing.
     {UpdateWellness(1)}
     ->->
 - 3:
-    You see the clock on the wall and realize that somehow you're late. You're never late. You rush inside and hope your manager doesn't see you.  
+    <>You see the clock on the wall and realize that somehow you're late. You're never late. You rush inside and hope your manager doesn't see you.  
     + [▼]
     You lost 2 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from the stress of being late.
     {UpdateWellness(-2)}
     ->->
 - 4:
-    You bump into someone on the way in and all the papers they're carrying scatter to the floor. You apologize and help them pick things up, but feel mortified. 
+    <>You bump into someone on the way in and all the papers they're carrying scatter to the floor. You apologize and help them pick things up, but feel mortified. 
     + [▼]
     You lost 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from embarassment.
     {UpdateWellness(-1)}
     ->->
 - 5:
-    Someone slams into you as you're walking to your desk. You topple to the floor and they just keep walking, as if they didn't see you at all. 
+    <>Someone slams into you as you're walking to your desk. You topple to the floor and they just keep walking, as if they didn't see you at all. 
     + [▼]
     You lost 2 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from embarassment.
     You lost 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from the fall. 
@@ -272,10 +273,10 @@ The Convenience Store is nearby, so you can either wait for the bus or just walk
     {UpdateHealth(-1)}
     ->->
 - 6:
-    It seems your arrival is uneventful this time.  
+    <>It seems your arrival is uneventful this time.  
     ->->
 - 7:
-    You accidentally walk too close to two coworkers who were talking in hushed whispers. They both give you an accusing look. You walk away quickly. 
+    <>You accidentally walk too close to two coworkers who were talking in hushed whispers. They both give you an accusing look. You walk away quickly. 
     + [▼]
     You lost 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from embarassment.
     {UpdateWellness(-1)}
@@ -287,16 +288,16 @@ The Convenience Store is nearby, so you can either wait for the bus or just walk
 ~ randomNumber = RANDOM(1, 7)
 { randomNumber:
 - 1:
-    The afternoon continues uneventfully.  
+    <>The afternoon continues uneventfully.  
     ->->
 - 2: 
-    You try some of that, "in your office chair" meditation you found on a website when searching for a spreadsheet question.  
+    <>You try some of that, "in your office chair" meditation you found on a website when searching for a spreadsheet question.  
     + [▼]
     You gained 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from destressing.
     {UpdateWellness(1)}
     ->->
 - 3:
-    Your hands start to cramp, making it hard to complete what you're typing. You attempt to stretch them out, but it's no use.   
+    <>Your hands start to cramp, making it hard to complete what you're typing. You attempt to stretch them out, but it's no use.   
     + [▼]
     You lost 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from stress.
     You lost 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from pain. 
@@ -304,13 +305,13 @@ The Convenience Store is nearby, so you can either wait for the bus or just walk
     {UpdateHealth(-1)}
     ->->
 - 4:
-    Someone bumps into your chair as they're walking by, throwing off your whole groove. 
+    <>Someone bumps into your chair as they're walking by, throwing off your whole groove. 
     + [▼]
     You lost 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from being distracted.
     {UpdateWellness(-1)}
     ->->
 - 5:
-    Someone slams into you as they're walking to their desk. You almost fall out of your chair and only get a, "Oh, sorry," in return.  
+    <>Someone slams into you as they're walking to their desk. You almost fall out of your chair and only get a, "Oh, sorry," in return.  
     + [▼]
     You lost 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from embarassment.
     You lost 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from the physical discomfort. 
@@ -318,9 +319,9 @@ The Convenience Store is nearby, so you can either wait for the bus or just walk
     {UpdateHealth(-1)}
     ->->
 - 6:
-    You successfully finish the document you were working on, only to see an e-mail about the next document you need to do. No time for rest.  
+    <>You successfully finish the document you were working on, only to see an e-mail about the next document you need to do. No time for rest.  
     ->->
 - 7:
-    Everything goes smoothly. Somehow. Weird.
+    <>Everything goes smoothly. Somehow. Weird.
     ->->
 }

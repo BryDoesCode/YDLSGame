@@ -13,12 +13,7 @@ You've arrived at the convenience store.
 -
 + [Go Inside]
 You go inside. -> insideStore
-
-+ [Go Home]
-
-
-
--> endofday
++ [Go Home] -> goHome
 
 = insideStore
 ~ background = "convenienceStoreEvening"
@@ -32,9 +27,54 @@ You see rows and rows of items and a bored cashier at the register.
 ~ purchaseResponse = "Please select your items."
 -> insideStore
 
-+ [Go Home]
++ (goHome) [Go Home]
+-
 {ExitStore()}
--> endofday
+You can ride the bus home or walk home. You'll have to pay the fare again, but it might be worth it to not have to walk the whole way with any purchases you've made.
+
++ [▼]
+-
++ (storeWalkHome) [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
+    You leave the store and begin the short walk home.  
+    ++ [▼]
+    --
+    ~ loadingAnimation = "walking"
+    ~ locationMusic = "walking"
+    ~ startLoadingAnimation = true
+    You walked. 
+    ++ [▼]
+    --
+    ~ time = Evening
+    ~ location = "Apartment"
+    ~ background = "apartmentEvening"
+    ~ locationMusic = "apartmentMorning"
+    ~ startLoadingAnimation = false
+    You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} walking.
+    {UpdateEnergy(-1)}
+    ++ [▼] -> energyCheck ->
+    -- 
++ [Bus{statHints: \\n<size={statSize}>(-$2.00)</size>}]
+{money - 2.00 < 0.01: Oops, looks like you don't have enough money to ride the bus. Guess you're walking. -> storeWalkHome}
+    You decide to travel by bus. You head back to wait at the bus stop. 
+    ++ [▼]
+    --
+    ~ loadingAnimation = "bus"
+    ~ locationMusic = "bus"
+    ~ startLoadingAnimation = true
+    You traveled by bus. 
+    ++ [▼]
+    --
+    ~ money -= 2
+    {AddTransaction(fullDateNumbers, "Bus Fare", 2, money)}
+    ~ time = Evening
+    ~ location = "Apartment"
+    ~ background = "apartmentEvening"
+    ~ locationMusic = "apartmentMorning"
+    ~ startLoadingAnimation = false
+    You spent $2.00 on bus fare.
+    ++ [▼]
+    --
+- -> endofday
 
 === function ExitStore
 ~ storePrompt = false

@@ -350,16 +350,7 @@ public class GameController : MonoBehaviour
                 mainTextContainer.SetActive(false);
             }
 
-        }
-        else
-        {
-            foreach (Choice choice in story.currentChoices)
-            {
-                //Debug.Log("Choice Name: " + choice.text);
-                singleChoiceButtonText.text = choice.text.Replace("\\n", "\n");
-                //singleChoiceButtonImage.color = BackgroundController.CurrentColor;
-            }
-        }
+        }        
 
     }
 

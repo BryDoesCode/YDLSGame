@@ -131,13 +131,13 @@ Would you like to take a shower?
 You can either walk to work, or take the bus. 
 + [▼]
 -
-+ [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
-    ~loadingAnimation = "walking"
-    ~ locationMusic = "walking"
-    You decide to walk. You leave your apartment and begin the short walk to work.  
-    ++ (firstWorkWalk) [▼]
++ (firstWorkWalk) [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
+    You leave your apartment and begin the short walk to work.  
+    ++  [▼]
     --
-    ~startLoadingAnimation = true
+    ~ loadingAnimation = "walking"
+    ~ locationMusic = "walking"
+    ~ startLoadingAnimation = true
     You walked. 
     ++ [▼]
     --
@@ -154,7 +154,7 @@ You can either walk to work, or take the bus.
     {money - 2.00 < 0.01: Oops, looks like you don't have enough money to ride the bus. Guess you're walking. -> firstWorkWalk} You decide to travel by bus. You leave your apartment to go wait at the bus stop. 
     ++ [▼]
     --
-    ~loadingAnimation = "bus"
+    ~ loadingAnimation = "bus"
     ~ startLoadingAnimation = true
     ~ locationMusic = "bus"
     You traveled by bus. 
@@ -288,14 +288,14 @@ Just as you think you're getting the hang of everything, your manager shows up n
 + ["Really quickly. I think I've got the hang of things." {statHints: \\n<size={statSize}>(+1 Relationship)</size>}]
     {ChangeConversationFocus(NPC, "{managerFirstName}")}<>"Awesome. I bet you're ready for that lunch break."
     ++ [▼]
-    \\nYour relationship with {managerFirstName} increased by 1. 
+    Your relationship with {managerFirstName} increased by 1. 
     ~ managerRelationshipWithPlayer += 1
 + ["It was okay." {statHints: \\n<size={statSize}>(No Change)</size>}]
     {ChangeConversationFocus(NPC, "{managerFirstName}")}<>"At least you made it. And now it's time for lunch!"
 + ["It sucked." {statHints: \\n<size={statSize}>(-1 Relationship)</size>}]    
     {ChangeConversationFocus(NPC, "{managerFirstName}")}<>"Can't always have a great day, I guess. Maybe lunch will help out."
     ++ [▼]
-    \\nYour relationship with {managerFirstName} decreased by 1. 
+    Your relationship with {managerFirstName} decreased by 1. 
     ~ managerRelationshipWithPlayer -= 1
 -
 + [▼]
@@ -336,7 +336,6 @@ You keep any personal opinions you have about the breakroom to yourself and just
 + ["Thanks for offering, but I'm not feeling hungry right now. {statHints: \\n<size={statSize}>(No Change.)</size>}]
     {ChangeConversationFocus(NPC, "{managerFirstName}")}
     "Ah, suit yourself. Let me know if you change your mind."
-    ++ [▼]
 + [I probably wouldn't like it. {statHints: \\n<size={statSize}>(-1 Relationship)</size>}]
     {ChangeConversationFocus(NPC, "{managerFirstName}")}
     "If you're sure." 
@@ -396,7 +395,7 @@ You forgot to bring a lunch to work. There are vending machines here, so you cou
     -> healthCheck ->
 +[Snack{statHints: \\n<size={statSize}>(+1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>}\\n -$1.50)</size>}]  
     {money - 1.50 < 0.01: As you go to use the machine you realize you don't have enough money. Guess you'll just head back to your desk, then. ->->}
-    You grab a snack from the vending machines and take the time to eat it. 
+    <>You grab a snack from the vending machines and take the time to eat it. 
     ++ [▼]
     You gained 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from eating. 
     You paid $1.50 for your snack. 

@@ -31,7 +31,10 @@ You can borrow 2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from
 You're at home, so you should just go to bed. 
 + [▼]
 -
-+ [Head to Bed Early] -> morning
++ [Head to Bed Early] 
+    {UpdateStatSummary()}
+    Stat Summary Updated.
+    ++ [▼] -> morning
 + [Borrow {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} Instead] -> borrowEnergy
 ->->
 
@@ -43,7 +46,7 @@ You're at home, so you should just go to bed.
 Wait? Everything seems to be going hazzy. You only have {health} {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>}. You pass out. 
 + [▼] 
 ~ health = 1
-{location == "Apartment": -> morning}
+{location == "Apartment": -> afterPassOutMorning}
 -> hospital
 
 
@@ -55,5 +58,5 @@ Wait? Everything seems to be going hazzy. You only have {health} {coloredText:<c
 Wait? Everything seems to be going hazzy. You only have {wellness} {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>}. You pass out. 
 + [▼] 
 ~ wellness = 1 
-{location == "Apartment": -> morning}
+{location == "Apartment": -> afterPassOutMorning}
 -> hospital

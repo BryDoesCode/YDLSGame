@@ -39,8 +39,10 @@ You push yourself up out of bed. -> MorningCondition ->
 ~ background = "apartmentBathroom"
 You brush your teeth and take your medicine like normal, then turn your attention to food.
 - 
-+ (morningMedication) [▼]
++ (afterPassOut) [▼]
 -
+<>You used up one Set of Toiletries brushing your teeth. 
+~toiletriesCount -= 1
 You used up one dose of medication.
 ~ medicationCount -= 1
 + [▼]
@@ -93,7 +95,7 @@ What would you like to eat for breakfast?
 
 - 
 + [▼] -> healthCheck -> wellnessCheck -> energyCheck -> 
-{breakfastPrepackagedMealCount > 0: -> bringLunch} -> shower
+{lunchPrepackagedMealCount > 0: -> bringLunch} -> shower
 
 = bringLunch
 You have some Prepackaged Lunches, would you like to bring one to work?
@@ -143,7 +145,12 @@ You have some Prepackaged Lunches, would you like to bring one to work?
 +  [Go to Work] -> healthCheck -> wellnessCheck -> energyCheck -> officeWork
 
 
-= afterPassOutMorning
+=== afterPassOutMorning ===
+{UpdateStatSummary()}
+Stat Summary Updated.
+~ passedOut = true
++ [▼]
+-
 ~ loadingAnimation = "sleep"
 ~ startLoadingAnimation = true
 You slept.
@@ -154,7 +161,7 @@ You slept.
 ~ time = Morning
 ~ fullDate = month + " " + date
 ~ fullDateNumbers = monthNumber + "/" + date
-~ energy = RANDOM(7, 9)
+~ energy = RANDOM(4, 6)
 ~ location = "Apartment"
 ~ background = "apartmentMorning"
 ~ locationMusic = "apartmentMorning"
@@ -179,7 +186,10 @@ Memories of last night, or lack thereof, flood back and you realize you must hav
 + [▼]
 -
 Oh well, not much you can do about it now. Better just get ready. 
-+ [▼] -> morningMedication
++ [▼] 
+-
+<>You brush your teeth and take your medicine like normal, then turn your attention to food.
++ [▼] -> morning.afterPassOut
 
 /*--------------------------------------------------------------------------------
 
@@ -189,7 +199,6 @@ Oh well, not much you can do about it now. Better just get ready.
 
 
 === endofday ===
-
 Looks like you made it home for the day. 
 + [▼]
 -
@@ -206,13 +215,11 @@ What would you like to eat for dinner?
 	{closedCaptions: [chewing]\\n}
 	{~Time to put in that fancy spaghetti frozen dinner|Guess you'll just have a PB&J, it's not very dinner-like but it's good.|It's a perfect night for frozen mashed potatoes and veggies.|Chicken nugget meals make you so nostalgic.|Frozen pot pie, it is!|You're really feeling that frozen rice pilaf.|Did someone say pizza rolls?|I mean, you can eat a whole frozen pizza, right?} 
 	#eatingSFX
-    
     ++ [▼]
 	You gained 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from eating.
 	{UpdateHealth(1)}
 	You used up 1 Prepackaged Dinner. 
 	~ dinnerPrepackagedMealCount -= 1
-	     
 + {dinnerIngredientsCount > 0}[Recipe{statHints: \\n<size={statSize}>(-2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} / +2 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} / +1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>}) \\n(-1 Set of Ingredients)</size>}]
 	{closedCaptions: [chewing]\\n}
 	{~Full on homemade pasta sauce with spaghetti|Just regular pasta and sauce is fine.|Time for baked potatoes.|A fresh salad sounds great.|Homemade pizza dough isn't too hard, right?|Mac-and-cheese! That's it, that's what you're having.|Some fancy alfredo sauce and spiral pasta.|Plain pasta with shredded cheese isn't too bad.}
@@ -234,7 +241,8 @@ What would you like to eat for dinner?
 	   {UpdateHealth(-1)}
 	   {UpdateWellness(-1)}
 - 
-+ [▼] -> healthCheck -> wellnessCheck -> energyCheck -> 
++ [▼] -> healthCheck -> wellnessCheck -> energyCheck ->
+-
 ~ background = "apartmentEvening"
 You have a few hours remaining. What would you like to do? 
 + [Decorate{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})\\n(+2 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>})</size>}]
@@ -271,14 +279,11 @@ You have a few hours remaining. What would you like to do?
     --
 -
 ~ background = "apartmentBathroom"
-You casually get ready for bed, taking your time. 
+You manage to get ready for bed. 
 + [▼]
 -
 You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} getting ready.
-You gained 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} and 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from feeling refreshed. 
 {UpdateEnergy(-1)}
-{UpdateHealth(1)}
-{UpdateWellness(1)}
 You used up one Set of Toiletries brushing your teeth. 
 ~toiletriesCount -= 1
 + [▼]
@@ -348,39 +353,39 @@ Stat Summary Updated.
 ~ randomNumber = RANDOM(1, 8)
 { randomNumber:
     -1:
-        You wake up to your alarm blaring.
+        <>You wake up to your alarm blaring.
         -> MorningWakeUpConnect
         
     -2: 
-        You wake up before your alarm, looking over just in time to see it start beeping.
+        <>You wake up before your alarm, looking over just in time to see it start beeping.
         -> MorningWakeUpConnect
         
     -3:
-        You woke up to your alarm, sort of. Actually, you smashed the snooze button once. Just enough for some extra sleep but not enough to change your morning routine.
+        <>You woke up to your alarm, sort of. Actually, you smashed the snooze button once. Just enough for some extra sleep but not enough to change your morning routine.
         + [▼]
         You gained 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from a little extra sleep.
         {UpdateEnergy(1)}
         -> MorningWakeUpConnect
     -4:
-        You wake up ten minutes before your alarm is set to go off, and can't fall back asleep. 
+        <>You wake up ten minutes before your alarm is set to go off, and can't fall back asleep. 
         + [▼]
         You lost 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from frustration.
         {UpdateWellness(-1)}
         -> wellnessCheck -> MorningWakeUpConnect
     -5:
-        You slowly wake up, lifting out of a detailed dream that fades as soon as your eyes open.
+        <>You slowly wake up, lifting out of a detailed dream that fades as soon as your eyes open.
         -> MorningWakeUpConnect
     -6:
-        You started awake, sitting up in bed quickly. You have no idea why.
+        <>You started awake, sitting up in bed quickly. You have no idea why.
         + [▼]
         You lost 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from your heart racing.
         {UpdateHealth(-1)}
         -> healthCheck -> MorningWakeUpConnect
     -7:
-        You wake up just in time to turn your alarm off. 
+        <>You wake up just in time to turn your alarm off. 
         -> MorningWakeUpConnect
     -8:
-        You just kind of wake up in a really mundane sort of way.
+        <>You just kind of wake up in a really mundane sort of way.
         -> MorningWakeUpConnect
         
         
@@ -395,28 +400,28 @@ Stat Summary Updated.
 ~ randomNumber = RANDOM(1, 6)
 { randomNumber:
     -1:
-        Your muscles ache, but nothing more than usual.
+        <>Your muscles ache, but nothing more than usual.
         -> MorningConditionConnect
     -2: 
-        You actually feel pretty good this morning, for once.
+        <>You actually feel pretty good this morning, for once.
         + [▼]
         You gained 1 {coloredText:<color=\#7a8f8b>}Wellness{coloredText:</color>} from feeling good. 
         {UpdateWellness(1)}
         -> MorningConditionConnect
     -3:
-        You feel really groggy, must not have slept well.
+        <>You feel really groggy, must not have slept well.
         + [▼]
         You lost 2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from not sleeping well.
         {UpdateEnergy(-2)}
         -> MorningConditionConnect
     -4:
-        You feel fine. You think? It's weird. 
+        <>You feel fine. You think? It's weird. 
         -> MorningConditionConnect
     -5:
-        You feel okay. Not great. Just okay. 
+        <>You feel okay. Not great. Just okay. 
         -> MorningConditionConnect
     -6:
-        Everything hurts, for some reason. Ugh. 
+        <>Everything hurts, for some reason. Ugh. 
         + [▼]
         You lost 1 {coloredText:<color=\#9f4d3a>}Health{coloredText:</color>} from pain.
         {UpdateHealth(-1)}

@@ -169,10 +169,10 @@ Looks like you have ${money} right now. Should be enough for a newspaper.
 = introductionShop
 ~ storePrompt = true
 ~ purchaseResponse = "Please select your items."
-~ showInventoryButton = true
 <>You make your purchases. 
 + [▼]
 -
+~ showInventoryButton = true
 You can view any item you've purchased by viewing the Inventory app in the menu.
 + {newspaperCount <= 0} [▼]
     Looks like you forgot to grab the newspaper. Better go back to the register.
@@ -756,7 +756,7 @@ Since you don't have to worry about work today, you can probably fit both in jus
     {closedCaptions: [water drops and splashes]\\n}
     The first shower in a new place is always weird, or so you've heard. But this one just felt right. 
     #showerSFX
-    ~ background = "apartmentMorning"
+    
     ++ [▼]
     --
     You lost 2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} from taking a shower.
@@ -769,6 +769,7 @@ Since you don't have to worry about work today, you can probably fit both in jus
     ~ toiletriesCount -= 1
     ++ [▼] -> energyCheck ->
     --
+    ~ background = "apartmentMorning"
     Now that you're refreshed, would you still like to go shopping today? You can always put it off until after work. But then you won't have anything for breakfast.
     ++ [▼]
     --
@@ -848,11 +849,11 @@ Walking is free but takes energy. The bus was free when you were a student (and 
 + [▼]
 -
 + [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
-    ~ loadingAnimation = "walking"
-    ~ locationMusic = "walking"
-    You decide to walk. You leave your apartment and begin the short walk to the store.  
+    You decide to walk. You leave your apartment and begin the short walk to the store.
     ++ [▼]
     --
+    ~ loadingAnimation = "walking"
+    ~ locationMusic = "walking"
     ~ startLoadingAnimation = true
     You walked. 
     ++ [▼]
@@ -868,10 +869,10 @@ Walking is free but takes energy. The bus was free when you were a student (and 
     ++ [▼] -> energyCheck ->
     -- 
 +[Bus{statHints: \\n<size={statSize}>(-$2.00)</size>}]
-    ~loadingAnimation = "bus"
     You decide to travel by bus. You leave your apartment to go wait at the bus stop. 
     ++ [▼]
     --
+    ~loadingAnimation = "bus"
     ~ startLoadingAnimation = true
     ~ locationMusic = "bus"
     You traveled by bus. 
@@ -920,12 +921,12 @@ You can ride the bus home or walk home. You'll have to pay the fare again, but i
 
 + [▼]
 -
-+ [Walk{statHints: \\n<size={statSize}>(-2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
-    ~ loadingAnimation = "walking"
-    ~ locationMusic = "walking"
-    You decide to walk. You leave the store and begin the short walk home.  
++ (introWalkHome) [Walk{statHints: \\n<size={statSize}>(-1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>})</size>}]
+    You leave the store and begin the short walk home.  
     ++ [▼]
     --
+    ~ loadingAnimation = "walking"
+    ~ locationMusic = "walking"
     ~ startLoadingAnimation = true
     You walked. 
     ++ [▼]
@@ -935,17 +936,18 @@ You can ride the bus home or walk home. You'll have to pay the fare again, but i
     ~ background = "apartmentEvening"
     ~ locationMusic = "apartmentMorning"
     ~ startLoadingAnimation = false
-    You lost 2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} walking.
-    {UpdateEnergy(-2)}
+    You lost 1 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} walking.
+    {UpdateEnergy(-1)}
     ++ [▼] -> energyCheck ->
     -- 
 + [Bus{statHints: \\n<size={statSize}>(-$2.00)</size>}]
-    ~ loadingAnimation = "bus"
-    ~ locationMusic = "bus"
+{money - 2.00 < 0.01: Oops, looks like you don't have enough money to ride the bus. Guess you're walking. -> introWalkHome}
     You decide to travel by bus. You head back to wait at the bus stop. 
     ++ [▼]
     --
-    ~startLoadingAnimation = true
+    ~ loadingAnimation = "bus"
+    ~ locationMusic = "bus"
+    ~ startLoadingAnimation = true
     You traveled by bus. 
     ++ [▼]
     --
@@ -967,11 +969,16 @@ You lost 2 {coloredText:<color=\#89a15c>}Energy{coloredText:</color>} shopping.
 {UpdateEnergy(-2)}
 + [▼] -> energyCheck ->
 -
-You should probably just head to bed. You have to be up early for work tomorrow. You barely manage to get ready for bed before laying down. 
+You should probably just head to bed. You have to be up early for work tomorrow. You barely manage to get ready for bed without falling over. 
 + [▼]
 -
+~ background = "apartmentBathroom"
 You used up one Set of Toiletries brushing your teeth. 
 ~toiletriesCount -= 1
++ [▼]
+-
+    ~ background = "apartmentNight"
+You collapse onto the bed as soon as you reach it. 
 + [Sleep]
 - 
 {UpdateStatSummary()}

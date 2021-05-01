@@ -17,9 +17,10 @@ You try to make spreadsheets sound interesting, but it just isn't something your
 You discuss how you've been feeling. {hospitalVisit: You admit you ended up in the hospital. Your dad puts your mom back on the phone and she tries to be positive, but you can tell she's worried.} {not hospitalVisit: You explain that things have been going okay. Not the best, but they've been a lot worse.}
 + [▼]
 -
-{passedOut: Reluctantly, you explain that you did pass out at home. Your mom expresses her concern but otherwise doesn't press for details.} {not passedOut: You assure her again that things aren't weren't that bad.} 
+{passedOut: Reluctantly, you explain that you did pass out at home. Your mom expresses her concern but otherwise doesn't press for details.} {not passedOut: You assure her again that things aren't that bad.} 
 + [▼]
 -
+~ time = Midday
 ~ background="apartmentKitchenMidday"
 After what feels like hours of further discussion, your stomach growls loudly and your mother starts to apologize. She sternly tells you to go eat and mentions that they might bring some fancy food over the next day if it was okay.
 + [▼]
@@ -42,7 +43,7 @@ Maybe you'll make pancakes for breakfast today. After all, even if the cooking e
 And it's okay to be "sick" even if you don't look it. 
 + [▼]
 -
-THE END
+<b>THE END</b>
 + [▼]
 -
 {EndGame()}
